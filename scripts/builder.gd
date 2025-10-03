@@ -6,6 +6,7 @@ var map:DataMap
 
 var index:int = 0 # Index of structure being built
 
+@export var meshlib:MeshLibrary
 @export var selector:Node3D # The 'cursor'
 @export var selector_container:Node3D # Node that holds a preview of the structure
 @export var view_camera:Camera3D # Used for raycasting mouse
@@ -22,17 +23,7 @@ func _ready():
 	# Create new MeshLibrary dynamically, can also be done in the editor
 	# See: https://docs.godotengine.org/en/stable/tutorials/3d/using_gridmaps.html
 	
-	var mesh_library = MeshLibrary.new()
-	
-	for structure in structures:
-		
-		var id = mesh_library.get_last_unused_item_id()
-		
-		mesh_library.create_item(id)
-		mesh_library.set_item_mesh(id, get_mesh(structure.model))
-		mesh_library.set_item_mesh_transform(id, Transform3D())
-		
-	gridmap.mesh_library = mesh_library
+	gridmap.mesh_library = meshlib
 	
 	update_structure()
 	update_cash()
@@ -59,19 +50,6 @@ func _process(delta):
 	
 	action_build(gridmap_position)
 	action_demolish(gridmap_position)
-
-# Retrieve the mesh from a PackedScene, used for dynamically creating a MeshLibrary
-
-func get_mesh(packed_scene):
-	var scene_state:SceneState = packed_scene.get_state()
-	for i in range(scene_state.get_node_count()):
-		if(scene_state.get_node_type(i) == "MeshInstance3D"):
-			for j in scene_state.get_node_property_count(i):
-				var prop_name = scene_state.get_node_property_name(i, j)
-				if prop_name == "mesh":
-					var prop_value = scene_state.get_node_property_value(i, j)
-					
-					return prop_value.duplicate()
 
 # Build (place) a structure
 
@@ -122,7 +100,7 @@ func action_structure_toggle():
 func update_structure():
 	# Clear previous structure preview in selector
 	for n in selector_container.get_children():
-		selector_container.remove_child(n)
+		n.queue_free() # Garante que o nó antigo seja deletado da memória
 		
 	# Create new structure preview in selector
 	var _model = structures[index].model.instantiate()
