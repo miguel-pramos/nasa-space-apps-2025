@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://dki4kfjd57qkr"]
+
+[ext_resource type="PackedScene" uid="uid://efujr5i3g18o" path="res://models/turret_double.glb" id="1_wft7m"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_7bsdw"]
+
+[resource]
+script = ExtResource("2_7bsdw")
+model = ExtResource("1_wft7m")
+price = 150

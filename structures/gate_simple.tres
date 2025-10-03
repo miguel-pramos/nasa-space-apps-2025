@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://l1l3wfrn4t7o"]
+
+[ext_resource type="PackedScene" uid="uid://bjnxw6q71raym" path="res://models/gate_simple.glb" id="1_e2uor"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_oq55v"]
+
+[resource]
+script = ExtResource("2_oq55v")
+model = ExtResource("1_e2uor")
+price = 150

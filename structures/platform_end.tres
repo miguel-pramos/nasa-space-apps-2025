@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://i2fvw7iyn4d1"]
+
+[ext_resource type="PackedScene" uid="uid://iiywe5amyrp6" path="res://models/platform_end.glb" id="1_mkfog"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_jaiq2"]
+
+[resource]
+script = ExtResource("2_jaiq2")
+model = ExtResource("1_mkfog")
+price = 150

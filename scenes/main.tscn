@@ -1,7 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://vgwrcfy1qawf"]
+[gd_scene load_steps=15 format=3 uid="uid://vgwrcfy1qawf"]
 
 [ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="1_jybm7"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="1_yndf3"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_54v6r"]
+[ext_resource type="Resource" uid="uid://c6xlf5yous0lu" path="res://structures/computer-wide.tres" id="4_trceg"]
+[ext_resource type="Resource" uid="uid://s3vraifynoe" path="res://structures/crater.tres" id="5_a8y0u"]
+[ext_resource type="Resource" uid="uid://c4xtdicbqvh8b" path="res://structures/craft_speederA.tres" id="6_jkv2x"]
+[ext_resource type="Resource" uid="uid://bmfm8mwtrrxyh" path="res://structures/craft_speederC.tres" id="7_jbj1t"]
 [ext_resource type="Script" uid="uid://dec71yx4xpg2c" path="res://scripts/view.gd" id="8_yovpv"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="16_vlub6"]
 [ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="17_cjamx"]
@@ -24,6 +29,7 @@ script = ExtResource("8_yovpv")
 [node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
 transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
 script = ExtResource("1_jybm7")
+structures = Array[ExtResource("2_54v6r")]([ExtResource("4_trceg"), ExtResource("5_a8y0u"), ExtResource("6_jkv2x"), ExtResource("7_jbj1t")])
 selector = NodePath("Selector")
 selector_container = NodePath("Selector/Container")
 view_camera = NodePath("../Camera")

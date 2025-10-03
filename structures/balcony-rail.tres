@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://2lhdtlqtjue3"]
+
+[ext_resource type="PackedScene" uid="uid://c3tlfd8hoa2ch" path="res://models/balcony-rail.glb" id="1_71173"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_1bghe"]
+
+[resource]
+script = ExtResource("2_1bghe")
+model = ExtResource("1_71173")
+price = 150

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://hugpe8mprvmn"]
+
+[ext_resource type="PackedScene" uid="uid://ct7lwqia1cm0s" path="res://models/pipe_open.glb" id="1_crrwc"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_7ffoo"]
+
+[resource]
+script = ExtResource("2_7ffoo")
+model = ExtResource("1_crrwc")
+price = 150

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://jc58ja50xxxq"]
+
+[ext_resource type="PackedScene" uid="uid://bt6bb0rpphxqt" path="res://models/craft_cargoA.glb" id="1_f6ynv"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_4fnvs"]
+
+[resource]
+script = ExtResource("2_4fnvs")
+model = ExtResource("1_f6ynv")
+price = 150

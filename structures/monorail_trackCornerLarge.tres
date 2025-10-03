@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://b3m0ghvub8j1w"]
+
+[ext_resource type="PackedScene" uid="uid://bd338kj4est53" path="res://models/monorail_trackCornerLarge.glb" id="1_2x5q2"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_fy65v"]
+
+[resource]
+script = ExtResource("2_fy65v")
+model = ExtResource("1_2x5q2")
+price = 150

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://4e08srjmuj6y"]
+
+[ext_resource type="PackedScene" uid="uid://d0n0o6mec560k" path="res://models/desk_computerCorner.glb" id="1_ky061"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_isf4g"]
+
+[resource]
+script = ExtResource("2_isf4g")
+model = ExtResource("1_ky061")
+price = 150

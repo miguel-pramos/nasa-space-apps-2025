@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://b5gyslu5pue7b"]
+
+[ext_resource type="PackedScene" uid="uid://cesduqci6gibt" path="res://models/terrain_roadEnd.glb" id="1_jgt5c"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_ic0jy"]
+
+[resource]
+script = ExtResource("2_ic0jy")
+model = ExtResource("1_jgt5c")
+price = 150

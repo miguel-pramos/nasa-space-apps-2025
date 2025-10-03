@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://07nxqrjutwxv"]
+
+[ext_resource type="PackedScene" uid="uid://isp6nhceuq3k" path="res://models/skip-rocks.glb" id="1_alvkq"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_4e8b2"]
+
+[resource]
+script = ExtResource("2_4e8b2")
+model = ExtResource("1_alvkq")
+price = 150

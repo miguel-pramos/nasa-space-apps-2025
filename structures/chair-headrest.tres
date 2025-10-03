@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://dhg1cmc8utl5j"]
+
+[ext_resource type="PackedScene" uid="uid://4kp1m1miqvpk" path="res://models/chair-headrest.glb" id="1_4nqp2"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_ny727"]
+
+[resource]
+script = ExtResource("2_ny727")
+model = ExtResource("1_4nqp2")
+price = 150

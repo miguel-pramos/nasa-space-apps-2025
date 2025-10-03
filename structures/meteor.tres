@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://bmdbnvcnlvem"]
+
+[ext_resource type="PackedScene" uid="uid://bp338sctwhaee" path="res://models/meteor.glb" id="1_v62qg"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_o0a7b"]
+
+[resource]
+script = ExtResource("2_o0a7b")
+model = ExtResource("1_v62qg")
+price = 150

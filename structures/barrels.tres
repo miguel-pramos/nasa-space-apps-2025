@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://ciw31hx6upn2u"]
+
+[ext_resource type="PackedScene" uid="uid://b35bk8r0yqks3" path="res://models/barrels.glb" id="1_akkyi"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_73gbl"]
+
+[resource]
+script = ExtResource("2_73gbl")
+model = ExtResource("1_akkyi")
+price = 150

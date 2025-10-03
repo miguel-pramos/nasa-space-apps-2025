@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://bot31ry75lsch"]
+
+[ext_resource type="PackedScene" uid="uid://dtssnix4jl665" path="res://models/astronautB.glb" id="1_sxp2p"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_8d5er"]
+
+[resource]
+script = ExtResource("2_8d5er")
+model = ExtResource("1_sxp2p")
+price = 150

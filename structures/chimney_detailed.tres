@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://cgj1hdixoqihd"]
+
+[ext_resource type="PackedScene" uid="uid://b6x0in5dkx80q" path="res://models/chimney_detailed.glb" id="1_wpf6k"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_dujvh"]
+
+[resource]
+script = ExtResource("2_dujvh")
+model = ExtResource("1_wpf6k")
+price = 150

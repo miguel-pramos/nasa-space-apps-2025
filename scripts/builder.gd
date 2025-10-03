@@ -1,12 +1,11 @@
 extends Node3D
 
-@export var structures: Array[Structure] = []
 
 var map:DataMap
 
 var index:int = 0 # Index of structure being built
 
-@export var meshlib:MeshLibrary
+@export var structures: Array[Structure] = []
 @export var selector:Node3D # The 'cursor'
 @export var selector_container:Node3D # Node that holds a preview of the structure
 @export var view_camera:Camera3D # Used for raycasting mouse
@@ -16,13 +15,20 @@ var index:int = 0 # Index of structure being built
 var plane:Plane # Used for raycasting mouse
 
 func _ready():
-	
 	map = DataMap.new()
 	plane = Plane(Vector3.UP, Vector3.ZERO)
 	
 	# Create new MeshLibrary dynamically, can also be done in the editor
 	# See: https://docs.godotengine.org/en/stable/tutorials/3d/using_gridmaps.html
 	
+	var meshlib = MeshLibrary.new()
+	for structure in structures:
+		var id = meshlib.get_last_unused_item_id()
+		
+		meshlib.create_item(id)
+		meshlib.set_item_mesh(id, get_mesh(structure.model))
+		meshlib.set_item_mesh_transform(id, Transform3D())
+			
 	gridmap.mesh_library = meshlib
 	
 	update_structure()
@@ -51,6 +57,19 @@ func _process(delta):
 	action_build(gridmap_position)
 	action_demolish(gridmap_position)
 
+func get_mesh(packed_scene):
+	var scene_state:SceneState = packed_scene.get_state()
+	for i in range(scene_state.get_node_count()):
+		if(scene_state.get_node_type(i) == "MeshInstance3D"):
+			for j in scene_state.get_node_property_count(i):
+				var prop_name = scene_state.get_node_property_name(i, j)
+				if prop_name == "mesh":
+					var prop_value = scene_state.get_node_property_value(i, j)
+					
+					return prop_value.duplicate()
+
+
+
 # Build (place) a structure
 
 func action_build(gridmap_position):
@@ -73,6 +92,7 @@ func action_demolish(gridmap_position):
 			gridmap.set_cell_item(gridmap_position, -1)
 			
 			Audio.play("sounds/removal-a.ogg, sounds/removal-b.ogg, sounds/removal-c.ogg, sounds/removal-d.ogg", -20)
+
 
 # Rotates the 'cursor' 90 degrees
 
@@ -100,7 +120,7 @@ func action_structure_toggle():
 func update_structure():
 	# Clear previous structure preview in selector
 	for n in selector_container.get_children():
-		n.queue_free() # Garante que o nó antigo seja deletado da memória
+		selector_container.remove_child(n)
 		
 	# Create new structure preview in selector
 	var _model = structures[index].model.instantiate()

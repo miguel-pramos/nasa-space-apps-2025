@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://c0c1bl5u5eslc"]
+
+[ext_resource type="PackedScene" uid="uid://dgjwx67vs40k3" path="res://models/pipe_cornerRound.glb" id="1_umrvt"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_23wgm"]
+
+[resource]
+script = ExtResource("2_23wgm")
+model = ExtResource("1_umrvt")
+price = 150

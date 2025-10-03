@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://dy1pna1a7qpi0"]
+
+[ext_resource type="PackedScene" uid="uid://c0ko71die8sqr" path="res://models/wall-switch.glb" id="1_nxj6s"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_jbvr6"]
+
+[resource]
+script = ExtResource("2_jbvr6")
+model = ExtResource("1_nxj6s")
+price = 150

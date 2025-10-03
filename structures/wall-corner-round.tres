@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://tyieltd4rbpv"]
+
+[ext_resource type="PackedScene" uid="uid://bj0htunq0nbyk" path="res://models/wall-corner-round.glb" id="1_w6ovb"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_8cmp1"]
+
+[resource]
+script = ExtResource("2_8cmp1")
+model = ExtResource("1_w6ovb")
+price = 150

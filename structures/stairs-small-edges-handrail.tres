@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://cx2uttqx04jnq"]
+
+[ext_resource type="PackedScene" uid="uid://nu0ixlth2rkx" path="res://models/stairs-small-edges-handrail.glb" id="1_euco5"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_kiy50"]
+
+[resource]
+script = ExtResource("2_kiy50")
+model = ExtResource("1_euco5")
+price = 150

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://bdamq4ep08xue"]
+
+[ext_resource type="PackedScene" uid="uid://b678l4gm7du4b" path="res://models/corridor_roof.glb" id="1_gbaf5"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_vv2b5"]
+
+[resource]
+script = ExtResource("2_vv2b5")
+model = ExtResource("1_gbaf5")
+price = 150

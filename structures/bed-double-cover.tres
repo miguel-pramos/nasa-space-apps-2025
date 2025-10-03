@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://c8s48n0t5cmj3"]
+
+[ext_resource type="PackedScene" uid="uid://c6a3s7ojwpdub" path="res://models/bed-double-cover.glb" id="1_o1pwg"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_y7bh5"]
+
+[resource]
+script = ExtResource("2_y7bh5")
+model = ExtResource("1_o1pwg")
+price = 150

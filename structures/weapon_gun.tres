@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://cuh2bwoy20mya"]
+
+[ext_resource type="PackedScene" uid="uid://vadkta73b7np" path="res://models/weapon_gun.glb" id="1_6wi15"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_mp0cm"]
+
+[resource]
+script = ExtResource("2_mp0cm")
+model = ExtResource("1_6wi15")
+price = 150
