@@ -1,145 +1,36 @@
-[gd_scene load_steps=27 format=3 uid="uid://vgwrcfy1qawf"]
+[gd_scene load_steps=10 format=3 uid="uid://dnkx88bfeibyr"]
 
-[ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="1_jybm7"]
-[ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="1_yndf3"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_54v6r"]
-[ext_resource type="Resource" uid="uid://dklis7xuh6rvs" path="res://structures/alien.tres" id="4_dp3eg"]
-[ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="4_wr1wv"]
-[ext_resource type="PackedScene" uid="uid://bqxpwpjdkpf60" path="res://models/barrel.glb" id="5_gqmmt"]
-[ext_resource type="PackedScene" uid="uid://dwb1xyvhygest" path="res://models/bed-single.glb" id="6_yc10j"]
-[ext_resource type="PackedScene" uid="uid://bo75fbqr67x74" path="res://models/computer-system.glb" id="7_jscy8"]
-[ext_resource type="Script" uid="uid://dec71yx4xpg2c" path="res://scripts/view.gd" id="8_yovpv"]
-[ext_resource type="Texture2D" uid="uid://dvs1ontyksddq" path="res://sprites/kenney_planets/Parts/noise08.png" id="9_dp3eg"]
-[ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="12_jbj1t"]
-[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scripts/interface.gd" id="12_muem4"]
-[ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="13_muem4"]
-[ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="14_dp3eg"]
-[ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="15_0ld40"]
-[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="16_vlub6"]
-[ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="17_cjamx"]
-[ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="22_pm3ni"]
-[ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="24_y6deb"]
-
-[sub_resource type="Resource" id="Resource_y6deb"]
-script = ExtResource("2_54v6r")
-model = ExtResource("5_gqmmt")
-price = 150
-
-[sub_resource type="Resource" id="Resource_og1vs"]
-script = ExtResource("2_54v6r")
-model = ExtResource("6_yc10j")
-price = 150
-
-[sub_resource type="Resource" id="Resource_2wyq8"]
-script = ExtResource("2_54v6r")
-model = ExtResource("7_jscy8")
-price = 150
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
-albedo_color = Color(0.6466801, 0.12899935, 0.05334297, 1)
-albedo_texture = ExtResource("9_dp3eg")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_gqmmt"]
-material = SubResource("StandardMaterial3D_0ld40")
-size = Vector2(100, 100)
-
-[sub_resource type="MeshLibrary" id="MeshLibrary_tefeu"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_q176i"]
-font = ExtResource("16_vlub6")
-font_size = 24
-shadow_color = Color(0, 0, 0, 0.392157)
+[ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
+[ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="4_85g3d"]
+[ext_resource type="Script" uid="uid://c1uk3b2tjykh8" path="res://scripts/main/camera.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scripts/interface.gd" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="5_85g3d"]
+[ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="6_choun"]
+[ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="7_ya4ey"]
+[ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="8_eb6dy"]
 
 [node name="Main" type="Node3D"]
 
-[node name="View" type="Node3D" parent="."]
-transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0, 0, 0)
-script = ExtResource("8_yovpv")
+[node name="Rocket" parent="." instance=ExtResource("1_o5qli")]
+base_scene = null
+pinnacle_scene = null
+module_scenes = {}
 
-[node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
-transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
-script = ExtResource("1_jybm7")
-structures = Array[ExtResource("2_54v6r")]([ExtResource("4_dp3eg"), SubResource("Resource_y6deb"), SubResource("Resource_og1vs"), SubResource("Resource_2wyq8")])
-selector = NodePath("Selector")
-selector_container = NodePath("Selector/Container")
-view_camera = NodePath("../Camera")
-gridmap = NodePath("../../GridMap")
-cash_display = NodePath("../../CanvasLayer/Top/Cash")
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 4.5194235, 8.797962)
+environment = ExtResource("3_sugp2")
+fov = 48.48457
+script = ExtResource("4_jyhfs")
 
-[node name="Selector" type="Node3D" parent="View/Builder"]
-
-[node name="Container" type="Node3D" parent="View/Builder/Selector"]
-
-[node name="Sprite3D" type="Sprite3D" parent="View/Builder/Selector"]
-axis = 1
-texture = ExtResource("4_wr1wv")
-
-[node name="Camera" type="Camera3D" parent="View"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
-environment = ExtResource("1_yndf3")
-fov = 20.0
-
-[node name="Floor" type="MeshInstance3D" parent="View"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -18.501999, 10.43225, -15.703736)
-mesh = SubResource("PlaneMesh_gqmmt")
-
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = SubResource("MeshLibrary_tefeu")
-cell_size = Vector3(1, 1, 1)
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+[node name="Sun" type="DirectionalLight3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 0.8571673, 0.5150381, 0, -0.5150381, 0.8571673, 0, 3.78433, -0.9460039)
 shadow_enabled = true
 shadow_opacity = 0.75
+sky_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Top" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 14.0
-offset_top = 10.0
-offset_right = 54.0
-offset_bottom = 50.0
-
-[node name="CashIcon" type="TextureRect" parent="CanvasLayer/Top"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 24.0
-offset_right = 148.0
-offset_bottom = 152.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("17_cjamx")
-
-[node name="Cash" type="Label" parent="CanvasLayer/Top"]
-layout_mode = 0
-offset_left = 69.0
-offset_top = 27.0
-offset_right = 270.0
-offset_bottom = 101.0
-text = "$10,000"
-label_settings = SubResource("LabelSettings_q176i")
-
-[node name="Bottom" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -648.0
-offset_bottom = -648.0
-grow_vertical = 0
-
-[node name="Instructions" type="TextureRect" parent="CanvasLayer/Bottom"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 375.0
-offset_right = 344.0
-offset_bottom = 887.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("22_pm3ni")
+script = ExtResource("4_85g3d")
 
 [node name="Control" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = -1
@@ -153,7 +44,7 @@ offset_right = 9.747437
 offset_bottom = 14.287964
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("12_muem4")
+script = ExtResource("4_tipki")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 2
@@ -161,7 +52,7 @@ layout_mode = 2
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("12_jbj1t")
+texture = ExtResource("5_85g3d")
 region_rect = Rect2(0, 0, 24, 24)
 patch_margin_left = 4
 patch_margin_top = 4
@@ -183,8 +74,8 @@ stretch_margin_left = 10
 stretch_margin_top = 10
 stretch_margin_right = 10
 stretch_margin_bottom = 10
-texture_under = ExtResource("13_muem4")
-texture_progress = ExtResource("14_dp3eg")
+texture_under = ExtResource("6_choun")
+texture_progress = ExtResource("7_ya4ey")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar"]
 layout_mode = 0
@@ -193,10 +84,21 @@ offset_top = 13.0
 offset_right = 139.0
 offset_bottom = 36.0
 theme_override_colors/font_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
-theme_override_fonts/font = ExtResource("15_0ld40")
+theme_override_fonts/font = ExtResource("8_eb6dy")
 text = "Progress"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("24_y6deb")
-volume_db = -30.0
-autoplay = true
+[node name="AddButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 203.0
+offset_right = 43.0
+offset_bottom = 211.0
+text = "add"
+
+[node name="RemoveButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 129.0
+offset_right = 94.0
+offset_bottom = 160.0
+text = "asfafsa"
