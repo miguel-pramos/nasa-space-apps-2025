@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5u42dbffsia0"
-path="res://.godot/imported/planet07.png-53eec156d74bd3341ff57082af2c8c57.ctex"
+path="res://.godot/imported/planet07.png-05d943d91796aa337187c5de2bb5badb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/kenney_planets/Planets/planet07.png"
-dest_files=["res://.godot/imported/planet07.png-53eec156d74bd3341ff57082af2c8c57.ctex"]
+source_file="res://sprites/kenney_planets/planet07.png"
+dest_files=["res://.godot/imported/planet07.png-05d943d91796aa337187c5de2bb5badb.ctex"]
 
 [params]
 
