@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://vgwrcfy1qawf"]
+[gd_scene load_steps=24 format=3 uid="uid://vgwrcfy1qawf"]
 
 [ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="1_jybm7"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="1_yndf3"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwb1xyvhygest" path="res://models/temp/bed-single.glb" id="6_yc10j"]
 [ext_resource type="PackedScene" uid="uid://bo75fbqr67x74" path="res://models/temp/computer-system.glb" id="7_jscy8"]
 [ext_resource type="Script" uid="uid://dec71yx4xpg2c" path="res://scripts/view.gd" id="8_yovpv"]
-[ext_resource type="Texture2D" uid="uid://dvs1ontyksddq" path="res://sprites/kenney_planets/Parts/noise08.png" id="9_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://cy0y2w5xyt46v" path="res://models/rocket_sides_a.tscn" id="10_5ou3v"]
 [ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="12_jbj1t"]
 [ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scripts/interface.gd" id="12_muem4"]
 [ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="13_muem4"]
@@ -34,14 +34,6 @@ price = 150
 script = ExtResource("2_54v6r")
 model = ExtResource("7_jscy8")
 price = 150
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ou3v"]
-albedo_color = Color(0.6466801, 0.12899935, 0.05334297, 1)
-albedo_texture = ExtResource("9_dp3eg")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_2frd1"]
-material = SubResource("StandardMaterial3D_5ou3v")
-size = Vector2(100, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jgbw0"]
 font = ExtResource("16_vlub6")
@@ -77,20 +69,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 environment = ExtResource("1_yndf3")
 fov = 20.0
 
-[node name="Floor" type="MeshInstance3D" parent="View"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -18.501999, 10.43225, -15.703736)
-mesh = SubResource("PlaneMesh_2frd1")
+[node name="RocketModule" parent="View" instance=ExtResource("10_5ou3v")]
+transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
-cell_size = Vector3(1, 1, 1)
+cell_size = Vector3(0.2, 0.2, 0.2)
 cell_center_x = false
 cell_center_y = false
 cell_center_z = false
-
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
-shadow_enabled = true
-shadow_opacity = 0.75
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

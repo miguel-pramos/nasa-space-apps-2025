@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=14 format=3 uid="uid://dnkx88bfeibyr"]
 
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="3_sugp2"]
@@ -9,13 +9,27 @@
 [ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="7_ya4ey"]
 [ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="8_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://bjfoiumjjl1ii" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Green/button_square_header_small_rectangle.svg" id="10_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://1217hkq6ypcs" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Red/button_square_header_small_rectangle_screws.svg" id="11_eb6dy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trceg"]
+texture = ExtResource("10_ya4ey")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8y0u"]
+texture = ExtResource("11_eb6dy")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [node name="Main" type="Node3D"]
 
-[node name="Rocket" parent="." instance=ExtResource("1_o5qli")]
-base_scene = null
-pinnacle_scene = null
-module_scenes = {}
+[node name="Rocket" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_o5qli")]
+camera = NodePath("../Camera")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 4.5194235, 8.797962)
@@ -46,10 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_tipki")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
-layout_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("5_85g3d")
@@ -91,14 +102,18 @@ text = "Progress"
 layout_mode = 0
 offset_left = 35.0
 offset_top = 203.0
-offset_right = 43.0
-offset_bottom = 211.0
-text = "add"
+offset_right = 66.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Add"
 
 [node name="RemoveButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 129.0
-offset_right = 94.0
-offset_bottom = 160.0
-text = "asfafsa"
+offset_left = 35.0
+offset_top = 244.0
+offset_right = 106.0
+offset_bottom = 275.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
+text = "Remove"

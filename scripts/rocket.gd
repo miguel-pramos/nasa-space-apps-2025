@@ -1,7 +1,7 @@
 extends Node3D
 
-@export var base_scene: PackedScene
-@export var pinnacle_scene: PackedScene
+@export
+var camera: Camera3D
 
 var module_scenes: Dictionary = {}
 
@@ -24,8 +24,6 @@ func _ready():
 		modules.append(initial_module)
 
 func add_module(module_type: String):
-	print("Adding module: ", module_type)
-	print("Available modules: ", module_scenes.keys())
 	if not module_scenes.has(module_type):
 		print("Module type not found: ", module_type)
 		return
@@ -39,7 +37,7 @@ func add_module(module_type: String):
 		new_position = top_module.position + Vector3.UP * module_height
 	else:
 		new_position = base.position + Vector3.UP * module_height
-
+	
 	new_module.position = new_position
 	modules.append(new_module)
 	add_child(new_module)
@@ -47,12 +45,13 @@ func add_module(module_type: String):
 	update_pinnacle_position()
 
 func remove_module():
-	if modules.is_empty():
+	
+	if modules.size() < 2:
 		return
 
 	var top_module = modules.pop_back()
 	top_module.queue_free()
-
+	
 	update_pinnacle_position()
 
 func update_pinnacle_position():
@@ -61,6 +60,9 @@ func update_pinnacle_position():
 		if not modules.is_empty():
 			var top_module = modules[-1]
 			pinnacle_position = top_module.position + Vector3.UP * module_height
+			var tween = get_tree().create_tween()
+			tween.tween_property(camera, "position:y", top_module.position.y + 3, 0.5).set_ease(Tween.EASE_IN_OUT)
+			
 		else:
 			pinnacle_position = base.position + Vector3.UP * module_height
 		
