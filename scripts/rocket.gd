@@ -2,7 +2,9 @@ extends Node3D
 
 @export var camera: Camera3D
 
-var module_scenes: Dictionary = {}
+@onready var module_scenes = {
+	"module": load("res://scenes/rocket_modules/module.tscn")
+}
 
 var base: Node3D
 var pinnacle: Node3D
@@ -12,9 +14,7 @@ var focused_module: Node3D
 var module_height = 1.0
 
 func _ready():
-	module_scenes = {
-		"module": load("res://scenes/rocket_modules/module.tscn")
-	}
+	
 	print("module_scenes: ", module_scenes)
 
 	base = find_child("Base")
@@ -75,12 +75,12 @@ func focus_module(index: int):
 		return
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(camera, "position:y", modules[-1].position.y + 3, 0.5).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(camera, "position:y", modules[index].position.y + 3, 0.5).set_trans(Tween.TRANS_SINE)
 
 	
 	for i in range(modules.size()):
 		if i == index:
-			var focused_module = modules[i]
+			focused_module = modules[i]
 
 	
 func activate_module():

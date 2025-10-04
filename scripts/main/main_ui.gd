@@ -5,7 +5,7 @@ var focused_module_index: int = 0
 
 func _ready():
 	# Assuming the rocket is at this path
-	rocket = get_node("/root/Main/Rocket") 
+	rocket = get_node("../Rocket") 
 
 	var addButton = find_child("AddButton")
 	if addButton:
@@ -29,11 +29,23 @@ func _ready():
 
 func on_add_button_pressed():
 	if rocket:
+		var module_count = rocket.get_module_count()
+		var is_focused_on_top = (focused_module_index == module_count - 1)
+
 		rocket.add_module("module")
+
+		if is_focused_on_top:
+			on_up_button_pressed()
 
 func on_remove_button_pressed():
 	if rocket:
+		var module_count = rocket.get_module_count()
+		var is_focused_on_top = (focused_module_index == module_count - 1)
+
 		rocket.remove_module()
+
+		if is_focused_on_top:
+			on_down_button_pressed()
 
 func on_up_button_pressed():
 	print("Up button pressed")
