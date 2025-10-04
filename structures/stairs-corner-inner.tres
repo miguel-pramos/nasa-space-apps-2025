@@ -1,9 +1,60 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://c6pfw7c1k5o6a"]
+[gd_resource type="Resource" script_class="Structure" load_steps=7 format=4 uid="uid://drl71ypymid4n"]
 
-[ext_resource type="PackedScene" uid="uid://c1ciqioq62o3p" path="res://models/stairs-corner-inner.glb" id="1_5yqvx"]
+[ext_resource type="Texture2D" uid="uid://k6f5xxl8mufc" path="res://models/Textures/colormap.png" id="1_5yqvx"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_h7ccb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ot7bb"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_5yqvx")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6shlk"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.3, 1),
+"format": 34896613377,
+"index_count": 216,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgAEAAAABQAEAAIAAwAGAAIAAgAGAAUABgADAAcABwAFAAYACAAHAAMABwAJAAUACgAIAAMACwAKAAMADAAKAAsABQAJAA0ADgANAAkADQAOAAwABAAFAA8ABQANAA8ADwAAAAQACwAQAAwADAAQAA0AEAALABEAEQANABAAEgARAAsAEQATAA0AEgALABQAFAALAAMAFAAVABIADQATABYAFwAWABMADQAWAA8AFgAXABgAGAAVABQAGAAZABYAFAAZABgAGgAWABkAGQAUABoAGgAbABYAFgAbAA8AHAAaABQAHAAUAB0AGgAcAB4AHQAeABwAHgAbABoAHwAdABQAHgAdAB8AHwAUAAMAHgAgABsAIAAPABsADwAgAB4AHwADAAEAAQAAAB8AHgAhAA8AHwAhAB4ADwAhAB8AHwAiAA8AHwAAACMAJAAiAB8AIwAkAB8AJQAiACQAJAAjACUAIgAlAA8AJQAjAAAADwAlAAAAJgAnACgAJgAoACkAKQAqACYAKwAmACoALAAtAC4ALAAuAC8ALwAwACwAMQAsADAA"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 50,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAA//8AAP//AAAAAAAA////////AAAAAAAAAAAAAAAA//8AAAAA/////wAAAAAy0///zCwAADLT/////wAAAAD//8wsAAD/v/////8AAP+//7///wAA/7////8/AAAAAP+//z8AAAAA////PwAAAAD/P/+/AAD/v/+//z8AADKT/7/MbAAAMpP/v///AAAAAP+/zGwAAP9//3///wAA/3//v///AAAAAP9//38AAAAA/7//fwAA/3//v/9/AAD/f/9//38AADJT/3/MrAAAAAD/f8ysAAAyU/9///8AAP8//3///wAA/z//f/+/AAD/P/8///8AAAAA/3//vwAA/z//P/+/AAAzE/8/y+wAAAAA/z///wAAMxP/P///AAAAAP8/y+wAAP9//7//fwAAAAD/v/9/AAAAAP+/zGwAADKT/7/MbAAAMpP/v///AAD/f/+///8AAP+/////PwAAAAD///8/AAAAAP//zCwAADLT///MLAAAMtP/////AAD/v/////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ixju7"]
+resource_name = "stairs-corner-inner_stairs-corner-inner"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.3, 1),
+"attribute_data": PackedByteArray("/zeY+f83mPn/N5j5/zeY+f83y+z/N8vs/zeY+f83y+z/N5j5/zdlxv83/9//N//f/zf/3/83MtP/N2XG/zdlxv83MtP/NzLT/zdlxv83mPn/N5j5/zdlxv83Zcb/N2XG/zeY+f83mPn/N2XG/zdlxv83Zcb/NzLT/zf/3/83MtP/NzLT/zf/3/83/9//N8vs/zeY+f83mPn/N8vs/zfL7P83/9//N8vs/zfL7P83/9//N8vs/zfL7P83/9//N//f/zcy0/83/9//N//f/zcy0/83/9//N//f/zcy0/83MtP/N2XG/zcy0/83MtP/N2XG/zcy0/83MtP/N2XG/zdlxv9Xy+z/V8vs/1fL7P9Xy+z/V8vs/1fL7P9XZcb/V2XG/1dlxv9XZcb/V2XG/1dlxv9XMtP/VzLT/1cy0/9XMtP/VzLT/1cy0/9X/9//V//f/1f/3/9X/9//V//f/1f/3/8n/5//J/+f/yf/n/8n/5//J/+f/yf/n/8n/5//J/+f/yf/n/8n/5//J/+f/yf/n/8n/5//J/+f/yf/n/8n/5//J/+f/yf/n/8n/5//J/+f/yf/n/8n/58="),
+"format": 34896613399,
+"index_count": 216,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABwAEAAYABwAGAAgACAAJAAcACgAHAAsADAALAAcACQANAAcADQAMAAcACQAOAA0ADwANAA4ADQAQAAwAEQAMABAAEgATABQAFAAVABIAFgAXABgAGAAZABYAGgAbABwAHQAaABwAHgAdABwAHwAdAB4AHgAgAB8AIQAeACIAIwAiAB4AIwAeABwAIwAcACQAJAAlACMAIwAlACYAJgAnACMAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQAOAA5ADoAOgA7ADgAPAA9AD4APgA/ADwAQABBAEIAQgBDAEAAQwBEAEAARQBDAEIARgBHAEgARgBIAEkASQBKAEYASwBGAEoATABNAE4ATABOAE8ATwBQAEwAUQBMAFAAUgBTAFQAUgBUAFUAVQBWAFIAVwBSAFYAWABZAFoAWABaAFsAWwBcAFgAXQBYAFwAXgBfAGAAXgBgAGEAYQBiAF4AYwBeAGIAZABlAGYAZABmAGcAZwBoAGQAaQBkAGgAagBrAGwAbABtAGoA"),
+"material": SubResource("StandardMaterial3D_ot7bb"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 110,
+"vertex_data": PackedByteArray("AAAAAP///7///wAA////v///AAAAAP+/AAAAAAAA/78AAP8/y+z/vwAA/z////+/AAAAAP///78AAP8//7//vwAAAAAAAP+/AAD//wAA/78AAP9//7//vwAA/3/MrP+/AAD/f/9//78AAP+//z//vwAA///MLP+/AAD///8//78AAP+/zGz/vwAA/7//f/+/AAD//wAA//8AAAAAAAD/////AAAAAP///////wAA////////////v/////8AAP+///8AAAAA/7///wAA////v/+//////wCAMtP///////////////8AgP+//7///wCA/3//f///AIAyk/+///8AgP9//7///wCAMlP/f///////P/9///8AgP8//z///wCA//8AAP//AIAAAAAA//8AgAAA/z///wCAMxP/P///////P/9//78AgP8//z//vwCAAAD/P/+/AIAAAP9//78AgP8//z////+//z//P/+//7//P/9//7//v/8//3////+//3//v/9/AID/f/9//38AgAAA/3//fwCAAAD/v/9/AID/f/9/////v/9//3//f/+//3//v/9//7//f/+/////v/+/////PwCA/7//v/8/AIAAAP+//z8AgAAA////PwCA/7//v////7//v/+//z//v/+/////P/+//7///////78AAP8//7////8//z//v////z//P/////8zE/8/y+z//wAA/z/L7P//MxP/P/////8y0///zCz//wAA///MLP//AAD//wAA////////AAD/////////////MtP///////8yk/+/zGz//wAA/7/MbP//AAD/v/8/////v/+//z////+//7//////MpP/v/////8yU/9/zKz//wAA/3/MrP//AAD/f/9/////f/9//3////9//3//////MlP/f///////f/+//3///wAA/7//f///AAD/v8xs//8yk/+/zGz//zKT/7///////3//v///////P/9//7///wAA/3//v///AAD/f8ys//8yU/9/zKz//zJT/3///////z//f///////v////z///wAA////P///AAD//8ws//8y0///zCz//zLT/////////7////////8AAP8/y+z//zMT/z/L7P//MxP/P/////8AAP8//////wAA/38AAP9/AAD/fwAA/3//f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/3////9//3//f////3////9/////f////3////9//3//f////3////9/////f////3////9//3//f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6shlk")
+
+[sub_resource type="PackedScene" id="PackedScene_h7ccb"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("stairs-corner-inner2", "Node3D", "stairs-corner-inner", "mesh", "skeleton", "MeshInstance3D"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 5, 2, -1, 2, 3, 0, 4, 1, 0),
+"variants": [SubResource("ArrayMesh_ixju7"), NodePath("")],
+"version": 3
+}
 
 [resource]
 script = ExtResource("2_h7ccb")
-model = ExtResource("1_5yqvx")
+model = SubResource("PackedScene_h7ccb")
 price = 150

@@ -1,9 +1,85 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://s3vraifynoe"]
+[gd_resource type="Resource" script_class="Structure" load_steps=7 format=4 uid="uid://36mjr5fes6ve"]
 
-[ext_resource type="PackedScene" uid="uid://fj0j4y5oqi8b" path="res://models/crater.glb" id="1_nvb5d"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_xsgs6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7get8"]
+resource_name = "rockDark"
+albedo_color = Color(0.8532437, 0.6441637, 0.5494939, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2fk8"]
+resource_name = "rock"
+albedo_color = Color(0.9592555, 0.7468624, 0.65628237, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_udbwe"]
+_surfaces = [{
+"aabb": AABB(-0.19486566, 1.8047785e-16, -0.22501148, 0.38973132, 0.1176, 0.45002297),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQAAwACAAUABAAGAAEABQAHAAMACAAGAAQACQAHAAUABAAKAAgABQALAAkACgAJAAsACwAIAAoA"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/3///wAAAAD/fwAAChcAAAoXAACESwAAAAD///8/AAD//////z8AAAoXAAB6tAAA9OgAAIRLAAAAAP///78AAPToAAB6tAAA/3//////AAD//////78AAP9/AAD06AAA")
+}, {
+"aabb": AABB(-0.35749528, 0, -0.41279998, 0.71499056, 0.1176, 0.82559997),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAACAAEAAwACAAQAAQAFAAQABgAFAAEABQAHAAQAAQAIAAYACAABAAAACAAJAAYACAAKAAkACgALAAkAAAAMAAgACgAIAAwADAANAAoACgAOAAsADwALAA4ABwAPAA4ABwAOAAQAEAAOAAoACgANABAABAAOABAAEQANAAwAEAANABEAEAASAAQABAASAAMAEgAQABMAEQATABAAAwASABQAEwAUABIAEwARABUAFAATABUAFgAVABEAFAAVABcAGAAWABEAFAAXABkAGAARABoADAAaABEAGwAYABoAGgAMAAAAHAAUABkAGQAbABwAFAAcAAMAGwAaAB0AAAAdABoAHQAcABsAHQAAAAMAAwAcAB0A"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("ehT6UMG1AAAAAAAA/78AAAAAAAD/PwAAehT6UD1KAAD/fwAAAAAAAMlGAABkYwAAyUYAAJqcAAD/fwAAyUYAAP9/AAD//wAA/38AADW5AAD//wAA/78AADW5AACanAAA/3/6UITrAACE6/pQwbUAAP//AAD/PwAANbkAAGRjAACE6/pQPUoAAInd///ErgAA/3/6UHoUAACJ3f//OlEAAP9///91IgAAxMX//xxdAADExf//4qIAAP9///86OgAA/3///8TFAAA6Ov//HF0AAP9///+J3QAAOjr//+KiAAB1Iv//OlEAAHUi///ErgAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cfnmp"]
+resource_name = "crater_Mesh crater"
+_surfaces = [{
+"aabb": AABB(-0.19486566, 1.8047785e-16, -0.22501148, 0.38973132, 0.1176, 0.45002297),
+"attribute_data": PackedByteArray("//8AAPTo2m0KF9ptAAAAAAAAAAD//wAA9OjabQoX2m306NptChfabQAAAAD//wAAChfabQAAAAD//wAA9Ojabf//AAD06NptChfabQAAAAD06NptChfabQAAAAD//wAA"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_7get8"),
+"name": "rockDark",
+"primitive": 3,
+"uv_scale": Vector4(8.85872, 11.259118, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/3///wAAUJj/fwAAChdQmAoXAACES1CYAAD///8/UJj//////z/YwP//////v9jA9OgAAHq02MD06AAAhEvYwP9/AAD06OTq9OgAAHq05Or//////7/k6v9//////+TqChcAAHq02MAAAP///7/YwAAA////P9jAChcAAIRL2MD//////z9QmPToAACES1CY/38AAAoXUJj/f///AABQmAoXAAB6tOTq/38AAPTo5Or/f//////k6gAA////v+TqSbQ9KUm0PSlJtD0pSbQ9KXWOE+N1jhPjdY4T43WOE+M4hAHsOIQB7DiEAew4hAHs65x1DuucdQ7rnHUO65x1DjyptMs8qbTLPKm0yzyptMv8kzkE/JM5BPyTOQT8kzkE")
+}, {
+"aabb": AABB(-0.35749528, 0, -0.41279998, 0.71499056, 0.1176, 0.82559997),
+"attribute_data": PackedByteArray("Er4Gy+XJ9N4ZNvTe7EEGyxK+BsvlyfTeGTb03uxBBsvlyfTeGTb03uxBBssSvgbLAbbZiRK+9KPsQfSj/UnZiRK+9KPsQfSj/UnZiQG22YkZNvTe7EEGyxK+BsvlyfTeEr70o+xB9KP9SdmJAbbZiRK+9KPsQfSj/UnZiQG22Yl1InqzdSJbWzo6R6j/f4nfOjqNZv9/JMn/f0wvid16s/9/sUXExUeoxMWNZondW1vlyfTeGTb03uxBBssSvgbLAbbZiRK+9KPsQfSj/UnZiQG22YkSvvSj7EH0o/1J2Yn/f9YO//8gS///tMM1uXhs/3+FUTW5XaIAACBL/3///8lGeGz/f1C9yUZdogAAtMPsQQbLEr4Gy+XJ9N4ZNvTe"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAiACEAIgAlACMAIQAmACQAJQAnACMAJgAoACQAJQApACcAJgAqACgAKQAqACcAJgArACoAKwAnACoALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQAOAA5ADoAOgA7ADgAOwA8ADgAPQA7ADoAPAA+ADgAOgA/AD0APABAAD4APwBBAD0AQABCAD4APwBDAEEAQwA+AEIAQwBCAEEARABFAEYARgBHAEQA"),
+"material": SubResource("StandardMaterial3D_y2fk8"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(28.149235, 34.503937, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("ehT6UMG1WMkAAAAA/79YyQAAAAD/P1jJehT6UD1KWMl6FPpQPUpL7QAAAAD/P0vt/38AAAAAS+3/f/pQehRL7f9/AAD//1utAAAAAP+/W616FPpQwbVbrf9/+lCE61utdSL//8SuC8J6FPpQwbULwnoU+lA9SgvCdSL//zpRC8KE6/pQPUoLwoTr+lDBtQvCid3//8SuC8KJ3f//OlELwv//AAD/v1jJhOv6UMG1WMmE6/pQPUpYyf//AAD/P1jJ/3/6UHoUN+uE6/pQPUo364nd//86UTfr/3///3UiN+t6FPpQPUo36/9/+lB6FDfr/3///3UiN+t1Iv//OlE363Ui///Erv+/dSL//zpR/786Ov//4qL/v/9///+J3f+/Ojr//xxd/7//f///xMX/v/9///91Iv+/id3//8Su/7//f///Ojr/v8TF///iov+/xMX//xxd/7+J3f//OlH/v///AAD/v1ut/38AAP//W63/f/pQhOtbrYTr+lDBtVut/3///4ndCpz/f/pQhOsKnHoU+lDBtQqcdSL//8SuCpyJ3f//xK4KnITr+lDBtQqc/3/6UITrCpz/f///id0KnP9/AAAAAP//AAAAAP8///8AAAAA/7///8lGAABkY////38AAMlG///JRgAAmpz/////AAD/P////38AAP////81uQAAZGP///9/AAA1uf//NbkAAJqc/////wAA/7///4Tr+lA9Skvt/3/6UHoUS+3/fwAAAABL7f//AAD/P0vtTaFivU2hYr1NoWK9TaFivQWL1MsFi9TLBYvUywWL1MulyOGjpcjho6XI4aOlyOGjKJSs1yiUrNcolKzXKJSs11GoKRRRqCkUUagpFFGoKRSbwk4hm8JOIZvCTiGbwk4h5JwbBuScGwbknBsG5JwbBhqGGuMahhrjGoYa4xqGGuP///9/////f////3////9/////f////3////9/////f////3////9/////f////38d3KZIHdymSB3cpkgd3KZImrRMvZq0TL2atEy9mrRMvbLCmjSywpo0ssKaNLLCmjT/f/8//3//P/9//z//f/8//3//P/9//z//f/8//3//P/9//z//f/8//3//P/9//z8ptAYLKbQGCym0BgsptAYL")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_udbwe")
+
+[sub_resource type="PackedScene" id="PackedScene_5kd76"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("crater2", "Node3D", "crater", "transform", "mesh", "skeleton", "MeshInstance3D"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 6, 2, -1, 3, 3, 0, 4, 1, 5, 2, 0),
+"variants": [Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.5), SubResource("ArrayMesh_cfnmp"), NodePath("")],
+"version": 3
+}
 
 [resource]
 script = ExtResource("2_xsgs6")
-model = ExtResource("1_nvb5d")
+model = SubResource("PackedScene_5kd76")
 price = 150

@@ -1,15 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://vgwrcfy1qawf"]
+[gd_scene load_steps=27 format=3 uid="uid://vgwrcfy1qawf"]
 
 [ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="1_jybm7"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="1_yndf3"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_54v6r"]
-[ext_resource type="Resource" uid="uid://c6xlf5yous0lu" path="res://structures/computer-wide.tres" id="4_trceg"]
-[ext_resource type="Resource" uid="uid://s3vraifynoe" path="res://structures/crater.tres" id="5_a8y0u"]
-[ext_resource type="Resource" uid="uid://c4xtdicbqvh8b" path="res://structures/craft_speederA.tres" id="6_jkv2x"]
-[ext_resource type="Resource" uid="uid://bmfm8mwtrrxyh" path="res://structures/craft_speederC.tres" id="7_jbj1t"]
+[ext_resource type="Resource" uid="uid://dklis7xuh6rvs" path="res://structures/alien.tres" id="4_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="4_wr1wv"]
+[ext_resource type="PackedScene" uid="uid://bqxpwpjdkpf60" path="res://models/barrel.glb" id="5_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://dwb1xyvhygest" path="res://models/bed-single.glb" id="6_yc10j"]
+[ext_resource type="PackedScene" uid="uid://bo75fbqr67x74" path="res://models/computer-system.glb" id="7_jscy8"]
 [ext_resource type="Script" uid="uid://dec71yx4xpg2c" path="res://scripts/view.gd" id="8_yovpv"]
+[ext_resource type="Texture2D" uid="uid://dvs1ontyksddq" path="res://sprites/kenney_planets/Parts/noise08.png" id="9_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="12_jbj1t"]
-[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scenes/interface.gd" id="12_muem4"]
+[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scripts/interface.gd" id="12_muem4"]
 [ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="14_dp3eg"]
 [ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="15_0ld40"]
@@ -17,6 +19,29 @@
 [ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="17_cjamx"]
 [ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="22_pm3ni"]
 [ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="24_y6deb"]
+
+[sub_resource type="Resource" id="Resource_y6deb"]
+script = ExtResource("2_54v6r")
+model = ExtResource("5_gqmmt")
+price = 150
+
+[sub_resource type="Resource" id="Resource_og1vs"]
+script = ExtResource("2_54v6r")
+model = ExtResource("6_yc10j")
+price = 150
+
+[sub_resource type="Resource" id="Resource_2wyq8"]
+script = ExtResource("2_54v6r")
+model = ExtResource("7_jscy8")
+price = 150
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ld40"]
+albedo_color = Color(0.6466801, 0.12899935, 0.05334297, 1)
+albedo_texture = ExtResource("9_dp3eg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gqmmt"]
+material = SubResource("StandardMaterial3D_0ld40")
+size = Vector2(100, 100)
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_tefeu"]
 
@@ -34,7 +59,7 @@ script = ExtResource("8_yovpv")
 [node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
 transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
 script = ExtResource("1_jybm7")
-structures = Array[ExtResource("2_54v6r")]([ExtResource("4_trceg"), ExtResource("5_a8y0u"), ExtResource("6_jkv2x"), ExtResource("7_jbj1t")])
+structures = Array[ExtResource("2_54v6r")]([ExtResource("4_dp3eg"), SubResource("Resource_y6deb"), SubResource("Resource_og1vs"), SubResource("Resource_2wyq8")])
 selector = NodePath("Selector")
 selector_container = NodePath("Selector/Container")
 view_camera = NodePath("../Camera")
@@ -45,10 +70,18 @@ cash_display = NodePath("../../CanvasLayer/Top/Cash")
 
 [node name="Container" type="Node3D" parent="View/Builder/Selector"]
 
+[node name="Sprite3D" type="Sprite3D" parent="View/Builder/Selector"]
+axis = 1
+texture = ExtResource("4_wr1wv")
+
 [node name="Camera" type="Camera3D" parent="View"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 environment = ExtResource("1_yndf3")
 fov = 20.0
+
+[node name="Floor" type="MeshInstance3D" parent="View"]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, -18.501999, 10.43225, -15.703736)
+mesh = SubResource("PlaneMesh_gqmmt")
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = SubResource("MeshLibrary_tefeu")
@@ -161,7 +194,7 @@ offset_right = 139.0
 offset_bottom = 36.0
 theme_override_colors/font_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 theme_override_fonts/font = ExtResource("15_0ld40")
-text = "Progresso"
+text = "Progress"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_y6deb")

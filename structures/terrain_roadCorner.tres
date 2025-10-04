@@ -1,9 +1,85 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://hmnlqvapqjde"]
+[gd_resource type="Resource" script_class="Structure" load_steps=7 format=4 uid="uid://mgan0vfqdetq"]
 
-[ext_resource type="PackedScene" uid="uid://pa0a3un6dekg" path="res://models/terrain_roadCorner.glb" id="1_lrtey"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_j2v2j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tqdy"]
+resource_name = "rock"
+albedo_color = Color(0.9592555, 0.7468624, 0.65628237, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qewoj"]
+resource_name = "rockTrack"
+albedo_color = Color(0.9916599, 0.7863615, 0.70064974, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uylnh"]
+_surfaces = [{
+"aabb": AABB(-4.4709663e-09, 0, -1, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 150,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgAEAAMABAAFAAMABQAGAAMABgAHAAMABwAIAAMACAAJAAMACQAKAAMACgALAAMACwAMAAMADAANAAMADQAOAAMADgAPAAMAEAARABIAEgATABAAEwAUABAAEwAVABQAEwAWABUAEwAXABYAEwAYABcAEwAZABgAEwAaABkAEwAbABoAEwAcABsAEwAdABwAHgAfACAAIAAhAB4AIAAiACEAIgAjACEAIgAkACMAJAAlACMAJQAmACMAJQAnACYAJwAoACYAKAApACYAKAAqACkAKgArACkAKwAsACkAKwAtACwALQAuACwALgAvACwALwAwACwAMAAxACwAMQAyACwAMQAzADIAMQA0ADMAMQA1ADQAMQA2ADUAMQA3ADYA"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAAAA/78AAA8ZAABavgAA//8AAP//AACxMQAAdLkAAHlJAABhsQAA/18AAEamAADhdAAAUpgAAMOHAADDhwAAUpgAAOF0AABGpgAA/18AAGGxAAB5SQAAdLkAALExAABavgAADxkAAP+/AAAAAAAA//8AAAAAAABaCAAAcz8AAAAAAAD/PwAAAAAAAAAAAAD/PwAAAAAAAJAQAADRPQAAfRgAACA7AAD/HwAAbDcAAPUmAADGMgAAQS0AAEEtAADGMgAA9SYAAGw3AAD/HwAAIDsAAH0YAADRPQAAkBAAAHM/AABaCAAAAAAAAP+fAAAAAAAA/18AAIcMAAAtXwAA4hQAAKCeAADYGAAAulwAAGkpAACLmgAAvCQAALBYAAD/LwAAI1MAADo9AADRkwAAcDoAAClMAADhQwAA4UMAAP9PAACPigAAKUwAAHA6AAAjUwAA/y8AAGZhAADvfgAAsFgAALwkAAC6XAAA2BgAAC1fAACHDAAA/18AAAAAAAD/nwAAAAAAACJxAAAicQAA734AAGZhAACPigAA/08AANGTAAA6PQAAi5oAAGkpAACgngAA4hQAAA==")
+}, {
+"aabb": AABB(-4.4709663e-09, 0, -1, 0.75, 1e-05, 0.75),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgAEAAMABAAFAAMABAAGAAUABgAHAAUABgAIAAcACAAJAAcACAAKAAkACgALAAkACgAMAAsADAANAAsADQAOAAsADQAPAA4ADwAQAA4ADwARABAAEQASABAAEgATABAAEgAUABMAFAAVABMAFQAWABMAFgAXABMAFgAYABcAFgAZABgAGgAbABwAHAAdABoAHAAeAB0AHgAfAB0AHgAgAB8AIAAhAB8AIQAiAB8AIQAjACIAIwAkACIAIwAlACQAJQAmACQAJgAnACQAJgAoACcAKAApACcAKQAqACcAKQArACoAKwAsACoALAAtACoALQAuACoALgAvACoALgAwAC8ALgAxADAALgAyADEALgAzADIA"),
+"name": "rockTrack",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAAAAVNUAANgbAACB0wAAaiEAAM79AAA2NwAAD84AAEFCAABF9wAAo1EAABfFAAD3YQAAguwAAKpqAAC/uAAA/38AALLdAADdgQAAP6kAANebAAAYywAA2JYAANiWAAA/qQAA3YEAAAS1AAAEtQAAv7gAAKpqAAAYywAA15sAABfFAACjUQAAD84AADY3AACy3QAA/38AAIHTAADYGwAAVNUAAAAAAAD//wAAAAAAAILsAAD3YQAARfcAAEFCAADO/QAAaiEAAAAAAAD/fwAAAAAAAFVVAAAjCwAAmlQAALUQAADnfgAAFRYAAGxSAAAgIQAAonsAAKcgAADWTgAAqioAAOZJAAD7MAAAQXYAAPIzAACyQwAA/z8AANluAABWPAAAVjwAALJDAADyMwAA600AAIxlAADmSQAAqioAANZOAACnIAAAgloAAIJaAABsUgAAFRYAAJpUAAAjCwAAVVUAAAAAAAD/fwAAAAAAAIxlAADrTQAA2W4AAP8/AABBdgAA+zAAAKJ7AAAgIQAA534AALUQAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_p6jqk"]
+resource_name = "terrain_roadCorner_Mesh terrain_roadCorner"
+_surfaces = [{
+"aabb": AABB(-4.4709663e-09, 0, -1, 1, 1e-05, 1),
+"attribute_data": PackedByteArray("/39Vg/9/gGKHjKhh//9Vg9iYJF+8pABb/69NVXC6JU7hw6ZFKMz2OyLTQDGw2LEludx+GSzf2wz/3wAA//8AACyEjSD/f9Ug/38AAP+fAABHiLYfPoxVHv+Pbxx6kwwaoJY3F2KZ/BO1m2oQj52QDOiefwi5n0kE/38VUv9/QDFDhtQwcIphUWuMki+0lElPXZKALf+XpiqcntVLN50SJ/Ch0yL/pxZHFKb7HZGpoBiysB9BV6zYElyuvwyWr20G/68AAP/PAACQuAo6d7/4MUfFCinoyWkfRc0+FU/Ptgo="),
+"format": 34896613399,
+"index_count": 150,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgAEAAMABAAFAAMABQAGAAMABgAHAAMABwAIAAMACAAJAAMACQAKAAMACgALAAMACwAMAAMADAANAAMADQAOAAMADgAPAAMAEAARABIAEgATABAAEwAUABAAEwAVABQAEwAWABUAEwAXABYAEwAYABcAEwAZABgAEwAaABkAEwAbABoAEwAcABsAEwAdABwAHgAfACAAIAAhAB4AIAAiACEAIgAjACEAIgAkACMAJAAlACMAJQAmACMAJQAnACYAJwAoACYAKAApACYAKAAqACkAKgArACkAKwAsACkAKwAtACwALQAuACwALgAvACwALwAwACwAMAAxACwAMQAyACwAMQAzADIAMQA0ADMAMQA1ADQAMQA2ADUAMQA3ADYA"),
+"material": SubResource("StandardMaterial3D_3tqdy"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(78.74016, 76.74016, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAA/7//vw8ZAABavv+///8AAP///7+xMQAAdLn/v3lJAABhsf+//18AAEam/7/hdAAAUpj/v8OHAADDh/+/UpgAAOF0/79GpgAA/1//v2GxAAB5Sf+/dLkAALEx/79avgAADxn/v/+/AAAAAP+///8AAAAA/79aCAAAcz//vwAAAAD/P/+/AAAAAAAA/7//PwAAAAD/v5AQAADRPf+/fRgAACA7/7//HwAAbDf/v/UmAADGMv+/QS0AAEEt/7/GMgAA9Sb/v2w3AAD/H/+/IDsAAH0Y/7/RPQAAkBD/v3M/AABaCP+/AAAAAP+f/78AAAAA/1//v4cMAAAtX/+/4hQAAKCe/7/YGAAAulz/v2kpAACLmv+/vCQAALBY/7//LwAAI1P/vzo9AADRk/+/cDoAAClM/7/hQwAA4UP/v/9PAACPiv+/KUwAAHA6/78jUwAA/y//v2ZhAADvfv+/sFgAALwk/7+6XAAA2Bj/vy1fAACHDP+//18AAAAA/7//nwAAAAD/vyJxAAAicf+/734AAGZh/7+PigAA/0//v9GTAAA6Pf+/i5oAAGkp/7+gngAA4hT/v////3////9/////f////3////9/////f////3////9/////f////3/+//9/////f/7//3/+//9/////f////3/+//9//v//f////3/+//9//v//f/7//3/+//9/////f/7//3/+//9//v//f/7//3/+//9//v//f////3/+//9/////f////3/+//9//v//f////3/+//9/////f/7//3////9//v//f/7//3/+//9/////f/7//3/+//9//v//f/7//3/+//9/////f/7//3/+//9//v//f/7//3/+//9/")
+}, {
+"aabb": AABB(-4.4709663e-09, 0, -1, 0.75, 1e-05, 0.75),
+"attribute_data": PackedByteArray("/3+AYv9/FVLrjWFRtJCoYZqbSU8goSRf0ajVS/uwAFtUtRZH/79NVe7AH0HrzSVOa8sKOp/U+DGB2qZFX9wKKYvl9juL4mkfB+c+FdjuQDHA6bYKqeoAAP//AABA9rElovt+Geb+2wz/f0Ax/3/VIJGFjSBaiNQwCou2H4+Qki9TkFUeVJVvHH2YgC34mQwa/5+mKiqeNxfYofwT9aYSJ/KkahBqp5AMQK3TIjWpfwhMqkkEqqoAAP+/AADFsvsdbLegGCC72BLQvb8Mc79tBg=="),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgAEAAMABAAFAAMABAAGAAUABgAHAAUABgAIAAcACAAJAAcACAAKAAkACgALAAkACgAMAAsADAANAAsADQAOAAsADQAPAA4ADwAQAA4ADwARABAAEQASABAAEgATABAAEgAUABMAFAAVABMAFQAWABMAFgAXABMAFgAYABcAFgAZABgAGgAbABwAHAAdABoAHAAeAB0AHgAfAB0AHgAgAB8AIAAhAB8AIQAiAB8AIQAjACIAIwAkACIAIwAlACQAJQAmACQAJgAnACQAJgAoACcAKAApACcAKQAqACcAKQArACoAKwAsACoALAAtACoALQAuACoALgAvACoALgAwAC8ALgAxADAALgAyADEALgAzADIA"),
+"material": SubResource("StandardMaterial3D_qewoj"),
+"name": "rockTrack",
+"primitive": 3,
+"uv_scale": Vector4(59.05512, 76.74016, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAAVNX/v9gbAACB0/+/aiEAAM79/782NwAAD87/v0FCAABF9/+/o1EAABfF/7/3YQAAguz/v6pqAAC/uP+//38AALLd/7/dgQAAP6n/v9ebAAAYy/+/2JYAANiW/78/qQAA3YH/vwS1AAAEtf+/v7gAAKpq/78YywAA15v/vxfFAACjUf+/D84AADY3/7+y3QAA/3//v4HTAADYG/+/VNUAAAAA/7///wAAAAD/v4LsAAD3Yf+/RfcAAEFC/7/O/QAAaiH/vwAAAAD/f/+/AAAAAFVV/78jCwAAmlT/v7UQAADnfv+/FRYAAGxS/78gIQAAonv/v6cgAADWTv+/qioAAOZJ/7/7MAAAQXb/v/IzAACyQ/+//z8AANlu/79WPAAAVjz/v7JDAADyM/+/600AAIxl/7/mSQAAqir/v9ZOAACnIP+/gloAAIJa/79sUgAAFRb/v5pUAAAjC/+/VVUAAAAA/7//fwAAAAD/v4xlAADrTf+/2W4AAP8//79BdgAA+zD/v6J7AAAgIf+/534AALUQ/7////9//v//f////3////9/////f////3////9/////f////3////9/////f////3/+//9//v//f////3/+//9//v//f////3/+//9/////f/7//3////9/////f////3/+//9//v//f/7//3/+//9/////f////3////9/////f/7//3////9//v//f////3/+//9//v//f/7//3/+//9/////f/7//3/+//9//v//f/7//3/+//9//v//f/7//3////9//v//f/7//3/+//9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uylnh")
+
+[sub_resource type="PackedScene" id="PackedScene_ierrn"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("terrain_roadCorner2", "Node3D", "terrain_roadCorner", "transform", "mesh", "skeleton", "MeshInstance3D"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 6, 2, -1, 3, 3, 0, 4, 1, 5, 2, 0),
+"variants": [Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.5), SubResource("ArrayMesh_p6jqk"), NodePath("")],
+"version": 3
+}
 
 [resource]
 script = ExtResource("2_j2v2j")
-model = ExtResource("1_lrtey")
+model = SubResource("PackedScene_ierrn")
 price = 150

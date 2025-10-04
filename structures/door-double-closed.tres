@@ -1,9 +1,94 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://5ie2k10l4b2g"]
+[gd_resource type="Resource" script_class="Structure" load_steps=9 format=4 uid="uid://cu6f51rf0dv2a"]
 
-[ext_resource type="PackedScene" uid="uid://mslq8nt5s2dx" path="res://models/door-double-closed.glb" id="1_8ii6o"]
+[ext_resource type="Texture2D" uid="uid://k6f5xxl8mufc" path="res://models/Textures/colormap.png" id="1_8ii6o"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_7pgko"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yirmc"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_8ii6o")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rk8fv"]
+_surfaces = [{
+"aabb": AABB(-0.3, 0, -0.05, 0.6, 0.7, 0.1),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAwACAAEABAABAAAAAQAEAAMAAAAFAAQABAAFAAYABQAAAAcABwAGAAUAAgAIAAAABgAIAAIAAAAIAAkACQAHAAAACAAKAAkACAAGAAoABwAJAAsACwAJAAoACwAMAAcABwAMAA0ADQAMAAsABwAOAAYADgAHAA0ADgAKAAYACwAPAA0ADwALAAoADQAPAAMAAwAPAAoAEAAOAA0ACgAOABAAAwARAA0ADQARABAACgASAAMAEAASAAoAEgADABEAAwASABEAAwASAAIAEgAQAAIAEAARABIAEQAQABIAEQADAAQAEwACABAAEwAQABEAAgATAAYABAATABEABgATAAQA"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAAAAAAAAAAAA//8AAAAAqir/fwAAAAD//wAAAAAAAP//AAD//wAA////////AABU1ZIk//8AAAAA/////wAAqiqSJP//AACqKmzb//8AAKoqkiT/fwAAVNWSJP9/AABU1f9//38AAFTVbNv//wAAqir/f/9/AABU1WzbAAAAAFTV/38AAAAAqips2wAAAAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hjply"]
+resource_name = "door-double-closed_door-double-closed"
+_surfaces = [{
+"aabb": AABB(-0.3, 0, -0.05, 0.6, 0.7, 0.1),
+"attribute_data": PackedByteArray("/1eY+f9XmPn/V2XG/1dlxv9XZcb/V2XG/1eY+f9XmPn/V2XG/1dlxv9XZcb/V2XG/1eY+f9XmPn/V5j5/1eY+f9XmPn/V5j5/1f/3/9XZcb/V//f/1dlxv9Xts3/V7bN/1dI8v9Xts3/V2XG/1e2zf9XmPn/V2XG/1eY+f9XSPL/N0jy/zdI8v83/9//N7bN/ze2zf83/9//N0jy/zdI8v83SPL/N0jy/ze2zf83ts3/N7bN/ze2zf83ts3/N7bN/zf/3/83/9//N0jy/zdI8v83/9//N7bN/zf/3/83ts3/N/+f/zf/n/83/5//N/+f/zf/n/83SLL/N0iy/zf/nw=="),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAASABEAEQAVABQAEgAWABMAFgASABQAFQATABcAFgAXABMAFQAXABQAFAAXABYAGAAZABoAGQAbABoAGAAaABwAHQAaABsAHAAeABgAHQAbAB8AHwAYAB4AHgAdAB8AIAAhACIAIwAgACIAJAAjACIAIgAlACQAJgAnACgAKAApACYAKgArACwALAAtACoALgAvADAAMAAxAC4AMQAyAC4AMgAzAC4ANAA1ADYANwA2ADUAOAA5ADoAOgA7ADgAPAA9AD4APgA/ADwA"),
+"material": SubResource("StandardMaterial3D_yirmc"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAAAAD/vwAA//8AAP+/AAD//////7//////////v/////8AAP+///8AAAAA/7///wAA////vwAA//8AAP///////wAA/////////////wAA////////AAAAAP///7///wAA////v///AAAAAP+/AAAAAAAA/78AAAAAAAD/////AAAAAP//qir/fwAA//8AAP//AAD//1TV/38AAP///////wAA//+qKmzbAAD//1TVbNsAAP//VNWSJP//AIBU1Wzb//8AgP///////wCAqips2///AID//wAA//8AgAAA/////wCAAAAAAP//AICqKpIk//8AgFTVkiT///zFVNWSJP9//MVU1f9//3//v1TVbNv///zFVNVs2wAA/MVU1f9/AAD/v6oqkiT/f6rpVNWSJP9/qulU1ZIk//+q6aoqkiT//6rpqips2////MVU1Wzb///8xVTVbNsAAPzFqips2wAA/MWqKmzb///8xaoqbNsAAPzFqir/fwAA/7+qKv9//3//v6oqkiT/f/zFqiqSJP///MWqKv9/AAAAAKoqbNsAAAAAVNX/fwAAAABU1WzbAAAAAKoq/38AAP//VNX/fwAA//9U1f9//3///6oq/3//f///VNX/f/9//59U1ZIk/38AgKoqkiT/fwCAqir/f/9//5//f////3////9/////f////38AAP9/AAD/fwAA/38AAP9//7//f/+//3//v/9//78AAP9/AAD/fwAA/38AAP9//3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////6cAMb+nADG/3///wFG/+IBRv/i/3///wQ19hUJagS1CWoEtQQ19hX/HAFG/jn+nP45/pz/HAFGAGP+OQBj/jn/fwAA/38AAP25/xz9uf8c/3//f/9//3//f/9//3//f/9//7//f/+//398pf9/fKX///9//3////9///////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rk8fv")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qby6g"]
+_surfaces = [{
+"aabb": AABB(-0.05, 0, -0.05, 0.1, 0.3, 0.1),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("BAACAAYABgACAAAAAAABAAYABgABAAMAAwAFAAQABgAHAAQABAAHAAMAAwAHAAYA"),
+"lods": [0.06718648, PackedByteArray("AAABAAIAAgABAAMAAwAEAAIAAwAFAAQA")],
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAFRVAAAAAP//AAD//wAAAACpqgAAAAD///////8AAP////8AAAAAAABUVf//AAAAAKmq//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wnwgn"]
+resource_name = "door-double-closed_Group"
+_surfaces = [{
+"aabb": AABB(-0.05, 0, -0.05, 0.1, 0.3, 0.1),
+"attribute_data": PackedByteArray("/1eY+f9Xh+j/V5j5/1d21/9XZcb/V2XG/1dlxv9XmPn/V4fo/1d21/9Xh+j/V4fo/1eH6P9Xdtf/V3bX/1d21w=="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("BgAHAAgACAAJAAYACgACAAAAAAABAAoACwAMAAMAAwANAAsADgAFAAQABAAPAA4A"),
+"lods": [0.06718648, PackedByteArray("AAABAAIAAgABAAMAAwAEAAIAAwAFAAQA")],
+"material": SubResource("StandardMaterial3D_yirmc"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("//8AAAAA/MUAAFRVAACMwf//AAD///zFAACpqgAAjMH////////8xf////8AAPzF////////AID//wAA//8AgAAAVFX//wCAAACpqv//AIAAAFRV//+MwQAAVFX//4zBAABUVQAAjMEAAKmq//+MwQAAqaoAAIzBAACpqv//jMEBRv/ikVvI7QFG/+I2kpHb/pwAxv6cAMb/f////3////9/////f///kVvI7ZFbyO2RW8jtNpKR2zaSkds2kpHb")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qby6g")
+
+[sub_resource type="PackedScene" id="PackedScene_7pgko"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("door-double-closed2", "Node3D", "door-double-closed", "mesh", "skeleton", "MeshInstance3D", "Group", "transform"),
+"node_count": 3,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 5, 2, -1, 2, 3, 0, 4, 1, 0, 1, 0, 5, 6, -1, 3, 7, 2, 3, 3, 4, 1, 0),
+"variants": [SubResource("ArrayMesh_hjply"), NodePath(""), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.2, 0), SubResource("ArrayMesh_wnwgn")],
+"version": 3
+}
 
 [resource]
 script = ExtResource("2_7pgko")
-model = ExtResource("1_8ii6o")
+model = SubResource("PackedScene_7pgko")
 price = 150

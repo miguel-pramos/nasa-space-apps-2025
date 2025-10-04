@@ -1,9 +1,58 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://4ymags32b26b"]
+[gd_resource type="Resource" script_class="Structure" load_steps=6 format=3 uid="uid://bmyj6oyvdhe33"]
 
-[ext_resource type="PackedScene" uid="uid://bqq5i65nr4o20" path="res://models/terrain_side.glb" id="1_noygm"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_8p2xq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_enlem"]
+resource_name = "rock"
+albedo_color = Color(0.9592555, 0.7468624, 0.65628237, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nljvm"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 0.5, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_78bkj"]
+resource_name = "terrain_side_Mesh terrain_side"
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 0.5, 1),
+"attribute_data": PackedByteArray(0, 0, 114, 50, 255, 255, 114, 50, 255, 255, 255, 255, 0, 0, 255, 255),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 3, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_enlem"),
+"name": "rock",
+"primitive": 3,
+"uv_scale": Vector4(39.37008, 54.820503, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 127, 26, 207, 255, 127, 26, 207, 255, 127, 26, 207, 255, 127, 26, 207)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nljvm")
+
+[sub_resource type="PackedScene" id="PackedScene_eovdq"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("terrain_side2", "Node3D", "terrain_side", "transform", "mesh", "skeleton", "MeshInstance3D"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 6, 2, -1, 3, 3, 0, 4, 1, 5, 2, 0),
+"variants": [Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.5), SubResource("ArrayMesh_78bkj"), NodePath("")],
+"version": 3
+}
 
 [resource]
 script = ExtResource("2_8p2xq")
-model = ExtResource("1_noygm")
+model = SubResource("PackedScene_eovdq")
 price = 150

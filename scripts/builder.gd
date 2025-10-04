@@ -14,49 +14,70 @@ var index:int = 0 # Index of structure being built
 
 var plane:Plane # Used for raycasting mouse
 
+# Move mode variables
+var move_mode:bool = false
+var moving_item_node:Node3D = null # O Node3D que representa o item sendo movido
+var moving_structure_index:int = -1
+var moving_structure_orientation:int = 0
+var moving_from_position:Vector3i
+
 func _ready():
 	map = DataMap.new()
 	plane = Plane(Vector3.UP, Vector3.ZERO)
-	
+
 	# Create new MeshLibrary dynamically, can also be done in the editor
 	# See: https://docs.godotengine.org/en/stable/tutorials/3d/using_gridmaps.html
-	
+
 	var meshlib = MeshLibrary.new()
 	for structure in structures:
 		var id = meshlib.get_last_unused_item_id()
-		
+
 		meshlib.create_item(id)
 		meshlib.set_item_mesh(id, get_mesh(structure.model))
 		meshlib.set_item_mesh_transform(id, Transform3D())
-			
+
 	gridmap.mesh_library = meshlib
-	
+
 	update_structure()
 	update_cash()
 
 func _process(delta):
-	
-	# Controls
-	
-	action_rotate() # Rotates selection 90 degrees
-	action_structure_toggle() # Toggles between structures
-	
-	action_save() # Saving
-	action_load() # Loading
-	action_load_resources() # Loading from resources
-	
+
 	# Map position based on mouse
-	
 	var world_position = plane.intersects_ray(
 		view_camera.project_ray_origin(get_viewport().get_mouse_position()),
 		view_camera.project_ray_normal(get_viewport().get_mouse_position()))
 
-	if world_position != null:
-		var gridmap_position = Vector3(round(world_position.x), 0, round(world_position.z))
-		selector.position = lerp(selector.position, gridmap_position, min(delta * 40, 1.0))
-		
+	if world_position == null:
+		return # Can't get mouse position, so do nothing
+
+	var gridmap_position = Vector3(round(world_position.x), 0, round(world_position.z))
+
+	# Cursor always follows the mouse on the ground plane (y=0)
+	selector.global_position = lerp(selector.global_position, gridmap_position, min(delta * 40, 1.0))
+
+	if not move_mode:
+		# Normal Mode
+		action_rotate()
+		action_structure_toggle()
 		action_build(gridmap_position)
 		action_demolish(gridmap_position)
+		action_enter_move_mode(gridmap_position)
+	else:
+		# Move Mode - the item being moved follows the cursor but elevated
+		if moving_item_node:
+			var elevated_position = gridmap_position
+			elevated_position.y = 2.0 # Elevated height
+			moving_item_node.position = lerp(moving_item_node.position, elevated_position, min(delta * 40, 1.0))
+
+		action_place_moved_item(gridmap_position)
+		action_cancel_move()
+		action_rotate_moving()
+
+	# Save/Load work in any mode
+	action_save()
+	action_load()
+	action_load_resources()
 
 func get_mesh(packed_scene):
 	var scene_state:SceneState = packed_scene.get_state()
@@ -66,45 +87,124 @@ func get_mesh(packed_scene):
 				var prop_name = scene_state.get_node_property_name(i, j)
 				if prop_name == "mesh":
 					var prop_value = scene_state.get_node_property_value(i, j)
-					
+
 					return prop_value.duplicate()
 
+# ========== MOVE MODE ==========
 
+# Enters move mode when clicking on an existing item
+func action_enter_move_mode(gridmap_position):
+	if Input.is_action_just_pressed("move"): # Assumes a "move" action is defined in Input Map
+		var grid_pos = Vector3i(int(gridmap_position.x), 0, int(gridmap_position.z))
+		var cell_item = gridmap.get_cell_item(grid_pos)
+
+		if cell_item != -1:
+			# An item exists here, let's pick it up
+			move_mode = true
+			moving_structure_index = cell_item
+			moving_structure_orientation = gridmap.get_cell_item_orientation(grid_pos)
+			moving_from_position = grid_pos
+
+			# Create a visual Node3D to represent the item being moved (elevated)
+			moving_item_node = Node3D.new()
+			get_tree().root.add_child(moving_item_node)
+
+			# Add the visual model
+			var model = structures[moving_structure_index].model.instantiate()
+			moving_item_node.add_child(model)
+
+			# Initial position (where it was + elevated)
+			moving_item_node.position = Vector3(grid_pos.x, 2.0, grid_pos.z)
+
+			# Original rotation
+			var basis = gridmap.get_basis_with_orthogonal_index(moving_structure_orientation)
+			moving_item_node.basis = basis
+
+			# Now, remove it from the GridMap (the elevated visual already exists)
+			gridmap.set_cell_item(grid_pos, -1)
+
+			Audio.play("sounds/placement-a.ogg", -20)
+			print("Move Mode: Picked up item ", moving_structure_index, " from ", grid_pos)
+
+# Places the item being moved in the new position
+func action_place_moved_item(gridmap_position):
+	if Input.is_action_just_pressed("build"):
+		var grid_pos = Vector3i(int(gridmap_position.x), 0, int(gridmap_position.z))
+		var existing_item = gridmap.get_cell_item(grid_pos)
+
+		# Only place if the position is empty
+		if existing_item == -1:
+			# Get the current orientation of the item being moved
+			var final_orientation = gridmap.get_orthogonal_index_from_basis(moving_item_node.basis)
+
+			# Place on the GridMap
+			gridmap.set_cell_item(grid_pos, moving_structure_index, final_orientation)
+
+			# Remove the elevated visual node
+			moving_item_node.queue_free()
+			moving_item_node = null
+
+			# Exit move mode
+			move_mode = false
+
+			Audio.play("sounds/placement-a.ogg", -20)
+			print("Move Mode: Item placed at ", grid_pos)
+
+# Cancels move mode and returns the item to its original position
+func action_cancel_move():
+	if Input.is_action_just_pressed("cancel_move"):
+		# Return item to original position
+		gridmap.set_cell_item(moving_from_position, moving_structure_index, moving_structure_orientation)
+
+		# Remove the elevated visual node
+		if moving_item_node:
+			moving_item_node.queue_free()
+			moving_item_node = null
+
+		# Exit move mode
+			move_mode = false
+
+		Audio.play("sounds/removal-a.ogg", -20)
+		print("Move Mode: Canceled, item returned to ", moving_from_position)
+
+# Rotates the item being moved
+func action_rotate_moving():
+	if Input.is_action_just_pressed("rotate"):
+		if moving_item_node:
+			moving_item_node.rotate_y(deg_to_rad(90))
+			Audio.play("sounds/rotate.ogg", -30)
+
+# ========== NORMAL MODE ==========
 
 # Build (place) a structure
-
 func action_build(gridmap_position):
 	if Input.is_action_just_pressed("build"):
-		
+
 		var previous_tile = gridmap.get_cell_item(gridmap_position)
 		gridmap.set_cell_item(gridmap_position, index, gridmap.get_orthogonal_index_from_basis(selector.basis))
-		
+
 		if previous_tile != index:
 			map.cash -= structures[index].price
 			update_cash()
-			
-			Audio.play("sounds/placement-a.ogg, sounds/placement-b.ogg, sounds/placement-c.ogg, sounds/placement-d.ogg", -20)
+
+		Audio.play("sounds/placement-a.ogg", -20)
 
 # Demolish (remove) a structure
-
 func action_demolish(gridmap_position):
 	if Input.is_action_just_pressed("demolish"):
 		if gridmap.get_cell_item(gridmap_position) != -1:
 			gridmap.set_cell_item(gridmap_position, -1)
-			
-			Audio.play("sounds/removal-a.ogg, sounds/removal-b.ogg, sounds/removal-c.ogg, sounds/removal-d.ogg", -20)
 
+			Audio.play("sounds/removal-a.ogg", -20)
 
 # Rotates the 'cursor' 90 degrees
-
 func action_rotate():
 	if Input.is_action_just_pressed("rotate"):
 		selector.rotate_y(deg_to_rad(90))
-		
+
 		Audio.play("sounds/rotate.ogg", -30)
 
 # Toggle between structures to build
-
 func action_structure_toggle():
 	var changed = false
 	if Input.is_action_just_pressed("structure_next"):
@@ -120,63 +220,63 @@ func action_structure_toggle():
 		update_structure()
 
 # Update the structure visual in the 'cursor'
-
 func update_structure():
 	# Clear previous structure preview in selector
 	for n in selector_container.get_children():
 		selector_container.remove_child(n)
-		
+		n.queue_free()
+
 	# Create new structure preview in selector
 	var _model = structures[index].model.instantiate()
 	selector_container.add_child(_model)
 	_model.position.y += 0.25
-	
+
 func update_cash():
 	cash_display.text = "$" + str(map.cash)
 
-# Saving/load
+# ========== SAVING/LOADING ==========
 
 func action_save():
 	if Input.is_action_just_pressed("save"):
 		print("Saving map...")
-		
+
 		map.structures.clear()
 		for cell in gridmap.get_used_cells():
-			
+
 			var data_structure:DataStructure = DataStructure.new()
-			
+
 			data_structure.position = Vector2i(cell.x, cell.z)
 			data_structure.orientation = gridmap.get_cell_item_orientation(cell)
 			data_structure.structure = gridmap.get_cell_item(cell)
-			
+
 			map.structures.append(data_structure)
-			
+
 		ResourceSaver.save(map, "user://map.res")
-	
+
 func action_load():
 	if Input.is_action_just_pressed("load"):
 		print("Loading map...")
-		
+
 		gridmap.clear()
-		
+
 		map = ResourceLoader.load("user://map.res")
 		if not map:
 			map = DataMap.new()
 		for cell in map.structures:
 			gridmap.set_cell_item(Vector3i(cell.position.x, 0, cell.position.y), cell.structure, cell.orientation)
-			
+
 		update_cash()
 
 func action_load_resources():
 	if Input.is_action_just_pressed("load_resources"):
 		print("Loading map...")
-		
+
 		gridmap.clear()
-		
+
 		map = ResourceLoader.load("res://sample map/map.res")
 		if not map:
 			map = DataMap.new()
 		for cell in map.structures:
 			gridmap.set_cell_item(Vector3i(cell.position.x, 0, cell.position.y), cell.structure, cell.orientation)
-			
+
 		update_cash()

@@ -1,9 +1,62 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://mbdxevf1opc5"]
+[gd_resource type="Resource" script_class="Structure" load_steps=7 format=4 uid="uid://qprbqi4gke16"]
 
-[ext_resource type="PackedScene" uid="uid://53sqtu5j6fqd" path="res://models/balcony-floor.glb" id="1_sudwm"]
+[ext_resource type="Texture2D" uid="uid://k6f5xxl8mufc" path="res://models/Textures/colormap.png" id="1_sudwm"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_4p33c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o01we"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_sudwm")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sg2qp"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.35, 1, 0.15, 0.7),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("DwAQAAAAEAAPABEAAAAQABIAEQASABAAEgADAAAAEgARAAYABgADABIAAAADAAcAAwAGAAcAAAABAA8AEQAPAAIAAQACAA8AEQAFAAYAAgAFABEABwAIAAAAAQAAAAgADQAHAAYACAAHAA0ABQAKAAYABgAKAA0ABQACABMAAQATAAIABQAEAAoAEwAEAAUADQAKAAsABAALAAoADQAOAAgACwAOAA0ACAAOAAsACwAMAAgACAAMAAkACQAMAAsACwAEAAkACAAJAAEAFAAEABMABAAUAAkAEwAVABQAAQAVABMAFAAWAAkAFgAUABUAFwABAAkACQAWABcAAQAXABUAFQAXABYA"),
+"lods": [0.57793534, PackedByteArray("AAABAAIAAAACAAMAAgABAAQABQADAAIAAgAEAAUAAwAFAAYAAAADAAcAAwAGAAcAAQAAAAgABwAIAAAACQAEAAEACAAJAAEABQAEAAoABQAKAAYACwAEAAkABAALAAoACAAMAAkACQAMAAsACwAMAAgADQAHAAYABgAKAA0ACAAHAA0ADQAKAAsACAAOAAsACwAOAA0ADQAOAAgA")],
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAAAAAAAGXmAAD//wAA/////wAAAACZGf////8AAGXm/////wAAzMz//wAAAADMzKmqAAAAADIzqaoAAAAAAAD//wAAAADMzP//2rYAADIz///atgAAMjP//wAAAADMzKmq2rYAADIzqaratgAAf/gAAEj1AAD//wAAbNsAAH/4//9I9QAA/////2zbAACZGQAA//8AAH8H//9I9QAAfwcAAEj1AAAAAP//bNsAAAAAAABs2wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fjta4"]
+resource_name = "balcony-floor_balcony-floor"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.35, 1, 0.15, 0.7),
+"attribute_data": PackedByteArray("/zeY+f83mPn/N5j5/zd21/83Zcb/N2XG/zeY+f83mPn/N3bX/zdlxv83Zcb/N2XG/zdlxv83dtf/N3bX/zdlxv83dtf/N3bX/zdlxv83dtf/N3bX/zdlxv83Zcb/N5j5/zdlxv83Zcb/N2XG/zeY+f83mPn/N2XG/zd21/83dtf/N3bX/zd21/9XZcb/V2XG/1dlxv9XZcb/V2XG/1dlxv9XZcb/V2XG/zeY+f83mPn/N5j5/zeY+f83mPn/N5j5/zdlxv83mPn/N2XG/zeY+f83mPn/N5j5/zdlxv83Zcb/N2XG/zdlxv83mPn/N5j5/zdlxv83mPn/N5j5/zdlxv83mPn/N5j5/zdlxv83Zcb/V2XG/1dlxv9XZcb/V2XG"),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("KgArAAAAAAABACoAAQACACoAAQAsAAIAAQAtACwAAQAuAC0ALwAcAB0AHQAwAC8AAwAEAAUAAwAFAAYABgAHAAMACAADAAcABwAJAAgACQAKAAgACwAMAA0ADQAOAAsADwAQABEAEQASAA8AEwAUABUAFQAWABMAGQAXADEAMQAYABkAMgAaABsAGwAzADIAHgAfACAAIAAhAB4ANAA1ADYANgA3ADQAOAA5ADoAOgA7ADgAPAA9AD4APgA/ADwAQABBAEIAQgBDAEAAIgAjACQAJAAlACIAJQAkACYAJQBEACIARABFACIAJwAlACYAJwAmACgARgAnACgARwBGACgAKAApAEcA"),
+"lods": [0.57793534, PackedByteArray("AAABAAIAAwAEAAUAAwAFAAYABgAHAAMACAADAAcABwAJAAgACQAKAAgACwAMAA0ADQAOAAsADwAQABEAEQASAA8AEwAUABUAFQAWABMAFwAYABkAGQAaABcAGwAXABoAFwAcABgAHQAYABwAHgAfACAAIAAhAB4AIgAjACQAJAAlACIAJQAkACYAJwAlACYAJwAmACgAKQAnACgA")],
+"material": SubResource("StandardMaterial3D_o01we"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("//8AAAAA/78AAAAAAAD/v2XmAAD///+/MjOpqgAA//8yM///AAD//wAA//8AAP//AAAAAAAA/////wAAAAD//8zMqaoAAP///////wAA///MzP//AAD//zIz///atv+/MjP//wAA/78yM6mqAAD/vzIzqaratv+/MjP//9q2//8yM6mq2rb//8zMqaratv//zMz//9q2///MzKmq2rb/v8zMqaoAAP+/zMz//wAA/7/MzP//2rb/v2XmAAD///+HmRn//////4dl5v//////h/////8AAP+///8AAAAA/78AAAAAAAD/vwAA//8AAP+/MjOpqgAA///MzKmqAAD//8zMqaratv//MjOpqtq2//8AAP//AAD//zIz//8AAP//MjP//9q2//+ZGf///////8zM///atv//Zeb////////MzP//AAD///////8AAP//f/gAAEj1/7///wAAbNv/v5kZAAD///+/fwcAAEj1/78AAAAAbNv/vwAAAABs2/+3AAD//2zb/7eZGQAA////h/////9s2/+3//8AAGzb/7eZGQAA////h38HAABI9f+ffwf//0j1/5+ZGf//////h3/4//9I9f+f/////2zb/7f//wAAbNv/t3/4AABI9f+ff/j//0j1/59/+AAASPX/n2XmAAD///+HZeb//////4d/BwAASPX/nwAAAABs2/+3AAD//2zb/7d/B///SPX/n38H//9I9f//AAD//2zb//9/+P//SPX///////9s2///AAD/fwAA/38AAP9//3////9/////f////3////9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/////f////3////9/////fwAA/3////9/AAD/fwAA/38AAP9/////f////3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+//3//v/9//7//f/+/AAD/fwAA/38AAP9/AAD/fwAA/3//f////3////9/////fwAA/38AAP9/////f////3////9/////fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_sg2qp")
+
+[sub_resource type="PackedScene" id="PackedScene_4p33c"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("balcony-floor2", "Node3D", "balcony-floor", "mesh", "skeleton", "MeshInstance3D"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 5, 2, -1, 2, 3, 0, 4, 1, 0),
+"variants": [SubResource("ArrayMesh_fjta4"), NodePath("")],
+"version": 3
+}
 
 [resource]
 script = ExtResource("2_4p33c")
-model = ExtResource("1_sudwm")
+model = SubResource("PackedScene_4p33c")
 price = 150

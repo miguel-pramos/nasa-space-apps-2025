@@ -1,9 +1,62 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://c8s48n0t5cmj3"]
+[gd_resource type="Resource" script_class="Structure" load_steps=7 format=4 uid="uid://xxltgexb83n2"]
 
-[ext_resource type="PackedScene" uid="uid://c6a3s7ojwpdub" path="res://models/bed-double-cover.glb" id="1_o1pwg"]
+[ext_resource type="Texture2D" uid="uid://k6f5xxl8mufc" path="res://models/Textures/colormap.png" id="1_o1pwg"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_y7bh5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gcrd"]
+resource_name = "colormap"
+cull_mode = 2
+albedo_texture = ExtResource("1_o1pwg")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xifyt"]
+_surfaces = [{
+"aabb": AABB(-0.3, 0, -0.25, 1.1, 0.15, 0.5),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("EAAAABEAEQAAAAMAAwAAABAAEAACAAMAAwACAAQABAACABAAAwAFABEABAAFAAMAEQABABAAEAABAAQABQASABEAAQARABIABwAFAAQABQAHABIABAABABMABAAMAAcADAAEABMAAQAUABMAEgAUAAEACQAUABIAFAAJAAgAFAAIABMAEgAGAAkACAAJAAYABgAKAAgAEwAIAAoAFQAKAAYACgAVABMAFQAGABIACwAVABIAEwAVAAsABwALABIACwAWABMADAATABYAFwALAAcAFgALABcABwAMAA8ADwAMABYADwAOAAcABwAOABcAFwAOAA8ADwANABcAFwANABYAFgANAA8A"),
+"lods": [0.17489135, PackedByteArray("AAABAAIAAwAAAAIAAwACAAQAAgABAAQAAwAFAAAABAAFAAMAAQAAAAYABQAGAAAABwAFAAQABQAHAAYABAABAAgAAQAJAAgABgAJAAEACAAJAAYABgAKAAgACwAKAAYACgALAAgABwALAAYADAAEAAgABAAMAAcACwANAAgADAAIAA0ADQALAA4ADgALAAcADwAMAA0ADwANAA4ABwAMAA8ADwAOAAcA")],
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAKmq//8AAKILAAD//wAAogsAAAAAAACiC6mq//8AAKILqaoAAAAAogv//wAAAABc9KmqAAAAAFz0/////wAAogv/////AABc9P//AAAAAP//qaoAAAAAXPSpqv//AAD//wAA//8AAFz0AAAAAAAAXPQAAP//AAAAAAAA//8AAAAAqaoAAAAAaAMA5wAAAACW/ADn//8AAGgDAOf//wAAlvwA5wAAAAD//6mq//8AAP//AAAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_67xhi"]
+resource_name = "bed-double-cover_bed-double-cover"
+_surfaces = [{
+"aabb": AABB(-0.3, 0, -0.25, 1.1, 0.15, 0.5),
+"attribute_data": PackedByteArray("/zeYuf83dpf/N5i5/zeYuf83ZYb/N2WG/zdlhv83ZYb/N3aX/zeYuf83mLn/N5i5/zd2l/83dpf/N5i5/zeYuf83mLn/N5i5/zd2l/83dpf/N3aX/zd2l/83dpf/N3aX/zeYuf83dpf/N5i5/zdlhv83dpf/N3aX/zdlhv83mLn/N5i5/zd2l/83mLn/N2WG/zd2l/83dpf/N2WG/zeYuf83mLn/N3aX/zdli/83ZYv/N3aX/zd2l/83ZYv/N2WL/zeYuf83mLn/N2WG/zdlhv83ZYb/N2WL/zdli/83ZYb/N2WL/zdli/83dpf/N5i5/zd2l/83ZYv/N5i5/zdli/83dpf/N3aX/zeYuf83mLn/N3aX/zdli/83mLn/N2WL"),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("KAAAACkAKQABACgAKgAEAAUABQArACoALAAtAC4ALgAvACwADAANAA4ADgAPAAwAMAACAAMAAwAxADAAEAARABIAEgATABAAMgAHAAYABgAzADIAFAAVABYAFgAXABQANAA1ADYANgA3ADQAOAA5AAgACAA6ADgACwAJADsAOwAKAAsAPAAaABgAGAAZADwAGQA9ADwAGQAcAD0AHAAfAD4APgAdABwAHAAdAD0AHQA/AD0APwAbAD0APwAeABsAQABBAEIAQgBDAEAARAAiACAAIAAhAEQAIQBFAEQAIQAkAEUAJAAnAEYARgAlACQAJAAlAEUAJQBHAEUARwAjAEUARwAmACMA"),
+"lods": [0.17489135, PackedByteArray("AAABAAIAAwAAAAIAAQAAAAQABAAFAAEABgAFAAQABAAHAAYABwAIAAYACAAJAAYACQAIAAoACwAJAAoADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGQAbABoAGQAcABsAHAAdABsAHQAeABsAHwAdABwAIAAhACIAIQAjACIAIQAkACMAJAAlACMAJQAmACMAJwAlACQA")],
+"material": SubResource("StandardMaterial3D_4gcrd"),
+"name": "colormap",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("AAAAAAAA/MUAAKmq//9jwKILAAD///+/ogsAAAAA/7+iC///AADf0KIL/////9/QXPT/////WPpc9P//AABY+v//qaoAAGPA//8AAP///MVc9AAAAAD/v1z0AAD///+/ogupqv///7+iC6mqAAD/v6ILAAAAAP+/ogsAAP///79c9AAA////v1z0AAAAAP+/XPSpqgAA/79c9Kmq////v6ILqar///+/XPSpqv///79c9KmqAAD/v6ILqaoAAP+/ogsAAAAA//+iC6mqAAD//wAAAAAAAP//ogv//wAA//9c9KmqAAD/////qaoAAP//XPT//wAA//9c9AAAAAD//1z0AAD//wCAXPSpqv//AID//wAA//8AgFz0/////wCAogupqv//AIAAAKmq//8AgKIL/////wCAogsAAP//AIAAAAAA///8xQAAqaoAAGPAaAMA5wAA/MVoAwDn///8xQAAqar//2PAAACpqgAAY8BoAwDnAAD8xWgDAOf///zFAAAAAP///MUAAAAAAAD8xaIL//8AAFj6ogv/////WPpc9P//AADf0Jb8AOcAAPzFlvwA5////MVc9P/////f0Jb8AOf///zFlvwA5wAA/MX//6mq//9jwP//AAAAAPzFAACpqgAA//9oAwDnAAD/////AAAAAP//lvwA5wAA/////6mq//9jwP//qaoAAGPA//8AAAAA/MX//wAA///8xf//qar//wCAlvwA5///AIAAAAAA//8AgGgDAOf//wCAAUb/4oeK7uoAAP9/AAD/f8SndbDEp3Ww/jwBBv48AQYPlYgK/xwBRgAA/38AAP9//38AAP9/AAD/fwAA/38AAP9/////f////3////9///8AAP9/AAD/fwAA/38AAP9//3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3///wFG/+KHiu7q/pwAxv6cAMaHiu7qh4ru6v6cAMb+nADG/jn+nP45/pz9ef68/Xn+vInPxCf9uf8c/bn/HInPxCf9uf8c/bn/HA+ViAr/HAFG/3////9/////f////3///w+ViAoPlYgKAGP+OQBj/jn/f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xifyt")
+
+[sub_resource type="PackedScene" id="PackedScene_y7bh5"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("bed-double-cover2", "Node3D", "bed-double-cover", "mesh", "skeleton", "MeshInstance3D"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 0, 0, 0, 0, 5, 2, -1, 2, 3, 0, 4, 1, 0),
+"variants": [SubResource("ArrayMesh_67xhi"), NodePath("")],
+"version": 3
+}
 
 [resource]
 script = ExtResource("2_y7bh5")
-model = ExtResource("1_o1pwg")
+model = SubResource("PackedScene_y7bh5")
 price = 150
