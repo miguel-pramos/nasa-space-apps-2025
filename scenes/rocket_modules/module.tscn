@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://vgwrcfy1qawf"]
+[gd_scene load_steps=27 format=3 uid="uid://vgwrcfy1qawf"]
 
+[ext_resource type="Script" uid="uid://ce07qj0g5ptv2" path="res://scripts/module_controller.gd" id="1_2frd1"]
 [ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="1_jybm7"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="1_yndf3"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_54v6r"]
@@ -11,12 +12,13 @@
 [ext_resource type="Script" uid="uid://dec71yx4xpg2c" path="res://scripts/view.gd" id="8_yovpv"]
 [ext_resource type="PackedScene" uid="uid://cy0y2w5xyt46v" path="res://models/rocket_sides_a.tscn" id="10_5ou3v"]
 [ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="12_jbj1t"]
-[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scripts/interface.gd" id="12_muem4"]
+[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scripts/module/ui.gd" id="12_muem4"]
 [ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="14_dp3eg"]
 [ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="15_0ld40"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="16_vlub6"]
 [ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="17_cjamx"]
+[ext_resource type="Texture2D" uid="uid://bjfoiumjjl1ii" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Green/button_square_header_small_rectangle.svg" id="20_ekrrx"]
 [ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="22_pm3ni"]
 [ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="24_y6deb"]
 
@@ -40,7 +42,15 @@ font = ExtResource("16_vlub6")
 font_size = 24
 shadow_color = Color(0, 0, 0, 0.392157)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jgbw0"]
+texture = ExtResource("20_ekrrx")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
 [node name="Module" type="Node3D"]
+script = ExtResource("1_2frd1")
 
 [node name="View" type="Node3D" parent="."]
 transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0, 0, 0)
@@ -178,6 +188,16 @@ offset_bottom = 36.0
 theme_override_colors/font_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 theme_override_fonts/font = ExtResource("15_0ld40")
 text = "Progress"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 89.0
+offset_right = 63.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_jgbw0")
+text = "Back"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_y6deb")

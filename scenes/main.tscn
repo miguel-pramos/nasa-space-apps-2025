@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=13 format=3 uid="uid://dnkx88bfeibyr"]
 
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="4_85g3d"]
 [ext_resource type="Script" uid="uid://c1uk3b2tjykh8" path="res://scripts/main/camera.gd" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scripts/interface.gd" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="5_85g3d"]
 [ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="7_ya4ey"]
@@ -58,7 +57,6 @@ offset_right = 9.747437
 offset_bottom = 14.287964
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_tipki")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
 layout_mode = 2
@@ -97,6 +95,36 @@ offset_bottom = 36.0
 theme_override_colors/font_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
 theme_override_fonts/font = ExtResource("8_eb6dy")
 text = "Progress"
+
+[node name="AcivateButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 365.0
+offset_right = 183.0
+offset_bottom = 396.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Activate"
+
+[node name="UpButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 384.0
+offset_right = 77.0
+offset_bottom = 415.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Up"
+
+[node name="DownButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 345.0
+offset_right = 92.0
+offset_bottom = 376.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Down"
 
 [node name="AddButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
 layout_mode = 0

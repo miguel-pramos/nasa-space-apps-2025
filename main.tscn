@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://main_rocket_scene" path="res://scenes/rocket.tscn" id="1_rocket"]
 [ext_resource type="PackedScene" uid="uid://vgwrcfy1qawf" path="res://scenes/rocket_modules/module.tscn" id="2_module"]
-[ext_resource type="Script" path="res://scripts/main_ui.gd" id="3_script"]
+[ext_resource type="Script" path="res://scripts/main/main_ui.gd" id="3_script"]
 
 [sub_resource type="Sky" id="Sky_1"]
 [sub_resource type="Environment" id="Environment_1"]
@@ -26,6 +26,8 @@ light_energy = 1.5
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3, 10)
 
 [node name="Rocket" parent="." instance=ExtResource("1_rocket")]
+camera = NodePath("../Camera3D")
+main_camera = NodePath("../Camera3D")
 
 [node name="MainUI" type="CanvasLayer" parent="."]
 script = ExtResource("3_script")
@@ -45,3 +47,11 @@ text = "Add Module"
 [node name="RemoveButton" type="Button" parent="MainUI/VBoxContainer"]
 layout_mode = 2
 text = "Remove Module"
+
+[node name="UpButton" type="Button" parent="MainUI/VBoxContainer"]
+layout_mode = 2
+text = "Up"
+
+[node name="DownButton" type="Button" parent="MainUI/VBoxContainer"]
+layout_mode = 2
+text = "Down"
