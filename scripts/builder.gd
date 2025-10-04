@@ -51,11 +51,12 @@ func _process(delta):
 		view_camera.project_ray_origin(get_viewport().get_mouse_position()),
 		view_camera.project_ray_normal(get_viewport().get_mouse_position()))
 
-	var gridmap_position = Vector3(round(world_position.x), 0, round(world_position.z))
-	selector.position = lerp(selector.position, gridmap_position, min(delta * 40, 1.0))
-	
-	action_build(gridmap_position)
-	action_demolish(gridmap_position)
+	if world_position != null:
+		var gridmap_position = Vector3(round(world_position.x), 0, round(world_position.z))
+		selector.position = lerp(selector.position, gridmap_position, min(delta * 40, 1.0))
+		
+		action_build(gridmap_position)
+		action_demolish(gridmap_position)
 
 func get_mesh(packed_scene):
 	var scene_state:SceneState = packed_scene.get_state()
@@ -105,15 +106,18 @@ func action_rotate():
 # Toggle between structures to build
 
 func action_structure_toggle():
+	var changed = false
 	if Input.is_action_just_pressed("structure_next"):
 		index = wrap(index + 1, 0, structures.size())
-		Audio.play("sounds/toggle.ogg", -30)
+		changed = true
 	
 	if Input.is_action_just_pressed("structure_previous"):
 		index = wrap(index - 1, 0, structures.size())
-		Audio.play("sounds/toggle.ogg", -30)
+		changed = true
 
-	update_structure()
+	if changed:
+		Audio.play("sounds/toggle.ogg", -30)
+		update_structure()
 
 # Update the structure visual in the 'cursor'
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://vgwrcfy1qawf"]
+[gd_scene load_steps=20 format=3 uid="uid://vgwrcfy1qawf"]
 
 [ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="1_jybm7"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="1_yndf3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bmfm8mwtrrxyh" path="res://structures/craft_speederC.tres" id="7_jbj1t"]
 [ext_resource type="Script" uid="uid://dec71yx4xpg2c" path="res://scripts/view.gd" id="8_yovpv"]
 [ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="12_jbj1t"]
+[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scenes/interface.gd" id="12_muem4"]
 [ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="13_muem4"]
 [ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="14_dp3eg"]
 [ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="15_0ld40"]
@@ -115,10 +116,11 @@ anchor_right = 0.95000005
 anchor_bottom = 0.94400007
 offset_left = 800.68
 offset_top = -5.1760025
-offset_right = 9.747803
+offset_right = 9.747437
 offset_bottom = 14.287964
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("12_muem4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 2
