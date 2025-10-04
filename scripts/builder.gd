@@ -53,8 +53,12 @@ func _process(delta):
 
 	var gridmap_position = Vector3(round(world_position.x), 0, round(world_position.z))
 
+	# Toggle selector visibility based on mode
+	selector.get_child(0).visible = not move_mode
+
 	# Cursor always follows the mouse on the ground plane (y=0)
-	selector.global_position = lerp(selector.global_position, gridmap_position, min(delta * 40, 1.0))
+	if selector.visible:
+		selector.global_position = lerp(selector.global_position, gridmap_position, min(delta * 40, 1.0))
 
 	if not move_mode:
 		# Normal Mode
@@ -67,7 +71,7 @@ func _process(delta):
 		# Move Mode - the item being moved follows the cursor but elevated
 		if moving_item_node:
 			var elevated_position = gridmap_position
-			elevated_position.y = 2.0 # Elevated height
+			elevated_position.y = 0.5 # Elevated height
 			moving_item_node.position = lerp(moving_item_node.position, elevated_position, min(delta * 40, 1.0))
 
 		action_place_moved_item(gridmap_position)
@@ -113,8 +117,12 @@ func action_enter_move_mode(gridmap_position):
 			var model = structures[moving_structure_index].model.instantiate()
 			moving_item_node.add_child(model)
 
-			# Initial position (where it was + elevated)
-			moving_item_node.position = Vector3(grid_pos.x, 2.0, grid_pos.z)
+			# Initial position (on the ground)
+			moving_item_node.position = Vector3(grid_pos.x, 0.0, grid_pos.z)
+
+			# Animate upwards
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+			tween.tween_property(moving_item_node, "position:y", 0.8, 0.2)
 
 			# Original rotation
 			var basis = gridmap.get_basis_with_orthogonal_index(moving_structure_orientation)
@@ -134,6 +142,11 @@ func action_place_moved_item(gridmap_position):
 
 		# Only place if the position is empty
 		if existing_item == -1:
+			# Animate downwards
+			var tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+			tween.tween_property(moving_item_node, "position:y", 0.0, 0.2)
+			await tween.finished
+
 			# Get the current orientation of the item being moved
 			var final_orientation = gridmap.get_orthogonal_index_from_basis(moving_item_node.basis)
 
@@ -153,7 +166,15 @@ func action_place_moved_item(gridmap_position):
 # Cancels move mode and returns the item to its original position
 func action_cancel_move():
 	if Input.is_action_just_pressed("cancel_move"):
-		# Return item to original position
+		if not moving_item_node: return
+
+		# Animate back to original position (from elevated height)
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		var target_pos = Vector3(moving_from_position.x, 0, moving_from_position.z)
+		tween.tween_property(moving_item_node, "position", target_pos, 0.3)
+		await tween.finished
+
+		# Return item to original position on gridmap
 		gridmap.set_cell_item(moving_from_position, moving_structure_index, moving_structure_orientation)
 
 		# Remove the elevated visual node
@@ -162,7 +183,7 @@ func action_cancel_move():
 			moving_item_node = null
 
 		# Exit move mode
-			move_mode = false
+		move_mode = false
 
 		Audio.play("sounds/removal-a.ogg", -20)
 		print("Move Mode: Canceled, item returned to ", moving_from_position)
