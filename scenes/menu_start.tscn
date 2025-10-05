@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bf6jdm2p5opb2" path="res://sprites/menu/SettingGolden.png" id="6_rmmsc"]
 [ext_resource type="Texture2D" uid="uid://bg0cvcbdyxh8s" path="res://sprites/menu/Quit.png" id="7_tjvo7"]
 [ext_resource type="Texture2D" uid="uid://ddl2xunnp6eye" path="res://sprites/menu/QuitGolden.png" id="8_m0ayq"]
-[ext_resource type="Texture2D" uid="uid://bmnij8qoeca6b" path="res://sprites/menu/titulo.png" id="9_5poo7"]
+[ext_resource type="FontFile" uid="uid://dxnm0obu17xh8" path="res://sprites/Fonte TItulo/Almendra-Bold.ttf" id="9_5poo7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc4yy"]
 texture = ExtResource("3_4jmj5")
@@ -37,8 +37,7 @@ texture = ExtResource("8_m0ayq")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wj03c"]
 texture = ExtResource("8_m0ayq")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orngt"]
-texture = ExtResource("9_5poo7")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_orngt"]
 
 [node name="menu_start" type="Control"]
 layout_mode = 3
@@ -101,15 +100,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -352.0
-offset_top = 101.0
-offset_right = 358.0
-offset_bottom = 276.0
+offset_left = -340.0
+offset_top = 137.0
+offset_right = 346.0
+offset_bottom = 268.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxTexture_orngt")
-text = "
-"
+theme_override_colors/font_color = Color(0.8, 0.5568628, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("9_5poo7")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_orngt")
+text = "Ship Sweet Ship"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

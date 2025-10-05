@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2vtt3i6405m7"]
+[gd_scene load_steps=12 format=3 uid="uid://c2vtt3i6405m7"]
 
 [ext_resource type="Script" uid="uid://b15u5x8qxpfbs" path="res://select_place.gd" id="1_e8k7e"]
 [ext_resource type="Texture2D" uid="uid://svk6byq0hpji" path="res://sprites/ceu_estrelado.png" id="2_e8k7e"]
+[ext_resource type="FontFile" uid="uid://dngnci4cxgfi5" path="res://sprites/Fonte TItulo/Almendra-Regular.ttf" id="3_8dbbr"]
 [ext_resource type="Texture2D" uid="uid://bjkl3dus028fa" path="res://sprites/moon.png" id="3_aeye6"]
 [ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="3_e8k7e"]
 [ext_resource type="Texture2D" uid="uid://cg1p6kbkvis20" path="res://sprites/mars.png" id="4_e8k7e"]
@@ -44,14 +45,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -341.0
-offset_top = 79.0
-offset_right = 347.0
-offset_bottom = 160.0
+offset_left = -330.0
+offset_top = 26.0
+offset_right = 358.0
+offset_bottom = 107.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_e8k7e")
-theme_override_font_sizes/font_size = 44
-text = "Select yout place for the mission"
+theme_override_colors/font_color = Color(0.84955347, 0.7208941, 0.053477123, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9372549)
+theme_override_constants/line_spacing = 7
+theme_override_fonts/font = ExtResource("3_8dbbr")
+theme_override_font_sizes/font_size = 52
+text = "Select your place for the mission"
 
 [node name="PanelMoon" type="Panel" parent="."]
 layout_mode = 1

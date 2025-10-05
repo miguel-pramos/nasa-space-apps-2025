@@ -1,0 +1,170 @@
+[gd_scene load_steps=13 format=3 uid="uid://s88becm65pg8"]
+
+[ext_resource type="Script" uid="uid://dgb2bmsky6nvx" path="res://setings.gd" id="1_22s1g"]
+[ext_resource type="VideoStream" uid="uid://ckih61bkb2thg" path="res://sprites/menu/video_hud_start.ogv" id="2_0mca5"]
+[ext_resource type="Texture2D" uid="uid://dykv73d6c4kn0" path="res://sprites/settings/bluleft.png" id="3_4xu2p"]
+[ext_resource type="Texture2D" uid="uid://c3hf6yfjc75wl" path="res://sprites/settings/goldright.png" id="4_22s1g"]
+[ext_resource type="FontFile" uid="uid://dngnci4cxgfi5" path="res://sprites/Fonte TItulo/Almendra-Regular.ttf" id="5_ab4ti"]
+[ext_resource type="Texture2D" uid="uid://dbnaxq2wl0h74" path="res://sprites/settings/bluspace.png" id="6_4og5t"]
+[ext_resource type="Texture2D" uid="uid://bq65qcxvq850a" path="res://sprites/settings/bluright.png" id="7_wts17"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ju3io"]
+texture = ExtResource("3_4xu2p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2k6e4"]
+texture = ExtResource("4_22s1g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xbuy"]
+texture = ExtResource("4_22s1g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ef3l2"]
+texture = ExtResource("6_4og5t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lpvp6"]
+texture = ExtResource("7_wts17")
+
+[node name="setings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_22s1g")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 1284.0
+offset_bottom = 722.0
+stream = ExtResource("2_0mca5")
+autoplay = true
+loop = true
+
+[node name="ButtonBack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 27.0
+offset_right = 104.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ju3io")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2k6e4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xbuy")
+
+[node name="Sound" type="Label" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 171.0
+offset_right = 534.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("5_ab4ti")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_ef3l2")
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="ButtonRightS" type="Button" parent="."]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 174.0
+offset_right = 679.0
+offset_bottom = 244.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ju3io")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2k6e4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xbuy")
+
+[node name="ButtonLeftS" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6076389
+anchor_top = 0.25154322
+anchor_right = 0.6935764
+anchor_bottom = 0.3595679
+offset_left = 35.0
+offset_top = 6.9999847
+offset_right = 35.0
+offset_bottom = 7.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_lpvp6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2k6e4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xbuy")
+
+[node name="Graphics" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 142.0
+offset_top = -18.0
+offset_right = 533.0
+offset_bottom = 62.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ab4ti")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_ef3l2")
+text = "Graphics"
+horizontal_alignment = 1
+
+[node name="ButtonRightG" type="Button" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 309.0
+offset_right = 686.0
+offset_bottom = 379.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ju3io")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2k6e4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xbuy")
+
+[node name="ButtonLeftG" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6076389
+anchor_top = 0.4691358
+anchor_right = 0.6935764
+anchor_bottom = 0.5771605
+offset_left = 35.0
+offset_top = 6.0
+offset_right = 35.0
+offset_bottom = 6.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_lpvp6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2k6e4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xbuy")
+
+[node name="Bright" type="Label" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 417.0
+offset_right = 535.0
+offset_bottom = 497.0
+theme_override_fonts/font = ExtResource("5_ab4ti")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_ef3l2")
+text = "Bright"
+horizontal_alignment = 1
+
+[node name="ButtonRightB" type="Button" parent="."]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 422.0
+offset_right = 686.0
+offset_bottom = 492.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ju3io")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2k6e4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xbuy")
+
+[node name="ButtonLeftB" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.609375
+anchor_top = 0.6404321
+anchor_right = 0.6953125
+anchor_bottom = 0.7484568
+offset_left = 28.0
+offset_top = 9.0
+offset_right = 28.0
+offset_bottom = 9.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_lpvp6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2k6e4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1xbuy")
+
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
