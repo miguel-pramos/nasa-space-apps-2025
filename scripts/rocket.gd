@@ -6,15 +6,18 @@ extends Node3D
 var base: Node3D
 var pinnacle: Node3D
 var modules: Array[Node3D] = []
+var scenarios: Array[PackedScene] = []
 var focused_module_idx: int = -1
 var original_material: Material
 var original_materials: Dictionary = {}
 
 var module_height = 1.0
+var scenario: PackedScene
 
 func _ready():
 	base = find_child("Base")
 	pinnacle = find_child("Pinnacle")
+	scenario = load("res://scenes/scenarios/scenario_1.tscn")
 	
 func find_mesh_instance(node: Node) -> MeshInstance3D:
 	if node is MeshInstance3D:
@@ -48,7 +51,9 @@ func add_module():
 		new_position = base.position + Vector3.UP * module_height
 	
 	new_module_model.position = new_position
-	modules.append(new_module_model)	
+	var new_scenario = scenario.duplicate()
+	modules.append(new_module_model)
+	scenarios.append(new_scenario)
 	add_child(new_module_model)
 
 	update_pinnacle_position()
@@ -59,6 +64,7 @@ func remove_module():
 
 	Global.resources.money += module.price
 	
+	scenarios.pop_back()
 	var to_be_deleted_module = modules.pop_back()
 	to_be_deleted_module.queue_free()
 	
@@ -112,8 +118,7 @@ func focus_module(index: int):
 
 	
 func activate_module():
-	if modules[focused_module_idx].has_method("set"):
-		modules[focused_module_idx].set("active", true)
+	var scenario = scenarios[focused_module_idx].instantiate()
 
 func get_module_count() -> int:
 	return modules.size()

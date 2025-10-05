@@ -41,6 +41,9 @@ texture_margin_bottom = 4.0
 
 [node name="Main" type="Node3D"]
 
+[node name="InstantiationMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.043053, 0, 0)
+
 [node name="Ambient" type="Node3D" parent="."]
 
 [node name="Floor" type="MeshInstance3D" parent="Ambient"]
@@ -64,17 +67,18 @@ transform = Transform3D(4.64, 0, 0, 0, 4.64, 0, 0, 0, 4.64, 6.5511713, 0, 4.0481
 camera = NodePath("../Camera")
 module = ExtResource("3_jkv2x")
 
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.809017, 0.47552827, -0.3454915, 0, 0.58778524, 0.809017, 0.58778524, -0.65450853, 0.47552827, 0, 97.01697, 74.35899)
+light_energy = 1.1
+shadow_enabled = true
+directional_shadow_mode = 1
+sky_mode = 1
+
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 5, 8.798)
 environment = ExtResource("3_sugp2")
 fov = 48.48457
 script = ExtResource("4_jyhfs")
-
-[node name="Sun" type="DirectionalLight3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 0.8571673, 0.5150381, 0, -0.5150381, 0.8571673, 0, 3.78433, -0.9460039)
-shadow_enabled = true
-directional_shadow_mode = 1
-sky_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_85g3d")
@@ -102,73 +106,18 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="MenuBar" type="MenuBar" parent="CanvasLayer/Control"]
+[node name="Resources" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 2
-
-[node name="ActivateButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 365.0
-offset_right = 183.0
-offset_bottom = 396.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
-text = "Activate"
-
-[node name="UpButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
-layout_mode = 0
-offset_left = 38.0
-offset_top = 384.0
-offset_right = 77.0
-offset_bottom = 415.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
-text = "Up"
-
-[node name="DownButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 345.0
-offset_right = 92.0
-offset_bottom = 376.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
-text = "Down"
-
-[node name="AddButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 203.0
-offset_right = 66.0
-offset_bottom = 226.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
-text = "Add"
-
-[node name="RemoveButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 244.0
-offset_right = 106.0
-offset_bottom = 275.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
-text = "Remove"
-
-[node name="Resources" type="Control" parent="CanvasLayer/Control/MenuBar"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 script = ExtResource("8_trceg")
 
-[node name="Power" type="Control" parent="CanvasLayer/Control/MenuBar/Resources"]
+[node name="Power" type="Control" parent="CanvasLayer/Control/Resources"]
 anchors_preset = 0
 offset_left = -2.0
 offset_top = 37.0
 offset_right = 261.0
 offset_bottom = 84.0
 
-[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/MenuBar/Resources/Power"]
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Power"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 20.0
@@ -183,7 +132,7 @@ stretch_margin_bottom = 10
 texture_under = ExtResource("6_choun")
 texture_progress = ExtResource("10_a8y0u")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar/Resources/Power"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Power"]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 20.0
@@ -193,13 +142,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_choun")
 text = "Power"
 
-[node name="Fuel" type="Control" parent="CanvasLayer/Control/MenuBar/Resources"]
+[node name="Fuel" type="Control" parent="CanvasLayer/Control/Resources"]
 anchors_preset = 0
 offset_top = 77.0
 offset_right = 263.0
 offset_bottom = 123.0
 
-[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/MenuBar/Resources/Fuel"]
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Fuel"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 20.0
@@ -214,7 +163,7 @@ stretch_margin_bottom = 10
 texture_under = ExtResource("6_choun")
 texture_progress = ExtResource("7_ya4ey")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar/Resources/Fuel"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Fuel"]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 20.0
@@ -224,13 +173,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_choun")
 text = "Fuel"
 
-[node name="Money" type="Control" parent="CanvasLayer/Control/MenuBar/Resources"]
+[node name="Money" type="Control" parent="CanvasLayer/Control/Resources"]
 anchors_preset = 0
 offset_top = -4.0
 offset_right = 263.0
 offset_bottom = 45.0
 
-[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/MenuBar/Resources/Money"]
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Money"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 20.0
@@ -244,7 +193,7 @@ stretch_margin_right = 2
 texture_under = ExtResource("6_choun")
 texture_progress = ExtResource("13_jkv2x")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar/Resources/Money"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Money"]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 20.0
@@ -253,3 +202,70 @@ offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_choun")
 text = "Money"
+
+[node name="RocketUI" type="MenuBar" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 2
+
+[node name="ActivateButton" type="Button" parent="CanvasLayer/Control/RocketUI"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 365.0
+offset_right = 183.0
+offset_bottom = 396.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Activate"
+
+[node name="UpButton" type="Button" parent="CanvasLayer/Control/RocketUI"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 384.0
+offset_right = 77.0
+offset_bottom = 415.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Up"
+
+[node name="DownButton" type="Button" parent="CanvasLayer/Control/RocketUI"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 345.0
+offset_right = 92.0
+offset_bottom = 376.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Down"
+
+[node name="AddButton" type="Button" parent="CanvasLayer/Control/RocketUI"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 203.0
+offset_right = 66.0
+offset_bottom = 226.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Add"
+
+[node name="RemoveButton" type="Button" parent="CanvasLayer/Control/RocketUI"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 244.0
+offset_right = 106.0
+offset_bottom = 275.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
+text = "Remove"
+
+[node name="ModuleUI" type="MenuBar" parent="CanvasLayer/Control"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="CanvasLayer/Control/ModuleUI"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 244.0
+offset_right = 106.0
+offset_bottom = 275.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
+text = "Back"

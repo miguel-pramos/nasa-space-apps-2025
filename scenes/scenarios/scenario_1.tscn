@@ -1,12 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://de1ahwq8sm5gk"]
+[gd_scene load_steps=18 format=3 uid="uid://de1ahwq8sm5gk"]
 
 [ext_resource type="Script" uid="uid://ca3bydfs4twbs" path="res://scenes/scenarios/scripts/Camera.gd" id="1_8wt38"]
+[ext_resource type="Script" uid="uid://bcpt5ns3pfldr" path="res://scripts/scenario.gd" id="1_a7ovx"]
 [ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="2_a7ovx"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="3_owgpt"]
-[ext_resource type="Resource" uid="uid://dkcvlylhc2pxb" path="res://structures/computer-wide.tres" id="4_2n13f"]
-[ext_resource type="Resource" uid="uid://36mjr5fes6ve" path="res://structures/crater.tres" id="5_oq7yh"]
-[ext_resource type="Resource" uid="uid://b15kn8mn5mhyy" path="res://structures/craft_speederA.tres" id="6_syk4j"]
-[ext_resource type="Resource" uid="uid://r4nk3qnefhpe" path="res://structures/craft_speederC.tres" id="7_tcp7b"]
+[ext_resource type="Resource" uid="uid://ccr00eivs1y06" path="res://structures/module.tres" id="4_mhmwn"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="8_8wt38"]
 [ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="9_fgbbp"]
 [ext_resource type="Script" uid="uid://b1sucm1imkmdg" path="res://scenes/scenarios/sphere_pos.gd" id="9_spqcl"]
@@ -26,7 +24,7 @@ shadow_color = Color(0, 0, 0, 0.392157)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bnm6g"]
 render_priority = 0
 shader = ExtResource("20_nw5s0")
-shader_parameter/spherePos = Vector3(1.4686251, 11.776337, 24.700806)
+shader_parameter/spherePos = Vector3(6.943825, 11.776337, 25.928986)
 shader_parameter/borderColor = Color(0.19236434, 0.42222843, 1, 1)
 shader_parameter/borderSize = 0.675
 shader_parameter/sphereRadius = 20.0
@@ -38,20 +36,20 @@ shader_parameter/noiseSize = 0.17
 size = Vector2(9, 15)
 
 [node name="Scenario1" type="Node3D"]
+script = ExtResource("1_a7ovx")
 
 [node name="View" type="Node3D" parent="."]
 transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0, 0, 0)
 script = ExtResource("1_8wt38")
 
-[node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
+[node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap")]
 transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
 script = ExtResource("2_a7ovx")
-structures = Array[ExtResource("3_owgpt")]([ExtResource("4_2n13f"), ExtResource("5_oq7yh"), ExtResource("6_syk4j"), ExtResource("7_tcp7b")])
+structures = Array[ExtResource("3_owgpt")]([ExtResource("4_mhmwn")])
 selector = NodePath("Selector")
 selector_container = NodePath("Selector/Container")
 view_camera = NodePath("../Camera")
 gridmap = NodePath("../../GridMap")
-cash_display = NodePath("../../CanvasLayer/Top/Cash")
 
 [node name="Selector" type="Node3D" parent="View/Builder"]
 

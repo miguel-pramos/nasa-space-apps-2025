@@ -74,7 +74,7 @@ func on_down_button_pressed():
 		
 func on_activate_button_pressed():
 	var camera = get_node("../Camera")
-	camera.change_rotation_axis(Vector3(-20, 0, 20))
+	camera.change_rotation_axis(Vector3(-30, 0, 0))
 
 	if rocket:
 		rocket.activate_module()

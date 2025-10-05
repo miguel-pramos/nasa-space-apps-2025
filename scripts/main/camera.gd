@@ -1,8 +1,15 @@
 extends Camera3D
 
+signal focus_animation_finished
+
 @export var rotation_speed: float = 0.1
 var rotation_point: Vector3 = Vector3.ZERO
 var rotation_direction: Vector3 = Vector3.UP
+
+const SCENARIO_1 = preload("res://scenes/scenarios/scenario_1.tscn")
+
+func _ready():
+	connect("focus_animation_finished", _on_focus_animation_finished)
 
 func _process(delta):
 	# Vector from rotation point to camera
@@ -28,3 +35,16 @@ func change_rotation_axis(new_point: Vector3, new_direction: Vector3 = Vector3.U
 	# Animate the camera to look at the new point
 	var target_transform = transform.looking_at(new_point)
 	tween.tween_property(self, "transform", target_transform, 1.0).set_trans(Tween.TRANS_SINE)
+	
+	await tween.finished
+	emit_signal("focus_animation_finished")
+
+func _on_focus_animation_finished():
+	var marker = get_tree().get_root().find_child("InstantiationMarker", true, false)
+	if marker:
+		var scenario = SCENARIO_1.instantiate()
+		scenario.position = marker.global_transform.origin
+		scenario.camera = self
+		get_tree().get_root().add_child(scenario)
+	else:
+		print("Error: InstantiationMarker not found.")
