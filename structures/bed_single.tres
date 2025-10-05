@@ -9,5 +9,5 @@ model = ExtResource("1_vfdny")
 price = 700
 weight = 20.0
 volume = 7.0
-beddrom = true
+bedroom = true
 metadata/_custom_type_script = "uid://b4i7dfy6u3e8w"

@@ -1,12 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://de1ahwq8sm5gk"]
+[gd_scene load_steps=24 format=3 uid="uid://de1ahwq8sm5gk"]
 
 [ext_resource type="Script" uid="uid://ca3bydfs4twbs" path="res://scenes/scenarios/scripts/Camera.gd" id="1_8wt38"]
 [ext_resource type="Script" uid="uid://cwsw3ebl1y4qp" path="res://scenes/scenarios/scripts/Builder_1.gd" id="2_mhmwn"]
-[ext_resource type="Resource" uid="uid://ccr00eivs1y06" path="res://structures/module.tres" id="4_mhmwn"]
+[ext_resource type="Resource" uid="uid://bicwgmu0ui542" path="res://structures/bed_single.tres" id="3_a7ovx"]
+[ext_resource type="Resource" uid="uid://ct6trafbrr3fk" path="res://structures/bed_banck.tres" id="3_mhmwn"]
+[ext_resource type="Resource" uid="uid://cg0gu2lj0hrcx" path="res://structures/cabinet2.tres" id="5_8wt38"]
+[ext_resource type="Resource" uid="uid://c0kp01dq4anf2" path="res://structures/kitchen_cabinet.tres" id="6_fgbbp"]
+[ext_resource type="Resource" uid="uid://dicmqhmigi1ss" path="res://structures/mesa.tres" id="7_spqcl"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="8_8wt38"]
+[ext_resource type="Resource" uid="uid://b64untvqhj0fr" path="res://structures/shower.tres" id="8_nw5s0"]
 [ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="9_fgbbp"]
+[ext_resource type="Resource" uid="uid://4idkbm8okq3w" path="res://structures/sink.tres" id="9_k6fy3"]
 [ext_resource type="Script" uid="uid://b1sucm1imkmdg" path="res://scenes/scenarios/sphere_pos.gd" id="9_spqcl"]
 [ext_resource type="MeshLibrary" uid="uid://wkkxpc11s6ns" path="res://models/Terreno/MeshLibrary/Paredes.tres" id="10_oq7yh"]
+[ext_resource type="Resource" uid="uid://ct12wtc02nppo" path="res://structures/toilet.tres" id="10_q657b"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="10_spqcl"]
 [ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="11_nw5s0"]
 [ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="12_k6fy3"]
@@ -43,7 +50,7 @@ script = ExtResource("1_8wt38")
 [node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
 transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
 script = ExtResource("2_mhmwn")
-structures = [ExtResource("4_mhmwn")]
+structures = [ExtResource("3_a7ovx"), ExtResource("3_mhmwn"), ExtResource("5_8wt38"), ExtResource("6_fgbbp"), ExtResource("7_spqcl"), ExtResource("8_nw5s0"), ExtResource("9_k6fy3"), ExtResource("10_q657b")]
 selector = NodePath("Selector")
 selector_container = NodePath("Selector/Container")
 view_camera = NodePath("../Camera")
