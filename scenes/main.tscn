@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=25 format=3 uid="uid://dnkx88bfeibyr"]
 
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Resource" uid="uid://ccr00eivs1y06" path="res://structures/module.tres" id="3_jkv2x"]
@@ -15,7 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://1217hkq6ypcs" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Red/button_square_header_small_rectangle_screws.svg" id="11_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://cwpl525355f7d" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Yellow/bar_round_gloss_small.svg" id="13_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://04618b3mq85n" path="res://models/corridor_wall.tscn" id="14_a8y0u"]
-[ext_resource type="Script" uid="uid://cbbjbteie33w7" path="res://scripts/level_manager.gd" id="15_lvl_mgr"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="15_lvl_mgr"]
+[ext_resource type="Texture2D" uid="uid://cwepkgd84hy0h" path="res://sprites/quarry_04_puresky_4k.exr" id="17_muem4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkv2x"]
 albedo_color = Color(0.5017686, 0.51962227, 0.49886036, 1)
@@ -39,6 +40,16 @@ texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dp3eg"]
+panorama = ExtResource("17_muem4")
+
+[sub_resource type="Sky" id="Sky_0ld40"]
+sky_material = SubResource("PanoramaSkyMaterial_dp3eg")
+
+[sub_resource type="Environment" id="Environment_gqmmt"]
+background_mode = 2
+sky = SubResource("Sky_0ld40")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("15_lvl_mgr")
@@ -280,3 +291,6 @@ offset_bottom = 431.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
 text = "Edit Selected Module"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gqmmt")
