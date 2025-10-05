@@ -6,10 +6,8 @@ signal focus_animation_finished
 var rotation_point: Vector3 = Vector3.ZERO
 var rotation_direction: Vector3 = Vector3.UP
 
-const SCENARIO_1 = preload("res://scenes/scenarios/scenario_1.tscn")
-
 func _ready():
-	connect("focus_animation_finished", _on_focus_animation_finished)
+	focus_animation_finished.connect(on_focus_animation_finished)
 
 func _process(delta):
 	# Vector from rotation point to camera
@@ -39,12 +37,5 @@ func change_rotation_axis(new_point: Vector3, new_direction: Vector3 = Vector3.U
 	await tween.finished
 	emit_signal("focus_animation_finished")
 
-func _on_focus_animation_finished():
-	var marker = get_tree().get_root().find_child("InstantiationMarker", true, false)
-	if marker:
-		var scenario = SCENARIO_1.instantiate()
-		scenario.position = marker.global_transform.origin
-		scenario.camera = self
-		get_tree().get_root().add_child(scenario)
-	else:
-		print("Error: InstantiationMarker not found.")
+func on_focus_animation_finished():
+	GameEvents.emit_signal("intro_animation_finished")

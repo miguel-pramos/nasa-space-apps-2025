@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=21 format=3 uid="uid://dnkx88bfeibyr"]
 
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Resource" uid="uid://ccr00eivs1y06" path="res://structures/module.tres" id="3_jkv2x"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://1217hkq6ypcs" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Red/button_square_header_small_rectangle_screws.svg" id="11_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://cwpl525355f7d" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Yellow/bar_round_gloss_small.svg" id="13_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://04618b3mq85n" path="res://models/corridor_wall.tscn" id="14_a8y0u"]
+[ext_resource type="Script" uid="uid://cbbjbteie33w7" path="res://scripts/level_manager.gd" id="15_lvl_mgr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkv2x"]
 albedo_color = Color(0.5017686, 0.51962227, 0.49886036, 1)
@@ -25,13 +26,6 @@ roughness = 0.33
 material = SubResource("StandardMaterial3D_jkv2x")
 size = Vector2(100, 100)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trceg"]
-texture = ExtResource("10_ya4ey")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8y0u"]
 texture = ExtResource("11_eb6dy")
 texture_margin_left = 4.0
@@ -39,7 +33,15 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trceg"]
+texture = ExtResource("10_ya4ey")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
 [node name="Main" type="Node3D"]
+script = ExtResource("15_lvl_mgr")
 
 [node name="InstantiationMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.043053, 0, 0)
@@ -204,8 +206,17 @@ theme_override_fonts/font = ExtResource("10_choun")
 text = "Money"
 
 [node name="RocketUI" type="MenuBar" parent="CanvasLayer/Control"]
-visible = false
 layout_mode = 2
+
+[node name="RemoveButton" type="Button" parent="CanvasLayer/Control/RocketUI"]
+layout_mode = 0
+offset_left = -228.0
+offset_top = 275.0
+offset_right = -157.0
+offset_bottom = 306.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
+text = "Remove"
 
 [node name="ActivateButton" type="Button" parent="CanvasLayer/Control/RocketUI"]
 layout_mode = 0
@@ -247,17 +258,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
 text = "Add"
 
-[node name="RemoveButton" type="Button" parent="CanvasLayer/Control/RocketUI"]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 244.0
-offset_right = 106.0
-offset_bottom = 275.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
-text = "Remove"
-
 [node name="ModuleUI" type="MenuBar" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 2
 
 [node name="Back" type="Button" parent="CanvasLayer/Control/ModuleUI"]
@@ -269,3 +271,12 @@ offset_bottom = 275.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
 text = "Back"
+
+[node name="CanvasLayer_Control_MenuBar#EditButton" type="Button" parent="."]
+offset_left = 144.0
+offset_top = 400.0
+offset_right = 244.0
+offset_bottom = 431.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
+text = "Edit Selected Module"

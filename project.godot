@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 
 Audio="*res://scripts/audio.gd"
 Global="*res://scripts/Global.gd"
+GameEvents="*res://scripts/game_events.gd"
 
 [editor]
 

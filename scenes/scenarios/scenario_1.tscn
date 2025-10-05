@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://de1ahwq8sm5gk"]
 
 [ext_resource type="Script" uid="uid://ca3bydfs4twbs" path="res://scenes/scenarios/scripts/Camera.gd" id="1_8wt38"]
-[ext_resource type="Script" uid="uid://bcpt5ns3pfldr" path="res://scripts/scenario.gd" id="1_a7ovx"]
+[ext_resource type="Script" uid="uid://b1hpimrhvp5oo" path="res://scripts/scenario_controller.gd" id="1_a7ovx"]
 [ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="2_a7ovx"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="3_owgpt"]
 [ext_resource type="Resource" uid="uid://ccr00eivs1y06" path="res://structures/module.tres" id="4_mhmwn"]
@@ -131,6 +131,17 @@ offset_bottom = 887.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_nw5s0")
 metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 201.0
+offset_top = -67.0
+offset_right = 345.0
+offset_bottom = -36.0
+grow_vertical = 0
+text = "Back to Assembly"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_k6fy3")
