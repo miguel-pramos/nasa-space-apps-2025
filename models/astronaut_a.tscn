@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtka5skf8mc7p"]
+
+[ext_resource type="PackedScene" uid="uid://1qeleov7xbwn" path="res://models/astronautA.glb" id="1_5h7dd"]
+
+[node name="astronautA2" instance=ExtResource("1_5h7dd")]
+
+[node name="astronautA" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

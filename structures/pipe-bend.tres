@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://ca7m3lvc7j7sa"]
-
-[ext_resource type="PackedScene" uid="uid://cgacye6qyefx8" path="res://models/pipe-bend.glb" id="1_xj523"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_svwol"]
-
-[resource]
-script = ExtResource("2_svwol")
-model = ExtResource("1_xj523")
-price = 150

@@ -1,0 +1,158 @@
+[gd_scene load_steps=4 format=3 uid="uid://1gp2h8347vfp"]
+
+[ext_resource type="Texture2D" uid="uid://cbp0ywhbj8hqd" path="res://sprites/kenney_planets/Planets/planet03.png" id="1_0ew5o"]
+[ext_resource type="Script" uid="uid://ejnib8wsbqrs" path="res://scenes/orbt_mission.gd" id="1_vqnhf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vqnhf"]
+texture = ExtResource("1_0ew5o")
+
+[node name="orbt_mission" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vqnhf")
+
+[node name="ImgBackgound" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vqnhf")
+
+[node name="Mission1" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 139.0
+offset_top = -230.0
+offset_right = 475.0
+offset_bottom = 276.0
+grow_vertical = 2
+
+[node name="title" type="Label" parent="Mission1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "Mission 1"
+
+[node name="About" type="Label" parent="Mission1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.5
+offset_top = -128.0
+offset_right = 149.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "In this mission, you will recive a big resource from a nice country. 
+So for this mission, a big time with 8 persons will help you "
+autowrap_mode = 2
+
+[node name="StartMission1" type="Button" parent="Mission1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -70.0
+offset_right = 62.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Start Mission 1"
+
+[node name="Mission2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -458.0
+offset_top = -224.0
+offset_right = -122.0
+offset_bottom = 282.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Mission2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "Mission 2"
+
+[node name="About" type="Label" parent="Mission2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.5
+offset_top = -128.0
+offset_right = 149.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "In this mission, you will recive a small resource from a bad country. 
+So for this mission, a big time with 3 persons will help you"
+autowrap_mode = 2
+
+[node name="StartMission2" type="Button" parent="Mission2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -70.0
+offset_right = 62.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Start Mission 2"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_top = 18.0
+offset_right = 72.5
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Selcet the mission"
+
+[connection signal="pressed" from="Mission1/StartMission1" to="." method="_on_start_mission_1_pressed"]
+[connection signal="pressed" from="Mission2/StartMission2" to="." method="_on_start_mission_2_pressed"]

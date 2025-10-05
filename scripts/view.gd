@@ -41,7 +41,7 @@ func handle_input(_delta):
 	
 	camera_position += input / 4
 	
-	# Zoom in/out
+	# Zoom in/outdas
 	
 	if Input.is_action_just_released("zoom_in"):
 		zoom = max(15, zoom - 5) # 15 = Minimum zoom level, in meters

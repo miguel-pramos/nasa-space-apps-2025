@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://no33x6rjcv7c"]
+
+[ext_resource type="Script" uid="uid://degdhcc0y1bj4" path="res://scena_intro.gd" id="1_ich0g"]
+[ext_resource type="VideoStream" uid="uid://betn2wj15e25w" path="res://sprites/scene_animations/cena_intro.ogv" id="2_gv2li"]
+[ext_resource type="FontFile" uid="uid://dngnci4cxgfi5" path="res://sprites/Fonte TItulo/Almendra-Regular.ttf" id="3_2546r"]
+[ext_resource type="Texture2D" uid="uid://dbnaxq2wl0h74" path="res://sprites/settings/bluspace.png" id="4_arny8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwndi"]
+texture = ExtResource("4_arny8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ich0g"]
+texture = ExtResource("4_arny8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gv2li"]
+texture = ExtResource("4_arny8")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ich0g")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_gv2li")
+autoplay = true
+
+[node name="ButtonNext" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_top = 14.0
+offset_right = -23.0
+offset_bottom = 61.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_2546r")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_dwndi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ich0g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gv2li")
+text = "Next"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="ButtonNext" to="." method="_on_button_next_pressed"]

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7xn5ue2neksy"
+path="res://.godot/imported/plantSmall1.obj-2244a2cd9f5812ff0bbd5eecbceeac54.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plantSmall1.obj-2244a2cd9f5812ff0bbd5eecbceeac54.mesh"]
+
+source_file="res://sprites/Objects/Models/OBJ format/plantSmall1.obj"
+dest_files=["res://.godot/imported/plantSmall1.obj-2244a2cd9f5812ff0bbd5eecbceeac54.mesh", "res://.godot/imported/plantSmall1.obj-2244a2cd9f5812ff0bbd5eecbceeac54.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

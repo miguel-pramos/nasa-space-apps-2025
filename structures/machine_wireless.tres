@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://ucguqjykbv3k"]
-
-[ext_resource type="PackedScene" uid="uid://xckhekbigpwg" path="res://models/machine_wireless.glb" id="1_ebbh5"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_hd371"]
-
-[resource]
-script = ExtResource("2_hd371")
-model = ExtResource("1_ebbh5")
-price = 150

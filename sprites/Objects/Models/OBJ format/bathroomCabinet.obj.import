@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://0gphfwqfqv8l"
+path="res://.godot/imported/bathroomCabinet.obj-e06c8c92998d6572a642cd42a8dea46b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bathroomCabinet.obj-e06c8c92998d6572a642cd42a8dea46b.mesh"]
+
+source_file="res://sprites/Objects/Models/OBJ format/bathroomCabinet.obj"
+dest_files=["res://.godot/imported/bathroomCabinet.obj-e06c8c92998d6572a642cd42a8dea46b.mesh", "res://.godot/imported/bathroomCabinet.obj-e06c8c92998d6572a642cd42a8dea46b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

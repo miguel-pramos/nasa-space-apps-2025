@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://b64untvqhj0fr"]
+
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="1_upcsu"]
+[ext_resource type="PackedScene" uid="uid://lw7p0rssqoe" path="res://sprites/Objects/Models/GLTF format/shower.glb" id="1_xgvr2"]
+
+[resource]
+script = ExtResource("1_upcsu")
+model = ExtResource("1_xgvr2")
+price = 300
+weight = 20.0
+volume = 3.0
+bathrom = true
+metadata/_custom_type_script = "uid://b4i7dfy6u3e8w"

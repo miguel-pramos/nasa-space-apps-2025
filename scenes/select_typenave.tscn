@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cp8q6l463mow"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 109.0
+offset_right = 322.0
+offset_bottom = 197.0
+selected = 0
+item_count = 3
+popup/item_0/text = "select the material"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_0/separator = true
+popup/item_1/text = "metal"
+popup/item_1/id = 1
+popup/item_2/text = "inflatable"
+popup/item_2/id = 2
+
+[node name="OptionButton2" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 237.0
+offset_right = 322.0
+offset_bottom = 325.0
+selected = 0
+item_count = 3
+popup/item_0/text = "select the material"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_0/separator = true
+popup/item_1/text = "metal"
+popup/item_1/id = 1
+popup/item_2/text = "inflatable"
+popup/item_2/id = 2

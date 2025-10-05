@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://c6pfw7c1k5o6a"]
-
-[ext_resource type="PackedScene" uid="uid://c1ciqioq62o3p" path="res://models/stairs-corner-inner.glb" id="1_5yqvx"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_h7ccb"]
-
-[resource]
-script = ExtResource("2_h7ccb")
-model = ExtResource("1_5yqvx")
-price = 150

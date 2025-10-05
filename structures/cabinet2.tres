@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://cg0gu2lj0hrcx"]
+
+[ext_resource type="PackedScene" uid="uid://dqwx7qk617r4a" path="res://sprites/Objects/Models/GLTF format/bookcaseClosed.glb" id="1_okjau"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="1_v78sh"]
+
+[resource]
+script = ExtResource("1_v78sh")
+model = ExtResource("1_okjau")
+price = 600
+weight = 100.0
+volume = 30.0
+kitchen = true
+metadata/_custom_type_script = "uid://b4i7dfy6u3e8w"

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://5ie2k10l4b2g"]
-
-[ext_resource type="PackedScene" uid="uid://mslq8nt5s2dx" path="res://models/door-double-closed.glb" id="1_8ii6o"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_7pgko"]
-
-[resource]
-script = ExtResource("2_7pgko")
-model = ExtResource("1_8ii6o")
-price = 150
