@@ -72,7 +72,7 @@ offset_right = 468.5315
 offset_bottom = 599.26575
 theme_override_fonts/font = ExtResource("4_n28eh")
 theme_override_font_sizes/font_size = 25
-text = "mucho testo mucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testo"
+text = "Embark on the Moon Mission: Your objective is to safely land the lunar module, collect scientific samples, and return to the command module. Navigate challenging terrain, manage limited resources, and ensure the success of humanity's next giant leap."
 autowrap_mode = 3
 
 [connection signal="pressed" from="StartMission1" to="." method="_on_start_mission_1_pressed"]
