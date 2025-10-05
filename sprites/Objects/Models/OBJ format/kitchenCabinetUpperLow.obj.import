@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dkph2nari5sep"
+path="res://.godot/imported/kitchenCabinetUpperLow.obj-5481bdcde15c067f3ade7b7f68a2a9f3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/kitchenCabinetUpperLow.obj-5481bdcde15c067f3ade7b7f68a2a9f3.mesh"]
+
+source_file="res://sprites/Objects/Models/OBJ format/kitchenCabinetUpperLow.obj"
+dest_files=["res://.godot/imported/kitchenCabinetUpperLow.obj-5481bdcde15c067f3ade7b7f68a2a9f3.mesh", "res://.godot/imported/kitchenCabinetUpperLow.obj-5481bdcde15c067f3ade7b7f68a2a9f3.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,26 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgyppmbr4qfrv"]
+[gd_scene load_steps=20 format=3 uid="uid://cgyppmbr4qfrv"]
 
-[ext_resource type="Texture2D" uid="uid://dq6mgmq2f1fch" path="res://sprites/UI_sprites/ASTRONAUTA.svg" id="1_ccu5i"]
 [ext_resource type="Script" uid="uid://n1de3p7lrkj" path="res://scenes/menu_start.gd" id="1_ncqf3"]
+[ext_resource type="VideoStream" uid="uid://ckih61bkb2thg" path="res://sprites/menu/video_hud_start.ogv" id="2_cp8n1"]
+[ext_resource type="Texture2D" uid="uid://ck8pdhutmfu1m" path="res://sprites/menu/NewGame.png" id="3_4jmj5"]
+[ext_resource type="Texture2D" uid="uid://4200e57f0vq8" path="res://sprites/menu/NewGameGolden.png" id="4_phe8i"]
+[ext_resource type="Texture2D" uid="uid://qkv7m5q041c" path="res://sprites/menu/Settings.png" id="5_orngt"]
+[ext_resource type="Texture2D" uid="uid://bf6jdm2p5opb2" path="res://sprites/menu/SettingGolden.png" id="6_rmmsc"]
+[ext_resource type="Texture2D" uid="uid://bg0cvcbdyxh8s" path="res://sprites/menu/Quit.png" id="7_tjvo7"]
+[ext_resource type="Texture2D" uid="uid://ddl2xunnp6eye" path="res://sprites/menu/QuitGolden.png" id="8_m0ayq"]
+[ext_resource type="Texture2D" uid="uid://bmnij8qoeca6b" path="res://sprites/menu/titulo.png" id="9_5poo7"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncqf3"]
-texture = ExtResource("1_ccu5i")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc4yy"]
+texture = ExtResource("3_4jmj5")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc6ix"]
-bg_color = Color(0.29825684, 0.12718067, 0.6943007, 1)
-corner_detail = 10
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_egsp4"]
+texture = ExtResource("4_phe8i")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jmj5"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp8n1"]
+texture = ExtResource("4_phe8i")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phe8i"]
-bg_color = Color(0.29803923, 0.1254902, 0.69411767, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lktnr"]
+texture = ExtResource("5_orngt")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okbob"]
-bg_color = Color(0.29803923, 0.1254902, 0.69411767, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7p3p3"]
+texture = ExtResource("6_rmmsc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfmnw"]
+texture = ExtResource("6_rmmsc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2xj2p"]
+texture = ExtResource("7_tjvo7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_odb0t"]
+texture = ExtResource("8_m0ayq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wj03c"]
+texture = ExtResource("8_m0ayq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orngt"]
+texture = ExtResource("9_5poo7")
 
 [node name="menu_start" type="Control"]
 layout_mode = 3
@@ -31,62 +49,68 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ncqf3")
 
-[node name="ImgBackgound" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ncqf3")
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+stream = ExtResource("2_cp8n1")
+autoplay = true
+loop = true
 
-[node name="ContainerButtons" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -317.5
-offset_top = -117.5
-offset_right = 317.5
-offset_bottom = 117.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 27
-
-[node name="Play" type="Button" parent="ContainerButtons"]
-layout_mode = 2
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 308.0
+offset_right = 722.0
+offset_bottom = 427.0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_tc6ix")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4jmj5")
-text = "Play"
+theme_override_styles/normal = SubResource("StyleBoxTexture_dc4yy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_egsp4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cp8n1")
+text = "
+"
 
-[node name="Options" type="Button" parent="ContainerButtons"]
-layout_mode = 2
+[node name="Options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 434.0
+offset_right = 710.0
+offset_bottom = 515.0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_phe8i")
-text = "Options"
+theme_override_styles/normal = SubResource("StyleBoxTexture_lktnr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7p3p3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xfmnw")
+text = "
+"
 
-[node name="Exit" type="Button" parent="ContainerButtons"]
-layout_mode = 2
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 531.0
+offset_right = 709.0
+offset_bottom = 615.0
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_okbob")
-text = "Exit"
+theme_override_styles/normal = SubResource("StyleBoxTexture_2xj2p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_odb0t")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wj03c")
+text = "
+"
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -226.0
-offset_top = 26.0
-offset_right = 230.0
-offset_bottom = 119.0
+offset_left = -352.0
+offset_top = 101.0
+offset_right = 358.0
+offset_bottom = 276.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 60
-text = "Ship Sweet Ship"
+theme_override_styles/normal = SubResource("StyleBoxTexture_orngt")
+text = "
+"
 
-[connection signal="pressed" from="ContainerButtons/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="ContainerButtons/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="ContainerButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

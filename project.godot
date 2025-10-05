@@ -27,6 +27,10 @@ Global="*res://scripts/Global.gd"
 
 movie_writer/movie_file="D:/Godot/recording.avi"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 build={

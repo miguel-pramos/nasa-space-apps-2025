@@ -7,7 +7,3 @@ func _on_start_moon_pressed() -> void:
 
 func _on_start_mart_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/mart_missions.tscn")
-
-
-func _on_start_orbt_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/orbt_mission.tscn")

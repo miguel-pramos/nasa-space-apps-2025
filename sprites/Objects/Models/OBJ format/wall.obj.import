@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cujni8ouj2ntj"
+path="res://.godot/imported/wall.obj-c22c03cf620444cd5b08a71a3993a765.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall.obj-c22c03cf620444cd5b08a71a3993a765.mesh"]
+
+source_file="res://sprites/Objects/Models/OBJ format/wall.obj"
+dest_files=["res://.godot/imported/wall.obj-c22c03cf620444cd5b08a71a3993a765.mesh", "res://.godot/imported/wall.obj-c22c03cf620444cd5b08a71a3993a765.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

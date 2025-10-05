@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dexbcoed1vvu5"]
 
 [ext_resource type="Script" uid="uid://ch1bgp4tvlxpf" path="res://scenes/mars_missions.gd" id="1_k2a4k"]
-[ext_resource type="Texture2D" uid="uid://bc30pl6ybrljw" path="res://sprites/kenney_planets/Planets/planet02.png" id="2_k2a4k"]
+[ext_resource type="Texture2D" uid="uid://svk6byq0hpji" path="res://sprites/ceu_estrelado.png" id="2_erm30"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2a4k"]
-texture = ExtResource("2_k2a4k")
+texture = ExtResource("2_erm30")
 
 [node name="mars_missions" type="Control"]
 layout_mode = 3

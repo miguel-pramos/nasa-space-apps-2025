@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2nek6tl6cxpf"]
 
 [ext_resource type="Script" uid="uid://dkcdrivcwmqi5" path="res://scenes/moon_mission.gd" id="1_i0cu2"]
-[ext_resource type="Texture2D" uid="uid://c2wxkfy0ykcnm" path="res://sprites/kenney_planets/Planets/planet04.png" id="1_xnf58"]
+[ext_resource type="Texture2D" uid="uid://svk6byq0hpji" path="res://sprites/ceu_estrelado.png" id="2_i0cu2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i0cu2"]
-texture = ExtResource("1_xnf58")
+texture = ExtResource("2_i0cu2")
 
 [node name="moon_mission" type="Control"]
 layout_mode = 3

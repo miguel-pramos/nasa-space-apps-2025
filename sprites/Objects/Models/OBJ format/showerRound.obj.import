@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d2b212s5ei20m"
+path="res://.godot/imported/showerRound.obj-dc35e990c96a7507e00c7874e1213244.mesh"
+
+[deps]
+
+files=["res://.godot/imported/showerRound.obj-dc35e990c96a7507e00c7874e1213244.mesh"]
+
+source_file="res://sprites/Objects/Models/OBJ format/showerRound.obj"
+dest_files=["res://.godot/imported/showerRound.obj-dc35e990c96a7507e00c7874e1213244.mesh", "res://.godot/imported/showerRound.obj-dc35e990c96a7507e00c7874e1213244.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
