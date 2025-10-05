@@ -5,38 +5,47 @@ extends CanvasLayer
 func _ready():
 	# Get references to the main nodes
 	var rocket = get_node("../Rocket")
-	var rocket_ui_container = find_child("Control") # The MarginContainer for the rocket UI
+	var rocket_ui_container = find_child("RocketUI")
+	var edit_button = find_child("EditButton", true, false)
 
 	if not rocket or not rocket_ui_container:
-		print("UI Error: Could not find Rocket node or UI container.")
+		print("UI Error: Could not find Rocket node or RocketUI container.")
 		return
 
-	# Give the rocket a reference to the UI so it can hide/show it
-	rocket.rocket_ui = rocket_ui_container
-
 	# --- Connect Buttons to Rocket Functions ---
-	var addButton = find_child("AddButton")
-	if addButton: addButton.pressed.connect(rocket.add_module)
+	var add_button = rocket_ui_container.find_child("AddButton")
+	if add_button: add_button.pressed.connect(rocket.add_module)
 
-	var removeButton = find_child("RemoveButton")
-	if removeButton: removeButton.pressed.connect(rocket.remove_module)
+	var remove_button = rocket_ui_container.find_child("RemoveButton")
+	if remove_button: remove_button.pressed.connect(rocket.remove_module)
 
-	var editButton = find_child("EditButton")
-	if editButton: editButton.pressed.connect(rocket.enter_edit_mode)
+	if edit_button:
+		edit_button.pressed.connect(rocket.enter_edit_mode)
+	else:
+		# The original scene file has a weirdly placed edit button. Let's try to find it.
+		var misplaced_edit_button = get_node_or_null("../CanvasLayer_Control_MenuBar#EditButton")
+		if misplaced_edit_button:
+			misplaced_edit_button.pressed.connect(rocket.enter_edit_mode)
+			print("Connected misplaced edit button")
+		else:
+			print("UI Error: Edit button not found.")
 	
 	# --- Logic for Up/Down focus buttons ---
-	var upButton = find_child("UpButton")
-	if upButton: upButton.pressed.connect(func(): change_focus(rocket, 1))
+	var up_button = rocket_ui_container.find_child("UpButton")
+	if up_button: up_button.pressed.connect(func(): change_focus(rocket, 1)) # Up is higher index
 
-	var downButton = find_child("DownButton")
-	if downButton: downButton.pressed.connect(func(): change_focus(rocket, -1))
+	var down_button = rocket_ui_container.find_child("DownButton")
+	if down_button: down_button.pressed.connect(func(): change_focus(rocket, -1)) # Down is lower index
 
 	# Initialize focus on the first module if it exists
-	rocket.focus_module(0)
+	if rocket.get_module_count() > 0:
+		rocket.focus_module(0)
 
 
 func change_focus(rocket_node: Node3D, direction: int):
-	var current_focus = rocket_node.get("focused_module_idx")
+	if rocket_node.is_editing: return
+
+	var current_focus = rocket_node.get_focused_module_index()
 	var num_modules = rocket_node.get_module_count()
 	
 	if num_modules == 0:
