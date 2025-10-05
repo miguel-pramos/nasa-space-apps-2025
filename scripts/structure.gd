@@ -10,4 +10,4 @@ class_name Structure
 @export var volume: float
 @export var kitchen: bool
 @export var bathrom: bool
-@export var beddrom: bool
+@export var bedroom: bool
