@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://c0o6uo7w3q1a3"]
-
-[ext_resource type="PackedScene" uid="uid://cbhvagny5q5pc" path="res://models/stairs-small-edges.glb" id="1_6588v"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_bla28"]
-
-[resource]
-script = ExtResource("2_bla28")
-model = ExtResource("1_6588v")
-price = 150

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://b364q2lbklsk6"]
-
-[ext_resource type="PackedScene" uid="uid://d2mssbrnqmm21" path="res://models/structure-barrier.glb" id="1_6u651"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_rsl6m"]
-
-[resource]
-script = ExtResource("2_rsl6m")
-model = ExtResource("1_6u651")
-price = 150

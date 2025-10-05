@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://crtoywjdp7jm5"]
-
-[ext_resource type="PackedScene" uid="uid://kvq8t744nchx" path="res://models/stairs-ramp.glb" id="1_nykan"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_8dd5w"]
-
-[resource]
-script = ExtResource("2_8dd5w")
-model = ExtResource("1_nykan")
-price = 150

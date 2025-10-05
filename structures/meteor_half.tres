@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://dyo7iju8utrg0"]
-
-[ext_resource type="PackedScene" uid="uid://drbo8eir2yr71" path="res://models/meteor_half.glb" id="1_bt0f3"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_4q35d"]
-
-[resource]
-script = ExtResource("2_4q35d")
-model = ExtResource("1_bt0f3")
-price = 150

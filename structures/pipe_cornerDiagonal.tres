@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://bvvtqry0u8b01"]
-
-[ext_resource type="PackedScene" uid="uid://blk6ko6o4iyd1" path="res://models/pipe_cornerDiagonal.glb" id="1_fh2vc"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_6gfci"]
-
-[resource]
-script = ExtResource("2_6gfci")
-model = ExtResource("1_fh2vc")
-price = 150

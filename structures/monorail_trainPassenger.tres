@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://t6mcp1fp0tep"]
-
-[ext_resource type="PackedScene" uid="uid://cn4rb3g26ae7w" path="res://models/monorail_trainPassenger.glb" id="1_h1tlh"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_ikd14"]
-
-[resource]
-script = ExtResource("2_ikd14")
-model = ExtResource("1_h1tlh")
-price = 150

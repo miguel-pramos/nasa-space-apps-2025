@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://ykp21ya3dl53"]
-
-[ext_resource type="PackedScene" uid="uid://drughy1qgs50c" path="res://models/hangar_roundGlass.glb" id="1_v8hq6"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_lpfpx"]
-
-[resource]
-script = ExtResource("2_lpfpx")
-model = ExtResource("1_v8hq6")
-price = 150

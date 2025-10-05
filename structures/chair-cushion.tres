@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://di6c8onqubr67"]
-
-[ext_resource type="PackedScene" uid="uid://diyofpn5cun0r" path="res://models/chair-cushion.glb" id="1_2ncx6"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_qp2tq"]
-
-[resource]
-script = ExtResource("2_qp2tq")
-model = ExtResource("1_2ncx6")
-price = 150

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://dhr7v7cfs1gup"]
-
-[ext_resource type="PackedScene" uid="uid://7kwypvnj3gbb" path="res://models/wall-pillar.glb" id="1_waae5"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_gmvkv"]
-
-[resource]
-script = ExtResource("2_gmvkv")
-model = ExtResource("1_waae5")
-price = 150
