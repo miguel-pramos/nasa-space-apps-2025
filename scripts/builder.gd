@@ -45,7 +45,7 @@ func _process(delta):
 	var world_position = plane.intersects_ray(
 		view_camera.project_ray_origin(get_viewport().get_mouse_position()),
 		view_camera.project_ray_normal(get_viewport().get_mouse_position()))
-
+	
 	if world_position == null:
 		return # Can't get mouse position, so do nothing
 
@@ -203,7 +203,7 @@ func action_build(gridmap_position):
 		gridmap.set_cell_item(gridmap_position, index, gridmap.get_orthogonal_index_from_basis(selector.basis))
 
 		if previous_tile != index:
-			Global.resources.materials -= structures[index].price
+			Global.resources.money -= structures[index].price
 
 		Audio.play("sounds/placement-a.ogg", -20)
 
@@ -212,7 +212,7 @@ func action_demolish(gridmap_position):
 	if Input.is_action_just_pressed("demolish"):
 		var cell_item = gridmap.get_cell_item(gridmap_position)
 		if cell_item != -1:
-			Global.resources.materials += structures[cell_item].price * 0.5 # Refund 50% of the price
+			Global.resources.money += structures[cell_item].price * 0.5 # Refund 50% of the price
 			gridmap.set_cell_item(gridmap_position, -1)
 
 			Audio.play("sounds/removal-a.ogg", -20)

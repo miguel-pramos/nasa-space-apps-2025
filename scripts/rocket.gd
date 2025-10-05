@@ -6,20 +6,33 @@ extends Node3D
 var base: Node3D
 var pinnacle: Node3D
 var modules: Array[Node3D] = []
-var focused_module_idx: int
+var focused_module_idx: int = -1
+var original_material: Material
+var original_materials: Dictionary = {}
 
 var module_height = 1.0
 
 func _ready():
 	base = find_child("Base")
 	pinnacle = find_child("Pinnacle")
-	var initial_module = find_child("Module")
-	if initial_module:
-		modules.append(initial_module)
+	
+func find_mesh_instance(node: Node) -> MeshInstance3D:
+	if node is MeshInstance3D:
+		return node
+	for child in node.get_children():
+		var found = find_mesh_instance(child)
+		if found:
+			return found
+	return null
 
 func add_module():
 	var new_module_model = module.model.instantiate()
-
+	
+	if not original_material:
+		var mesh_instance = find_mesh_instance(new_module_model)
+		if mesh_instance:
+			original_material = mesh_instance.get_active_material(0)
+	
 	if Global.resources.money < module.price:
 		print("Not enough materials to build module")
 		new_module_model.queue_free()
@@ -41,12 +54,9 @@ func add_module():
 	update_pinnacle_position()
 
 func remove_module():
-	if modules.size() < 2:
+	if modules.size() < 1:
 		return
-	
-	if Global.resources.max_money >= Global.resources.money + module.price:
-		return
-	
+
 	Global.resources.money += module.price
 	
 	var to_be_deleted_module = modules.pop_back()
@@ -67,17 +77,38 @@ func update_pinnacle_position():
 		
 		pinnacle.position = pinnacle_position
 
+func set_highlight(node, highlight):
+	if node is MeshInstance3D:
+		var material = node.get_active_material(0)
+		if material:
+			if highlight:
+				original_materials[node] = material
+				var new_material = material.duplicate()
+				new_material.albedo_color = Color.YELLOW
+				node.set_surface_override_material(0, new_material)
+			elif original_materials.has(node):
+				node.set_surface_override_material(0, original_materials.get(node))
+				original_materials.erase(node)
+
+	for child in node.get_children():
+		set_highlight(child, highlight)
+
 func focus_module(index: int):
+	# Un-highlight the previously focused module
+	if focused_module_idx != -1 and focused_module_idx < modules.size():
+		set_highlight(modules[focused_module_idx], false)
+
 	if index < 0 or index >= modules.size():
+		focused_module_idx = -1
 		return
-	
+
+	# Highlight the new module
+	set_highlight(modules[index], true)
+
 	var tween = get_tree().create_tween()
 	tween.tween_property(camera, "position:y", modules[index].position.y + 3, 0.5).set_trans(Tween.TRANS_SINE)
 
-	
-	for i in range(modules.size()):
-		if i == index:
-			focused_module_idx = i
+	focused_module_idx = index
 
 	
 func activate_module():

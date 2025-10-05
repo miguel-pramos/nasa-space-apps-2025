@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=20 format=3 uid="uid://dnkx88bfeibyr"]
 
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
+[ext_resource type="Resource" uid="uid://ccr00eivs1y06" path="res://structures/module.tres" id="3_jkv2x"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="4_85g3d"]
 [ext_resource type="Script" uid="uid://c1uk3b2tjykh8" path="res://scripts/main/camera.gd" id="4_jyhfs"]
@@ -43,7 +44,7 @@ texture_margin_bottom = 4.0
 [node name="Ambient" type="Node3D" parent="."]
 
 [node name="Floor" type="MeshInstance3D" parent="Ambient"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09253621, 0, -0.022307634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.060569525, -0.0147669315, -0.046862185)
 mesh = SubResource("PlaneMesh_jbj1t")
 skeleton = NodePath("../..")
 
@@ -61,6 +62,7 @@ transform = Transform3D(4.64, 0, 0, 0, 4.64, 0, 0, 0, 4.64, 6.5511713, 0, 4.0481
 
 [node name="Rocket" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_o5qli")]
 camera = NodePath("../Camera")
+module = ExtResource("3_jkv2x")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 5, 8.798)
