@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/terrain_sideEnd.glb-3b4728c493e5106b381997ea3
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

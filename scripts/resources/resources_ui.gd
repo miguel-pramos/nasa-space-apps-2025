@@ -11,6 +11,4 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	power_progress.value = Global.resources.power / Global.resources.max_power * 100
-	fuel_progress.value = Global.resources.fuel / Global.resources.max_fuel * 100
 	money_progress.value = Global.resources.money / Global.resources.max_money * 100

@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/hangar_largeB.glb-791ad7ec4dc216c18bb7c1b4b32
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

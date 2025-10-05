@@ -212,8 +212,16 @@ func action_build(map_coords: Vector3i):
 		gridmap.set_cell_item(map_coords, index, gridmap.get_orthogonal_index_from_basis(selector.basis))
 
 		if previous_tile != index:
-			map.cash -= structures[index].price
+			Global.resources.money -= structures[index].price
 			update_cash()
+			if structures[index].kitchen:
+				Global.resources.food += structures[index].weight
+				Global.resources.kitchen += structures[index].volume
+			elif structures[index].bathrom:
+				Global.resources.hygine += structures[index].weight
+				Global.resources.bathrom += structures[index].volume
+			elif structures[index].beddrom:
+				Global.resources.beddrom += structures[index].volume
 
 func action_demolish(map_coords: Vector3i):
 	if Input.is_action_just_pressed("demolish"):
