@@ -24,6 +24,10 @@ Audio="*res://scripts/audio.gd"
 Global="*res://scripts/Global.gd"
 GameEvents="*res://scripts/game_events.gd"
 
+[display]
+
+mouse_cursor/custom_image="uid://d161hx5sqme5u"
+
 [editor]
 
 movie_writer/movie_file="D:/Godot/recording.avi"
