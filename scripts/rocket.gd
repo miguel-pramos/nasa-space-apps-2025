@@ -60,10 +60,25 @@ func _ready():
 	focus_selector.material_override = mat
 	add_child(focus_selector)
 	focus_selector.visible = false # Hide it initially
+	update_ui_buttons_visibility()
 
 
 func get_module_count() -> int:
 	return modules.size()
+
+func update_ui_buttons_visibility():
+	if rocket_ui:
+		var edit_button = rocket_ui.find_child("EditButton")
+		if edit_button:
+			edit_button.visible = (modules.size() > 0)
+		
+		var up_button = rocket_ui.find_child("UpButton")
+		if up_button:
+			up_button.visible = (modules.size() >= 2)
+
+		var down_button = rocket_ui.find_child("DownButton")
+		if down_button:
+			down_button.visible = (modules.size() >= 2)
 
 func add_module():
 	if modules.size() >= MAX_MODULES:
@@ -75,6 +90,12 @@ func add_module():
 	if is_editing: return
 
 	var new_module_instance = MODULE_SCENE.instantiate()
+	
+	# Hide the UI of the new module
+	var canvas_layer = new_module_instance.find_child("CanvasLayer")
+	if canvas_layer:
+		canvas_layer.visible = false
+	
 	modules.append(new_module_instance)
 	add_child(new_module_instance)
 	
@@ -85,6 +106,7 @@ func add_module():
 	# Automatically focus the new module
 	focus_module(modules.size() - 1)
 	print("Added module. Total: ", get_module_count())
+	update_ui_buttons_visibility()
 
 func remove_module():
 	if is_editing: return
@@ -104,11 +126,19 @@ func remove_module():
 			focused_module_idx = -1
 			focus_module(-1) # Unfocus visual
 			
+	update_ui_buttons_visibility()
+			
 func enter_edit_mode():
 	if focused_module_idx != -1 and not is_editing:
 		is_editing = true
 		
 		var selected_module = modules[focused_module_idx]
+
+		# Show the UI of the selected module
+		var canvas_layer = selected_module.find_child("CanvasLayer")
+		if canvas_layer:
+			canvas_layer.visible = true
+
 		var module_camera = selected_module.find_child("Camera", true, false)
 		var builder = selected_module.get_node("View/Builder")
 		if builder and builder.has_method("set_active"):
@@ -149,6 +179,12 @@ func exit_edit_mode():
 		if focused_module_idx != -1 and focused_module_idx < modules.size():
 			var selected_module = modules[focused_module_idx]
 			if selected_module:
+
+				# Hide the UI of the selected module
+				var canvas_layer = selected_module.find_child("CanvasLayer")
+				if canvas_layer:
+					canvas_layer.visible = false
+
 				var module_camera = selected_module.find_child("Camera", true, false)
 				if module_camera:
 					module_camera.current = false
