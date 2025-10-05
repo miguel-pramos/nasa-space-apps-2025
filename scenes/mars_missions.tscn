@@ -26,62 +26,63 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_bq14k")
 
-[node name="StartMission1" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 33.0
-offset_right = 643.0
-offset_bottom = 765.25
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.99999
+offset_top = 36.999996
+offset_right = 132.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 50
+
+[node name="StartMission1" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_ch70h")
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="StartMission1"]
-layout_mode = 0
+[node name="Label" type="Label" parent="HBoxContainer/StartMission1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 132.5
-offset_top = 110.00001
-offset_right = 477.937
-offset_bottom = 791.0
+offset_top = 117.49999
+offset_right = -119.75006
+offset_bottom = -124.25006
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_qiilj")
 theme_override_font_sizes/font_size = 25
 text = "Mission 1: Mars
 Your objective is to lead a 4-person crew on a 1,100-day mission to Mars. With a starting budget of $10,000M, you must construct a habitat that meets the following minimum requirements.
-Habitat Modules (Minimum Net Habitable Volume):
- Crew Quarters (Private): 31.4 m³
- Exercise Facility: 13.4 m³
- Recreation & Mess Hall: 28.3 m³
- Hygiene & Waste Management: 6.7 m³
-Required Supplies:
- Food: 10,500 kg
- Hygiene Supplies: 2,200 kg"
+Habitat Modules (Minimum Net Habitable "
 autowrap_mode = 3
 
-[node name="StartMission2" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 59.0
-offset_top = -615.0
-offset_right = 660.0
-offset_bottom = 113.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.8, 0.8)
+[node name="StartMission2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_ch70h")
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="StartMission2"]
+[node name="Label" type="Label" parent="HBoxContainer/StartMission2"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -454.14685
-offset_top = 134.26573
-offset_right = -132.4685
-offset_bottom = 599.26575
+anchor_bottom = 1.0
+offset_left = 134.0
+offset_top = 117.49999
+offset_right = -134.50006
+offset_bottom = -116.75006
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_qiilj")
 theme_override_font_sizes/font_size = 25
 text = "mucho testo mucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testo"

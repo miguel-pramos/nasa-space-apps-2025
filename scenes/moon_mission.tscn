@@ -26,54 +26,65 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_i0cu2")
 
-[node name="StartMission1" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 68.0
-offset_top = 58.0
-offset_right = 669.0
-offset_bottom = 790.25
-scale = Vector2(0.715, 0.715)
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_o51is")
-
-[node name="Label" type="Label" parent="StartMission1"]
-layout_mode = 0
-offset_left = 144.05594
-offset_top = 141.25874
-offset_right = 465.73428
-offset_bottom = 606.2587
-theme_override_fonts/font = ExtResource("4_n28eh")
-theme_override_font_sizes/font_size = 25
-text = "mucho testo mucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testo"
-autowrap_mode = 3
-
-[node name="StartMission2" type="TextureButton" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 62.0
-offset_top = -592.0
-offset_right = 663.0
-offset_bottom = 136.0
+offset_left = 93.99999
+offset_top = 36.999996
+offset_right = 148.0
+offset_bottom = 117.0
 grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.715, 0.715)
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 60
+
+[node name="StartMission1" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_o51is")
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="StartMission2"]
-layout_mode = 0
-offset_left = 146.85315
-offset_top = 134.26573
-offset_right = 468.5315
-offset_bottom = 599.26575
+[node name="Label" type="Label" parent="HBoxContainer/StartMission1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 132.5
+offset_top = 126.24999
+offset_right = -124.75006
+offset_bottom = -113.00006
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_n28eh")
 theme_override_font_sizes/font_size = 25
 text = "mucho testo mucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testo"
 autowrap_mode = 3
 
-[connection signal="pressed" from="StartMission1" to="." method="_on_start_mission_1_pressed"]
-[connection signal="pressed" from="StartMission2" to="." method="_on_start_mission_2_pressed"]
+[node name="StartMission2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_o51is")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/StartMission2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 137.75
+offset_top = 123.74999
+offset_right = -140.75006
+offset_bottom = -113.00006
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_n28eh")
+theme_override_font_sizes/font_size = 25
+text = "mucho testo mucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testo"
+autowrap_mode = 3
+
+[connection signal="pressed" from="HBoxContainer/StartMission1" to="." method="_on_start_mission_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/StartMission2" to="." method="_on_start_mission_2_pressed"]
