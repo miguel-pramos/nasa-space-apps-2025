@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/stairs_short.glb-29d06219d87b9388c38ec2003d2b
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

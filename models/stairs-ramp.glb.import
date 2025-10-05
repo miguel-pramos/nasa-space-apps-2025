@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/stairs-ramp.glb-cb4cc5756190d0253b0386effc3ec
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

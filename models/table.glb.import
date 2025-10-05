@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/table.glb-3be5313d7e6d399de8beb382bbc874dc.sc
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

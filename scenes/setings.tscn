@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://s88becm65pg8"]
 
-[ext_resource type="Script" uid="uid://dgb2bmsky6nvx" path="res://setings.gd" id="1_22s1g"]
+[ext_resource type="Script" uid="uid://dgb2bmsky6nvx" path="res://scripts/setings.gd" id="1_22s1g"]
 [ext_resource type="VideoStream" uid="uid://ckih61bkb2thg" path="res://sprites/menu/video_hud_start.ogv" id="2_0mca5"]
 [ext_resource type="Texture2D" uid="uid://dykv73d6c4kn0" path="res://sprites/settings/bluleft.png" id="3_4xu2p"]
 [ext_resource type="Texture2D" uid="uid://c3hf6yfjc75wl" path="res://sprites/settings/goldright.png" id="4_22s1g"]
@@ -39,6 +39,7 @@ offset_top = 2.0
 offset_right = 1284.0
 offset_bottom = 722.0
 stream = ExtResource("2_0mca5")
+volume_db = -80.0
 autoplay = true
 loop = true
 

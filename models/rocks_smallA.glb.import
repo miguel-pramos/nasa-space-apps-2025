@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/rocks_smallA.glb-b0e7762b4d304e6c7a1004177e01
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/structure-barrier.glb-9390828ceea909386633b8e
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

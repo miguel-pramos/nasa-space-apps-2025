@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/corridor_wallCorner.glb-f8da2d9e90600fd67a203
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

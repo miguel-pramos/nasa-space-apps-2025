@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/display-wall-wide.glb-203e487f5fdab0f5c90d253
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

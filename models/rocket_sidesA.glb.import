@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/rocket_sidesA.glb-4fe63e0c71767de7d9f2ffdf6c7
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

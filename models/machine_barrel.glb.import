@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/machine_barrel.glb-d53432995ee85ca05bb208a196
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/pipe.glb-f802cda42922854cd7ea85b89e36d9f5.scn
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
