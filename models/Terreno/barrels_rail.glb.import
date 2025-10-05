@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/barrels_rail.glb-0c10e0e220ab702a496b9979c0dc
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
