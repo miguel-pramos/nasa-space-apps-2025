@@ -1,17 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b860fptrc78d1"]
+[gd_scene load_steps=4 format=3 uid="uid://b860fptrc78d1"]
 
 [ext_resource type="Script" uid="uid://c4cuukrunlum3" path="res://scripts/rocket.gd" id="1_rocket_script"]
 [ext_resource type="PackedScene" uid="uid://dg4jalxpap5ke" path="res://models/rocket_base_a.tscn" id="2_y2y7n"]
 [ext_resource type="PackedScene" uid="uid://uew7qn63rsjb" path="res://models/rocket_top_a.tscn" id="3_8kmw3"]
-[ext_resource type="PackedScene" uid="uid://vgwrcfy1qawf" path="res://scenes/rocket_modules/module.tscn" id="4_y2y7n"]
 
 [node name="Rocket" type="Node3D"]
 script = ExtResource("1_rocket_script")
 
 [node name="Base" parent="." instance=ExtResource("2_y2y7n")]
 
-[node name="Module" parent="." instance=ExtResource("4_y2y7n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
 [node name="Pinnacle" parent="." instance=ExtResource("3_8kmw3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

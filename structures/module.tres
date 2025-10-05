@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://ccr00eivs1y06"]
+
+[ext_resource type="PackedScene" uid="uid://cy0y2w5xyt46v" path="res://models/rocket_sides_a.tscn" id="1_l5xre"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_68ohn"]
+
+[resource]
+script = ExtResource("2_68ohn")
+model = ExtResource("1_l5xre")
+price = 100

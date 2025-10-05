@@ -10,7 +10,6 @@ var index:int = 0 # Index of structure being built
 @export var selector_container:Node3D # Node that holds a preview of the structure
 @export var view_camera:Camera3D # Used for raycasting mouse
 @export var gridmap:GridMap
-@export var cash_display:Label
 
 # LIMITES DO GRIDMAP
 @export_group("Map Limits")
@@ -47,7 +46,6 @@ func _ready():
 	gridmap.mesh_library = meshlib
 
 	update_structure()
-	update_cash()
 
 func _process(delta):
 
@@ -55,7 +53,7 @@ func _process(delta):
 	var world_position = plane.intersects_ray(
 		view_camera.project_ray_origin(get_viewport().get_mouse_position()),
 		view_camera.project_ray_normal(get_viewport().get_mouse_position()))
-
+	
 	if world_position == null:
 		return # Can't get mouse position, so do nothing
 
@@ -248,8 +246,7 @@ func action_build(gridmap_position):
 		gridmap.set_cell_item(gridmap_position, index, gridmap.get_orthogonal_index_from_basis(selector.basis))
 
 		if previous_tile != index:
-			map.cash -= structures[index].price
-			update_cash()
+			Global.resources.money -= structures[index].price
 
 		Audio.play("sounds/placement-a.ogg", -20)
 
@@ -299,9 +296,6 @@ func update_structure():
 	selector_container.add_child(_model)
 	_model.position.y += 0.25
 
-func update_cash():
-	cash_display.text = "$" + str(map.cash)
-
 # ========== SAVING/LOADING ==========
 
 func action_save():
@@ -333,7 +327,6 @@ func action_load():
 		for cell in map.structures:
 			gridmap.set_cell_item(Vector3i(cell.position.x, 0, cell.position.y), cell.structure, cell.orientation)
 
-		update_cash()
 
 func action_load_resources():
 	if Input.is_action_just_pressed("load_resources"):
@@ -346,5 +339,3 @@ func action_load_resources():
 			map = DataMap.new()
 		for cell in map.structures:
 			gridmap.set_cell_item(Vector3i(cell.position.x, 0, cell.position.y), cell.structure, cell.orientation)
-
-		update_cash()

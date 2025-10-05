@@ -32,7 +32,7 @@ func on_add_button_pressed():
 		var module_count = rocket.get_module_count()
 		var is_focused_on_top = (focused_module_index == module_count - 1)
 
-		rocket.add_module("module")
+		rocket.add_module()
 
 		if is_focused_on_top:
 			on_up_button_pressed()
@@ -73,5 +73,8 @@ func on_down_button_pressed():
 		rocket.focus_module(focused_module_index)
 		
 func on_activate_button_pressed():
+	var camera = get_node("../Camera")
+	camera.change_rotation_axis(Vector3(-20, 0, 20))
+
 	if rocket:
 		rocket.activate_module()

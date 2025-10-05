@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://dklis7xuh6rvs"]
-
-[ext_resource type="PackedScene" uid="uid://ded0equyv5tid" path="res://models/temp/alien.tscn" id="1_wc0ne"]
-[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="2_hut85"]
-
-[resource]
-script = ExtResource("2_hut85")
-model = ExtResource("1_wc0ne")
-price = 150
