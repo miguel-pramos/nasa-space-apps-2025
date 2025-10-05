@@ -251,7 +251,7 @@ func action_build(gridmap_position):
 
 		if previous_tile != index:
 			Global.resources.money -= structures[index].price
-
+				
 		Audio.play("sounds/placement-a.ogg", -20)
 
 # Demolish (remove) a structure

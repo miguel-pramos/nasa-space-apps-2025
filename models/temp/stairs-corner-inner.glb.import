@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/stairs-corner-inner.glb-e726f516accc1bdf192b8
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

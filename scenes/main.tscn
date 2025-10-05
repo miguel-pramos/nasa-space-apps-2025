@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=22 format=3 uid="uid://vgwrcfy1qawf"]
 
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="4_85g3d"]

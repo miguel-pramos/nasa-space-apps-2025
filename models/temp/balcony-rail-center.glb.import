@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/balcony-rail-center.glb-e80cfeddf2ffdf956c51f
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
