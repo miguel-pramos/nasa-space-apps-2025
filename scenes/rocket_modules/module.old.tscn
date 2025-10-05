@@ -1,0 +1,200 @@
+[gd_scene load_steps=26 format=3 uid="uid://vgwrcfy1qawf"]
+
+[ext_resource type="Script" uid="uid://ce07qj0g5ptv2" path="res://scripts/module_controller.gd" id="1_a3eb3"]
+[ext_resource type="Script" uid="uid://dec71yx4xpg2c" path="res://scripts/view.gd" id="2_sv76o"]
+[ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="3_8wdde"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="4_g085s"]
+[ext_resource type="Resource" path="res://structures/alien.tres" id="5_jf22p"]
+[ext_resource type="PackedScene" uid="uid://bqxpwpjdkpf60" path="res://models/temp/barrel.glb" id="6_2ligw"]
+[ext_resource type="PackedScene" uid="uid://dwb1xyvhygest" path="res://models/temp/bed-single.glb" id="7_oscer"]
+[ext_resource type="PackedScene" uid="uid://bo75fbqr67x74" path="res://models/temp/computer-system.glb" id="8_kqqrk"]
+[ext_resource type="Texture2D" uid="uid://cbk07cxgshg26" path="res://sprites/selector.png" id="9_ly68i"]
+[ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="10_ougkq"]
+[ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="11_rq54c"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="12_2y7po"]
+[ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="13_4qxvi"]
+[ext_resource type="Script" uid="uid://d36v1msgvoe65" path="res://scripts/module/ui.gd" id="14_tesrh"]
+[ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="15_qv1a5"]
+[ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="16_ownrp"]
+[ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="17_frdym"]
+[ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="18_lgw8u"]
+[ext_resource type="Texture2D" uid="uid://bjfoiumjjl1ii" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Green/button_square_header_small_rectangle.svg" id="19_obvho"]
+[ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="20_h83bo"]
+
+[sub_resource type="Resource" id="Resource_y6deb"]
+script = ExtResource("4_g085s")
+model = ExtResource("6_2ligw")
+price = 150
+
+[sub_resource type="Resource" id="Resource_og1vs"]
+script = ExtResource("4_g085s")
+model = ExtResource("7_oscer")
+price = 150
+
+[sub_resource type="Resource" id="Resource_2wyq8"]
+script = ExtResource("4_g085s")
+model = ExtResource("8_kqqrk")
+price = 150
+
+[sub_resource type="LabelSettings" id="LabelSettings_jgbw0"]
+font = ExtResource("12_2y7po")
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jgbw0"]
+texture = ExtResource("19_obvho")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[node name="Module" type="Node3D"]
+script = ExtResource("1_a3eb3")
+
+[node name="View" type="Node3D" parent="."]
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0, 0, 0)
+script = ExtResource("2_sv76o")
+
+[node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap")]
+transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
+script = ExtResource("3_8wdde")
+structures = Array[ExtResource("4_g085s")]([ExtResource("5_jf22p"), SubResource("Resource_y6deb"), SubResource("Resource_og1vs"), SubResource("Resource_2wyq8")])
+selector = NodePath("Selector")
+selector_container = NodePath("Selector/Container")
+view_camera = NodePath("../Camera")
+gridmap = NodePath("../../GridMap")
+
+[node name="Selector" type="Node3D" parent="View/Builder"]
+
+[node name="Container" type="Node3D" parent="View/Builder/Selector"]
+
+[node name="Sprite3D" type="Sprite3D" parent="View/Builder/Selector"]
+axis = 1
+texture = ExtResource("9_ly68i")
+
+[node name="Camera" type="Camera3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+environment = ExtResource("10_ougkq")
+fov = 20.0
+
+[node name="GridMap" type="GridMap" parent="."]
+cell_size = Vector3(0.2, 0.2, 0.2)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Top" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 54.0
+offset_bottom = 50.0
+
+[node name="CashIcon" type="TextureRect" parent="CanvasLayer/Top"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 148.0
+offset_bottom = 152.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_rq54c")
+
+[node name="Cash" type="Label" parent="CanvasLayer/Top"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 27.0
+offset_right = 270.0
+offset_bottom = 101.0
+text = "$10,000"
+label_settings = SubResource("LabelSettings_jgbw0")
+
+[node name="Bottom" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -648.0
+offset_bottom = -648.0
+grow_vertical = 0
+
+[node name="Instructions" type="TextureRect" parent="CanvasLayer/Bottom"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 375.0
+offset_right = 344.0
+offset_bottom = 887.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_4qxvi")
+
+[node name="Control" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.062000003
+anchor_right = 0.95000005
+anchor_bottom = 0.94400007
+offset_left = 798.68
+offset_top = -5.1760025
+offset_right = 7.7474365
+offset_bottom = 14.287964
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_tesrh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("15_qv1a5")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MenuBar" type="MenuBar" parent="CanvasLayer/Control"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 34.0
+offset_right = 179.0
+offset_bottom = 58.0
+value = 26.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("16_ownrp")
+texture_progress = ExtResource("17_frdym")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 13.0
+offset_right = 139.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+theme_override_fonts/font = ExtResource("18_lgw8u")
+text = "Progress"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 89.0
+offset_right = 63.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_jgbw0")
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_h83bo")
+volume_db = -30.0
+autoplay = true

@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var cost: int = 100
+
 @export var active: bool = false:
 	set(value):
 		if active != value:

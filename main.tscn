@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://main_test_scene"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="PackedScene" uid="uid://main_rocket_scene" path="res://scenes/rocket.tscn" id="1_rocket"]
-[ext_resource type="PackedScene" uid="uid://vgwrcfy1qawf" path="res://scenes/rocket_modules/module.tscn" id="2_module"]
-[ext_resource type="Script" path="res://scripts/main/main_ui.gd" id="3_script"]
+[ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_rocket"]
+[ext_resource type="PackedScene" uid="uid://vgwrcfy1qawf" path="res://scenes/rocket_modules/module.old.tscn" id="2_module"]
+[ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="3_script"]
 
 [sub_resource type="Sky" id="Sky_1"]
 [sub_resource type="Environment" id="Environment_1"]

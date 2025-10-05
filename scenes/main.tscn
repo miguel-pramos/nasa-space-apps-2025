@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=19 format=3 uid="uid://dnkx88bfeibyr"]
 
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="3_sugp2"]
@@ -7,9 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="5_85g3d"]
 [ext_resource type="Texture2D" uid="uid://dvdrrdq6oxfav" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_round_gloss_small.svg" id="6_choun"]
 [ext_resource type="Texture2D" uid="uid://dji67fdjtpgrp" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="7_ya4ey"]
-[ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="8_eb6dy"]
+[ext_resource type="Script" uid="uid://diq4jlc3fs34x" path="res://scripts/resources/resources_ui.gd" id="8_trceg"]
+[ext_resource type="Texture2D" uid="uid://sg3oxlex8x7v" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Green/bar_round_gloss_large.svg" id="10_a8y0u"]
+[ext_resource type="FontFile" uid="uid://g6bd17lmh6ao" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future.ttf" id="10_choun"]
 [ext_resource type="Texture2D" uid="uid://bjfoiumjjl1ii" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Green/button_square_header_small_rectangle.svg" id="10_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://1217hkq6ypcs" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Red/button_square_header_small_rectangle_screws.svg" id="11_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://cwpl525355f7d" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Yellow/bar_round_gloss_small.svg" id="13_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://04618b3mq85n" path="res://models/corridor_wall.tscn" id="14_a8y0u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkv2x"]
+albedo_color = Color(0.5017686, 0.51962227, 0.49886036, 1)
+metallic = 0.03
+roughness = 0.33
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jbj1t"]
+material = SubResource("StandardMaterial3D_jkv2x")
+size = Vector2(100, 100)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trceg"]
 texture = ExtResource("10_ya4ey")
@@ -27,11 +40,30 @@ texture_margin_bottom = 4.0
 
 [node name="Main" type="Node3D"]
 
+[node name="Ambient" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Ambient"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09253621, 0, -0.022307634)
+mesh = SubResource("PlaneMesh_jbj1t")
+skeleton = NodePath("../..")
+
+[node name="corridor_wall3" parent="Ambient" instance=ExtResource("14_a8y0u")]
+transform = Transform3D(4.64, 0, 0, 0, 4.64, 0, 0, 0, 4.64, 6.5511713, 0, 8.048142)
+
+[node name="corridor_wall4" parent="Ambient" instance=ExtResource("14_a8y0u")]
+transform = Transform3D(4.64, 0, 0, 0, 4.64, 0, 0, 0, 4.64, 6.5511713, 0, -3.9518576)
+
+[node name="corridor_wall5" parent="Ambient" instance=ExtResource("14_a8y0u")]
+transform = Transform3D(4.64, 0, 0, 0, 4.64, 0, 0, 0, 4.64, 6.5511713, 0, 0.048142433)
+
+[node name="corridor_wall6" parent="Ambient" instance=ExtResource("14_a8y0u")]
+transform = Transform3D(4.64, 0, 0, 0, 4.64, 0, 0, 0, 4.64, 6.5511713, 0, 4.0481424)
+
 [node name="Rocket" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_o5qli")]
 camera = NodePath("../Camera")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 4.5194235, 8.797962)
+transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 5, 8.798)
 environment = ExtResource("3_sugp2")
 fov = 48.48457
 script = ExtResource("4_jyhfs")
@@ -39,7 +71,7 @@ script = ExtResource("4_jyhfs")
 [node name="Sun" type="DirectionalLight3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, 0.8571673, 0.5150381, 0, -0.5150381, 0.8571673, 0, 3.78433, -0.9460039)
 shadow_enabled = true
-shadow_opacity = 0.75
+directional_shadow_mode = 1
 sky_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -71,32 +103,7 @@ patch_margin_bottom = 4
 [node name="MenuBar" type="MenuBar" parent="CanvasLayer/Control"]
 layout_mode = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Control/MenuBar"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 34.0
-offset_right = 179.0
-offset_bottom = 58.0
-value = 26.0
-nine_patch_stretch = true
-stretch_margin_left = 10
-stretch_margin_top = 10
-stretch_margin_right = 10
-stretch_margin_bottom = 10
-texture_under = ExtResource("6_choun")
-texture_progress = ExtResource("7_ya4ey")
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 13.0
-offset_right = 139.0
-offset_bottom = 36.0
-theme_override_colors/font_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
-theme_override_fonts/font = ExtResource("8_eb6dy")
-text = "Progress"
-
-[node name="AcivateButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
+[node name="ActivateButton" type="Button" parent="CanvasLayer/Control/MenuBar"]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 365.0
@@ -145,3 +152,102 @@ offset_bottom = 275.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
 text = "Remove"
+
+[node name="Resources" type="Control" parent="CanvasLayer/Control/MenuBar"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_trceg")
+
+[node name="Power" type="Control" parent="CanvasLayer/Control/MenuBar/Resources"]
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 37.0
+offset_right = 261.0
+offset_bottom = 84.0
+
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/MenuBar/Resources/Power"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 168.0
+offset_bottom = 40.0
+value = 26.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("6_choun")
+texture_progress = ExtResource("10_a8y0u")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar/Resources/Power"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 20.0
+offset_right = 256.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+text = "Power"
+
+[node name="Fuel" type="Control" parent="CanvasLayer/Control/MenuBar/Resources"]
+anchors_preset = 0
+offset_top = 77.0
+offset_right = 263.0
+offset_bottom = 123.0
+
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/MenuBar/Resources/Fuel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 20.0
+offset_right = 168.0
+offset_bottom = 40.0
+value = 26.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("6_choun")
+texture_progress = ExtResource("7_ya4ey")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar/Resources/Fuel"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 20.0
+offset_right = 247.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+text = "Fuel"
+
+[node name="Money" type="Control" parent="CanvasLayer/Control/MenuBar/Resources"]
+anchors_preset = 0
+offset_top = -4.0
+offset_right = 263.0
+offset_bottom = 45.0
+
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/MenuBar/Resources/Money"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 20.0
+offset_right = 168.0
+offset_bottom = 40.0
+value = 26.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+texture_under = ExtResource("6_choun")
+texture_progress = ExtResource("13_jkv2x")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MenuBar/Resources/Money"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 20.0
+offset_right = 247.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+text = "Money"

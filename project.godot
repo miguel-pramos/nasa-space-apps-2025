@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Starter Kit City Builder"
+config/name="Ship Sweet Ship"
 config/tags=PackedStringArray("starterkit")
 run/main_scene="uid://dnkx88bfeibyr"
 config/features=PackedStringArray("4.5", "Forward Plus")
