@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/door-single.glb-d83a2a095167e19809ee6acdca6c6
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

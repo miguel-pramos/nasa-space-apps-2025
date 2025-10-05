@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/craft_speederA.glb-04bf94dd9a9b6e456c46bc5384
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

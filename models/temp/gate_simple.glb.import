@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/gate_simple.glb-42cbbe9c694a4eb85d0256c5e53bf
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

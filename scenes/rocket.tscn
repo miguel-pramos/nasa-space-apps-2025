@@ -8,6 +8,8 @@
 script = ExtResource("1_rocket_script")
 
 [node name="Base" parent="." instance=ExtResource("2_y2y7n")]
+visible = false
 
 [node name="Pinnacle" parent="." instance=ExtResource("3_8kmw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false

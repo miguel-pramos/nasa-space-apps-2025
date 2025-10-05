@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/turret_double.glb-9f5336a9c29ecd073d44a525d54
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

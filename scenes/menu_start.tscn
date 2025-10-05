@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgyppmbr4qfrv"]
+[gd_scene load_steps=21 format=3 uid="uid://cgyppmbr4qfrv"]
 
 [ext_resource type="Script" uid="uid://n1de3p7lrkj" path="res://scenes/menu_start.gd" id="1_ncqf3"]
 [ext_resource type="VideoStream" uid="uid://ckih61bkb2thg" path="res://sprites/menu/video_hud_start.ogv" id="2_cp8n1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bg0cvcbdyxh8s" path="res://sprites/menu/Quit.png" id="7_tjvo7"]
 [ext_resource type="Texture2D" uid="uid://ddl2xunnp6eye" path="res://sprites/menu/QuitGolden.png" id="8_m0ayq"]
 [ext_resource type="FontFile" uid="uid://dxnm0obu17xh8" path="res://sprites/Fonte TItulo/Almendra-Bold.ttf" id="9_5poo7"]
+[ext_resource type="AudioStream" uid="uid://bqphs7y4b8r8d" path="res://sounds/menu.mp3" id="10_orngt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dc4yy"]
 texture = ExtResource("3_4jmj5")
@@ -53,6 +54,7 @@ layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 stream = ExtResource("2_cp8n1")
+volume_db = -80.0
 autoplay = true
 loop = true
 
@@ -110,6 +112,10 @@ theme_override_fonts/font = ExtResource("9_5poo7")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_orngt")
 text = "Ship Sweet Ship"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_orngt")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

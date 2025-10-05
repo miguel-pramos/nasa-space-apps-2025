@@ -15,7 +15,6 @@ dest_files=["res://.godot/imported/structure_closed.glb-bb1e10b58e176ef1fd739c48
 
 nodes/root_type=""
 nodes/root_name=""
-nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
