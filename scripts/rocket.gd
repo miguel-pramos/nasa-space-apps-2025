@@ -1,139 +1,209 @@
 extends Node3D
 
 @export var camera: Camera3D
-@export var module: Structure
+# The scene for the module to be instanced
+const MODULE_SCENE = preload("res://scenes/scenarios/scenario_1.tscn")
 
-# The scene to instantiate for each module
-const SCENARIO_SCENE = preload("res://scenes/scenarios/scenario_1.tscn")
+const MAX_MODULES = 4
 
-var base: Node3D
-var pinnacle: Node3D
+@onready var modules: Array[Node3D] = []
+@onready var focused_module_idx = -1
 
-var modules: Array[Node3D] = []
-var scenario_instances: Array[Node3D] = []
-
-var focused_module_idx: int = -1
-var original_materials: Dictionary = {}
-var module_height = 1.0
-
-# A reference to the main UI so we can hide/show it
+# UI references that will be set from main_ui.gd
 var rocket_ui: Control
+var module_ui: Control
+var limit_popup: Control
+
+var focus_selector: MeshInstance3D
+
+var module_height = 4.0 # Assuming a fixed height for modules to stack them
+var is_editing = false
+
+@onready var ambient_node = get_node_or_null("../Ambient")
 
 func _ready():
-	base = find_child("Base")
-	pinnacle = find_child("Pinnacle")
-
-func add_module():
-	# --- Instantiate Module --- 
-	var new_module_model = module.model.instantiate()
-	if Global.resources.money < module.price:
-		print("Not enough materials to build module")
-		new_module_model.queue_free()
-		return
-	Global.resources.money -= module.price
-
-	var new_position = Vector3.ZERO
-	if not modules.is_empty():
-		var top_module = modules[-1]
-		new_position = top_module.position + Vector3.UP * module_height
-	else:
-		new_position = base.position + Vector3.UP * module_height
-	
-	new_module_model.position = new_position
-	modules.append(new_module_model)
-	add_child(new_module_model)
-
-	# --- Instantiate Associated Scenario --- 
-	var new_scenario = SCENARIO_SCENE.instantiate()
-	var new_module_index = modules.size() - 1
-	new_scenario.init(new_module_index) # Pass the index to the new instance
-	new_scenario.back_to_assembly_requested.connect(exit_edit_mode)
-	new_scenario.visible = false # Keep it hidden
-	scenario_instances.append(new_scenario)
-	get_tree().get_root().add_child(new_scenario) # Add to the main scene tree
-
-	update_pinnacle_position()
-
-func remove_module():
-	if modules.size() < 1:
-		return
-
-	Global.resources.money += module.price
-	
-	# Remove module and its associated scenario instance
-	var to_be_deleted_module = modules.pop_back()
-	to_be_deleted_module.queue_free()
-	var to_be_deleted_scenario = scenario_instances.pop_back()
-	to_be_deleted_scenario.queue_free()
-	
-	update_pinnacle_position()
-
-
-func enter_edit_mode():
-	if focused_module_idx < 0 or focused_module_idx >= scenario_instances.size():
-		return
-	
-	print("Entering edit mode for module: ", focused_module_idx)
-	# Hide rocket and its UI
-	if rocket_ui: rocket_ui.visible = false
-	self.visible = false
-	
-	# Show the specific scenario instance
-	var scenario = scenario_instances[focused_module_idx]
-	scenario.visible = true
-
-func exit_edit_mode():
-	print("Exiting edit mode")
-	# Hide all scenario instances
-	for scenario in scenario_instances:
-		scenario.visible = false
-	
-	# Show rocket and its UI
-	if rocket_ui: rocket_ui.visible = true
-	self.visible = true
-
-
-# --- Helper and existing functions below ---
-
-func update_pinnacle_position():
-	if pinnacle:
-		var pinnacle_position = Vector3.ZERO
-		if not modules.is_empty():
-			var top_module = modules[-1]
-			pinnacle_position = top_module.position + Vector3.UP * module_height
-			focus_module(-1)
+	# This is a bit of a hack because the UI is in a different branch.
+	# A better way would be to use signals.
+	# We wait for the parent to be ready and then get the UI nodes.
+	await get_parent().ready
+	var main_ui = get_node("/root/Main/CanvasLayer")
+	if main_ui:
+		rocket_ui = main_ui.find_child("RocketUI")
+		module_ui = main_ui.find_child("ModuleUI")
+		var back_button = module_ui.find_child("Back")
+		if back_button:
+			back_button.pressed.connect(exit_edit_mode)
 		else:
-			pinnacle_position = base.position + Vector3.UP * module_height
-		pinnacle.position = pinnacle_position
+			print("Rocket.gd: Back button not found in module_ui")
+		
+		limit_popup = main_ui.find_child("LimitPopup")
+		if limit_popup:
+			var close_button = limit_popup.find_child("CloseButton", true, false)
+			if close_button:
+				close_button.pressed.connect(func(): limit_popup.hide())
+		else:
+			print("Rocket.gd: LimitPopup not found.")
+	else:
+		print("Rocket.gd: Could not find CanvasLayer to get UI nodes.")
 
-func focus_module(index: int):
-	if focused_module_idx != -1 and focused_module_idx < modules.size():
-		set_highlight(modules[focused_module_idx], false)
+	# Create a selector mesh for visual feedback
+	focus_selector = MeshInstance3D.new()
+	var mesh = TorusMesh.new()
+	mesh.inner_radius = 2.5
+	mesh.outer_radius = 2.8
+	var mat = StandardMaterial3D.new()
+	mat.albedo_color = Color.YELLOW
+	mat.emission_enabled = true
+	mat.emission = Color.YELLOW
+	mat.emission_energy = 2.0
+	focus_selector.mesh = mesh
+	focus_selector.material_override = mat
+	add_child(focus_selector)
+	focus_selector.visible = false # Hide it initially
 
-	if index < 0 or index >= modules.size():
-		focused_module_idx = -1
-		return
-
-	set_highlight(modules[index], true)
-	var tween = get_tree().create_tween()
-	tween.tween_property(camera, "position:y", modules[index].position.y + 3, 0.5).set_trans(Tween.TRANS_SINE)
-	focused_module_idx = index
-
-func set_highlight(node, highlight):
-	if node is MeshInstance3D:
-		var material = node.get_active_material(0)
-		if material:
-			if highlight:
-				original_materials[node] = material
-				var new_material = material.duplicate()
-				new_material.albedo_color = Color.YELLOW
-				node.set_surface_override_material(0, new_material)
-			elif original_materials.has(node):
-				node.set_surface_override_material(0, original_materials.get(node))
-				original_materials.erase(node)
-
-	for child in node.get_children():
-		set_highlight(child, highlight)
 
 func get_module_count() -> int:
 	return modules.size()
+
+func add_module():
+	if modules.size() >= MAX_MODULES:
+		if limit_popup:
+			limit_popup.show()
+		print("Module limit reached!")
+		return
+
+	if is_editing: return
+
+	var new_module_instance = MODULE_SCENE.instantiate()
+	modules.append(new_module_instance)
+	add_child(new_module_instance)
+	
+	# Position the new module on top of the last one
+	var module_y_pos = (modules.size() - 1) * module_height
+	new_module_instance.position = Vector3(0, module_y_pos, 0)
+	
+	# Automatically focus the new module
+	focus_module(modules.size() - 1)
+	print("Added module. Total: ", get_module_count())
+
+func remove_module():
+	if is_editing: return
+	
+	if focused_module_idx != -1 and modules.size() > 0:
+		var module_to_remove = modules[focused_module_idx]
+		modules.remove_at(focused_module_idx)
+		module_to_remove.queue_free()
+		
+		print("Removed module. Total: ", get_module_count())
+
+		# Re-focus
+		if modules.size() > 0:
+			var new_focus = min(focused_module_idx, modules.size() - 1)
+			focus_module(new_focus)
+		else:
+			focused_module_idx = -1
+			focus_module(-1) # Unfocus visual
+			
+func enter_edit_mode():
+	if focused_module_idx != -1 and not is_editing:
+		is_editing = true
+		
+		var selected_module = modules[focused_module_idx]
+		var module_camera = selected_module.find_child("Camera", true, false)
+		var builder = selected_module.get_node("View/Builder")
+		if builder and builder.has_method("set_active"):
+			builder.set_active(true)
+
+		if not module_camera:
+			print("Rocket.gd: No camera found in the module instance.")
+			is_editing = false
+			return
+
+		# --- ISOLATION LOGIC ---
+		# Hide other modules
+		for module in modules:
+			if module != selected_module:
+				module.visible = false
+		
+		# Hide main scene elements
+		if ambient_node:
+			ambient_node.visible = false
+		if focus_selector:
+			focus_selector.visible = false
+		# --- END ISOLATION LOGIC ---
+
+		# Switch UI
+		if rocket_ui: rocket_ui.hide()
+		if module_ui: module_ui.show()
+		
+		# Switch Cameras
+		camera.current = false
+		module_camera.current = true
+		
+		print("Entering edit mode for module ", focused_module_idx)
+
+func exit_edit_mode():
+	if is_editing:
+		is_editing = false
+		
+		if focused_module_idx != -1 and focused_module_idx < modules.size():
+			var selected_module = modules[focused_module_idx]
+			if selected_module:
+				var module_camera = selected_module.find_child("Camera", true, false)
+				if module_camera:
+					module_camera.current = false
+				var builder = selected_module.get_node("View/Builder")
+				if builder and builder.has_method("set_active"):
+					builder.set_active(false)
+
+		# --- REVERT ISOLATION ---
+		# Show all modules
+		for module in modules:
+			module.visible = true
+			
+		# Show main scene elements
+		if ambient_node:
+			ambient_node.visible = true
+		# Make sure selector is visible and at the right place
+		focus_module(focused_module_idx)
+		# --- END REVERT ISOLATION ---
+
+		# Switch UI
+		if module_ui: module_ui.hide()
+		if rocket_ui: rocket_ui.show()
+		
+		# Switch Cameras
+		camera.current = true
+		
+		print("Exiting edit mode.")
+
+func focus_module(idx: int):
+	if is_editing: return
+	if idx == focused_module_idx: return # No change
+
+	var old_y_pos = 0.0
+	if focused_module_idx != -1 and focused_module_idx < modules.size():
+		old_y_pos = modules[focused_module_idx].global_position.y
+
+	focused_module_idx = idx
+
+	if focused_module_idx != -1 and focused_module_idx < modules.size():
+		var new_focused_module = modules[focused_module_idx]
+		var new_y_pos = new_focused_module.global_position.y
+		
+		# Move the selector
+		focus_selector.global_position = new_focused_module.global_position
+		focus_selector.visible = true
+		
+		# Move the camera vertically
+		if camera and camera.has_method("move_vertically_to"):
+			camera.move_vertically_to(new_y_pos)
+
+		print("Focused module ", focused_module_idx)
+	else:
+		# Hide the selector
+		focus_selector.visible = false
+		print("Unfocused all modules.")
+
+func get_focused_module_index() -> int:
+	return focused_module_idx
