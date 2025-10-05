@@ -105,15 +105,19 @@ func is_within_bounds(pos: Vector3) -> bool:
 		   pos.z >= map_min_z and pos.z <= map_max_z
 
 func get_mesh(packed_scene):
-	var scene_state:SceneState = packed_scene.get_state()
-	for i in range(scene_state.get_node_count()):
-		if(scene_state.get_node_type(i) == "MeshInstance3D"):
-			for j in scene_state.get_node_property_count(i):
-				var prop_name = scene_state.get_node_property_name(i, j)
-				if prop_name == "mesh":
-					var prop_value = scene_state.get_node_property_value(i, j)
-
-					return prop_value.duplicate()
+	var scene = packed_scene.instantiate()
+	var queue = [scene]
+	while not queue.is_empty():
+		var node = queue.pop_front()
+		if node is MeshInstance3D:
+			var mesh = node.mesh.duplicate()
+			scene.queue_free()
+			return mesh
+		for child in node.get_children():
+			queue.append(child)
+	
+	scene.queue_free()
+	return null
 
 # ========== MOVE MODE ==========
 
