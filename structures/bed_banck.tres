@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://ct6trafbrr3fk"]
+
+[ext_resource type="PackedScene" uid="uid://bgvwvt6eaxry7" path="res://sprites/Objects/Models/GLTF format/bedBunk.glb" id="1_1g03l"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="1_od2hi"]
+
+[resource]
+script = ExtResource("1_od2hi")
+model = ExtResource("1_1g03l")
+price = 1200
+weight = 40.0
+volume = 14.0
+beddrom = true
+metadata/_custom_type_script = "uid://b4i7dfy6u3e8w"
