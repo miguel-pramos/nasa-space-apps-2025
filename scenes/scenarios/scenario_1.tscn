@@ -1,22 +1,23 @@
-[gd_scene load_steps=20 format=3 uid="uid://de1ahwq8sm5gk"]
+[gd_scene load_steps=21 format=3 uid="uid://de1ahwq8sm5gk"]
 
 [ext_resource type="Script" uid="uid://ca3bydfs4twbs" path="res://scenes/scenarios/scripts/Camera.gd" id="1_8wt38"]
-[ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="2_a7ovx"]
+[ext_resource type="Script" uid="uid://cwsw3ebl1y4qp" path="res://scenes/scenarios/scripts/Builder_1.gd" id="2_mhmwn"]
 [ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="3_owgpt"]
-[ext_resource type="Resource" uid="uid://dkcvlylhc2pxb" path="res://structures/computer-wide.tres" id="4_2n13f"]
-[ext_resource type="Resource" uid="uid://36mjr5fes6ve" path="res://structures/crater.tres" id="5_oq7yh"]
-[ext_resource type="Resource" uid="uid://b15kn8mn5mhyy" path="res://structures/craft_speederA.tres" id="6_syk4j"]
-[ext_resource type="Resource" uid="uid://r4nk3qnefhpe" path="res://structures/craft_speederC.tres" id="7_tcp7b"]
+[ext_resource type="Resource" uid="uid://ccr00eivs1y06" path="res://structures/module.tres" id="4_mhmwn"]
+[ext_resource type="Resource" uid="uid://df6w4rqnjt3b8" path="res://structures/table.tres" id="5_2n13f"]
+[ext_resource type="Resource" uid="uid://bksytkvad4uin" path="res://structures/rocks.tres" id="6_oq7yh"]
+[ext_resource type="Resource" uid="uid://xv1jcm1ymay4" path="res://structures/rocket_topA.tres" id="7_syk4j"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="8_8wt38"]
 [ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="9_fgbbp"]
 [ext_resource type="Script" uid="uid://b1sucm1imkmdg" path="res://scenes/scenarios/sphere_pos.gd" id="9_spqcl"]
+[ext_resource type="MeshLibrary" uid="uid://desldtbtq3p03" path="res://models/Terreno/MeshLibrary/Paredes.tres" id="10_oq7yh"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="10_spqcl"]
 [ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="11_nw5s0"]
 [ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="12_k6fy3"]
 [ext_resource type="ArrayMesh" uid="uid://coi7ehybekptn" path="res://models/Terreno/Parede/hangar_teste1.obj" id="16_fgbbp"]
 [ext_resource type="Shader" uid="uid://dguc5j547gid7" path="res://shaders/cut_sphere.gdshader" id="20_nw5s0"]
 
-[sub_resource type="MeshLibrary" id="MeshLibrary_q657b"]
+[sub_resource type="MeshLibrary" id="MeshLibrary_mhmwn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bnm6g"]
 font = ExtResource("10_spqcl")
@@ -26,7 +27,7 @@ shadow_color = Color(0, 0, 0, 0.392157)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bnm6g"]
 render_priority = 0
 shader = ExtResource("20_nw5s0")
-shader_parameter/spherePos = Vector3(1.4686251, 11.776337, 24.700806)
+shader_parameter/spherePos = Vector3(6.943825, 11.776337, 25.928986)
 shader_parameter/borderColor = Color(0.19236434, 0.42222843, 1, 1)
 shader_parameter/borderSize = 0.675
 shader_parameter/sphereRadius = 20.0
@@ -45,8 +46,8 @@ script = ExtResource("1_8wt38")
 
 [node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
 transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
-script = ExtResource("2_a7ovx")
-structures = Array[ExtResource("3_owgpt")]([ExtResource("4_2n13f"), ExtResource("5_oq7yh"), ExtResource("6_syk4j"), ExtResource("7_tcp7b")])
+script = ExtResource("2_mhmwn")
+structures = Array[ExtResource("3_owgpt")]([ExtResource("4_mhmwn"), ExtResource("5_2n13f"), ExtResource("6_oq7yh"), ExtResource("7_syk4j")])
 selector = NodePath("Selector")
 selector_container = NodePath("Selector/Container")
 view_camera = NodePath("../Camera")
@@ -73,16 +74,25 @@ borderSize = 0.675
 borderColor = Color(0.19236434, 0.42222843, 1, 1)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = SubResource("MeshLibrary_q657b")
+mesh_library = SubResource("MeshLibrary_mhmwn")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
 cell_center_z = false
 
+[node name="Paredes" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+mesh_library = ExtResource("10_oq7yh")
+cell_size = Vector3(1, 3, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(4, 65532, 1441839, 5, 65532, 655360, 6, 65532, 1441839, 7, 65532, 1441839, 2, 65529, 655360, 2, 65530, 655360, 2, 65531, 655360, 2, 65532, 655360, 2, 65533, 655360, 2, 65534, 655360, 1, 65534, 1441792, 65534, 65534, 1441792, 65535, 65534, 1441792, 65533, 65534, 1441792, 65532, 65534, 1441792, 2, 65535, 655360, 2, 0, 655360, 2, 1, 655360, 2, 2, 655360, 2, 3, 1048576, 3, 3, 1048576, 1, 3, 1048576, 0, 3, 1048576, 65535, 3, 1048576, 65534, 3, 1048576, 65533, 3, 1048576, 65532, 3, 1048576, 65532, 65528, 1441792, 65533, 65528, 1441792, 65534, 65528, 1441792, 65535, 65528, 1441792, 0, 65528, 1441792, 1, 65528, 1441792, 0, 65534, 1441792, 65531, 65534, 0, 65531, 65533, 0, 65531, 65532, 0, 65531, 65531, 0, 65531, 65530, 0, 65531, 65529, 0, 65531, 65535, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 4, 3, 1048576, 5, 2, 655360, 5, 1, 655360, 5, 65535, 655360, 5, 0, 655360, 5, 65534, 655360, 5, 65533, 655360, 5, 65530, 655360, 5, 65531, 655360, 5, 65529, 655360, 4, 65528, 1441792, 3, 65528, 1441792, 2, 65528, 1441792, 5, 3, 655360, 5, 4, 655360, 5, 5, 655360, 5, 6, 655360, 5, 7, 655360, 4, 8, 1048576, 3, 8, 1048576, 2, 8, 1048576, 1, 8, 1048576, 0, 8, 1048576, 65535, 8, 1048576, 65534, 8, 1048576, 65533, 8, 1048576, 65532, 8, 1048576, 65531, 7, 0, 65531, 6, 0, 65531, 5, 0, 65531, 4, 0, 65531, 3, 0)
+}
+
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
-visible = false
-shadow_enabled = true
+transform = Transform3D(-0.948997, -0.24152228, 0.20266142, -1.0774915e-08, 0.642788, 0.76604414, -0.31528506, 0.7269737, -0.6100039, 0, 15.481621, -1.6770325)
 shadow_opacity = 0.75
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -147,8 +157,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50393987, 0, -2.1792307)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/StaticBody3D"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1984507, -8.717917, 0, -5.424168)
 material_override = SubResource("ShaderMaterial_bnm6g")
-transparency = 0.54
-gi_mode = 0
+transparency = 0.35
+cast_shadow = 0
+ignore_occlusion_culling = true
+gi_mode = 2
 mesh = ExtResource("16_fgbbp")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
