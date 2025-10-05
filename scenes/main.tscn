@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=24 format=3 uid="uid://dnkx88bfeibyr"]
 
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Resource" uid="uid://ccr00eivs1y06" path="res://structures/module.tres" id="3_jkv2x"]
-[ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="4_85g3d"]
 [ext_resource type="Script" uid="uid://c1uk3b2tjykh8" path="res://scripts/main/camera.gd" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://b5fbp2k0jp2mr" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Grey/bar_square_gloss_large_square.svg" id="5_85g3d"]
@@ -17,6 +16,16 @@
 [ext_resource type="PackedScene" uid="uid://04618b3mq85n" path="res://models/corridor_wall.tscn" id="14_a8y0u"]
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="15_lvl_mgr"]
 [ext_resource type="Texture2D" uid="uid://cwepkgd84hy0h" path="res://sprites/quarry_04_puresky_4k.exr" id="17_muem4"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dp3eg"]
+panorama = ExtResource("17_muem4")
+
+[sub_resource type="Sky" id="Sky_0ld40"]
+sky_material = SubResource("PanoramaSkyMaterial_dp3eg")
+
+[sub_resource type="Environment" id="Environment_gqmmt"]
+background_mode = 2
+sky = SubResource("Sky_0ld40")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkv2x"]
 albedo_color = Color(0.5017686, 0.51962227, 0.49886036, 1)
@@ -41,18 +50,21 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dp3eg"]
-panorama = ExtResource("17_muem4")
-
-[sub_resource type="Sky" id="Sky_0ld40"]
-sky_material = SubResource("PanoramaSkyMaterial_dp3eg")
-
-[sub_resource type="Environment" id="Environment_gqmmt"]
-background_mode = 2
-sky = SubResource("Sky_0ld40")
-
 [node name="Main" type="Node3D"]
 script = ExtResource("15_lvl_mgr")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881904, 0, -0.25881904, 0.9659259, 0, 5, 8.798)
+fov = 48.48457
+script = ExtResource("4_jyhfs")
+
+[node name="Camera2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9945219, 0.104528464, 0, -0.104528464, 0.9945219, 0, 3.54, 8.798)
+fov = 58.2
+script = ExtResource("4_jyhfs")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gqmmt")
 
 [node name="InstantiationMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.043053, 0, 0)
@@ -86,12 +98,6 @@ light_energy = 1.1
 shadow_enabled = true
 directional_shadow_mode = 1
 sky_mode = 1
-
-[node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 5, 8.798)
-environment = ExtResource("3_sugp2")
-fov = 48.48457
-script = ExtResource("4_jyhfs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_85g3d")
@@ -291,6 +297,3 @@ offset_bottom = 431.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_trceg")
 text = "Edit Selected Module"
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_gqmmt")
