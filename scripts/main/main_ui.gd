@@ -1,80 +1,54 @@
 extends CanvasLayer
 
-var rocket: Node3D
-var focused_module_index: int = 0
+# This script connects the main UI buttons to the rocket script functions.
 
 func _ready():
-	# Assuming the rocket is at this path
-	rocket = get_node("../Rocket") 
+	# Get references to the main nodes
+	var rocket = get_node("../Rocket")
+	var rocket_ui_container = find_child("Control") # The MarginContainer for the rocket UI
 
+	if not rocket or not rocket_ui_container:
+		print("UI Error: Could not find Rocket node or UI container.")
+		return
+
+	# Give the rocket a reference to the UI so it can hide/show it
+	rocket.rocket_ui = rocket_ui_container
+
+	# --- Connect Buttons to Rocket Functions ---
 	var addButton = find_child("AddButton")
-	if addButton:
-		addButton.pressed.connect(on_add_button_pressed)
-	
-	var activateButton = find_child("ActivateButton")
-	if activateButton:
-		activateButton.pressed.connect(on_activate_button_pressed)
-	
-	var removeButton = find_child("RemoveButton")
-	if removeButton:
-		removeButton.pressed.connect(on_remove_button_pressed)
+	if addButton: addButton.pressed.connect(rocket.add_module)
 
+	var removeButton = find_child("RemoveButton")
+	if removeButton: removeButton.pressed.connect(rocket.remove_module)
+
+	var editButton = find_child("EditButton")
+	if editButton: editButton.pressed.connect(rocket.enter_edit_mode)
+	
+	# --- Logic for Up/Down focus buttons ---
 	var upButton = find_child("UpButton")
-	if upButton:
-		upButton.pressed.connect(on_up_button_pressed)
+	if upButton: upButton.pressed.connect(func(): change_focus(rocket, 1))
 
 	var downButton = find_child("DownButton")
-	if downButton:
-		downButton.pressed.connect(on_down_button_pressed)
+	if downButton: downButton.pressed.connect(func(): change_focus(rocket, -1))
 
-func on_add_button_pressed():
-	if rocket:
-		var module_count = rocket.get_module_count()
-		var is_focused_on_top = (focused_module_index == module_count - 1)
+	# Initialize focus on the first module if it exists
+	rocket.focus_module(0)
 
-		rocket.add_module()
 
-		if is_focused_on_top:
-			on_up_button_pressed()
+func change_focus(rocket_node: Node3D, direction: int):
+	var current_focus = rocket_node.get("focused_module_idx")
+	var num_modules = rocket_node.get_module_count()
+	
+	if num_modules == 0:
+		rocket_node.focus_module(-1)
+		return
 
-func on_remove_button_pressed():
-	if rocket:
-		var module_count = rocket.get_module_count()
-		var is_focused_on_top = (focused_module_index == module_count - 1)
+	var next_focus = current_focus + direction
 
-		rocket.remove_module()
-
-		if is_focused_on_top:
-			on_down_button_pressed()
-
-func on_up_button_pressed():
-	print("Up button pressed")
-	focused_module_index += 1
-	if rocket:
-		var module_count = rocket.get_module_count()
-		print("Module count: ", module_count)
-		if focused_module_index >= module_count:
-			focused_module_index = 0
-		print("Focused module index: ", focused_module_index)
-		rocket.focus_module(focused_module_index)
-
-func on_down_button_pressed():
-	print("Down button pressed")
-	focused_module_index -= 1
-	if rocket:
-		var module_count = rocket.get_module_count()
-		print("Module count: ", module_count)
-		if focused_module_index < 0:
-			if module_count > 0:
-				focused_module_index = module_count - 1
-			else:
-				focused_module_index = 0
-		print("Focused module index: ", focused_module_index)
-		rocket.focus_module(focused_module_index)
-		
-func on_activate_button_pressed():
-	var camera = get_node("../Camera")
-	camera.change_rotation_axis(Vector3(-20, 0, 20))
-
-	if rocket:
-		rocket.activate_module()
+	# Wrap around
+	if next_focus >= num_modules:
+		next_focus = 0
+	elif next_focus < 0:
+		next_focus = num_modules - 1
+	
+	rocket_node.focus_module(next_focus)

@@ -39,12 +39,13 @@ shader_parameter/noiseSize = 0.17
 size = Vector2(9, 15)
 
 [node name="Scenario1" type="Node3D"]
+script = ExtResource("1_a7ovx")
 
 [node name="View" type="Node3D" parent="."]
 transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0, 0, 0)
 script = ExtResource("1_8wt38")
 
-[node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
+[node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap")]
 transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
 script = ExtResource("2_mhmwn")
 structures = Array[ExtResource("3_owgpt")]([ExtResource("4_mhmwn"), ExtResource("5_2n13f"), ExtResource("6_oq7yh"), ExtResource("7_syk4j")])
@@ -52,7 +53,6 @@ selector = NodePath("Selector")
 selector_container = NodePath("Selector/Container")
 view_camera = NodePath("../Camera")
 gridmap = NodePath("../../GridMap")
-cash_display = NodePath("../../CanvasLayer/Top/Cash")
 
 [node name="Selector" type="Node3D" parent="View/Builder"]
 
@@ -143,6 +143,17 @@ offset_bottom = 887.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_nw5s0")
 metadata/_edit_use_anchors_ = true
+
+[node name="BackButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 201.0
+offset_top = -67.0
+offset_right = 345.0
+offset_bottom = -36.0
+grow_vertical = 0
+text = "Back to Assembly"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_k6fy3")
