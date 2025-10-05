@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://c0kp01dq4anf2"]
+
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="1_a30lg"]
+[ext_resource type="PackedScene" uid="uid://br5ka7yr8whhw" path="res://sprites/Objects/Models/GLTF format/kitchenCabinet.glb" id="1_p8rpm"]
+
+[resource]
+script = ExtResource("1_a30lg")
+model = ExtResource("1_p8rpm")
+price = 300
+weight = 50.0
+volume = 10.0
+kitchen = true
+metadata/_custom_type_script = "uid://b4i7dfy6u3e8w"

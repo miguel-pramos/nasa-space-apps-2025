@@ -9,6 +9,9 @@ const OUTPUT_RESOURCES_FOLDER = "res://structures/"
 
 ## O preço padrão para cada nova estrutura criada
 const DEFAULT_PRICE = 150
+const DEFAULT_WEIGHT = 10
+const DEFAULT_VOLUME = 4
+const DEFAULT_LOCAL = "nave"
 
 func _run():
 	print("Iniciando geração de recursos de Estrutura...")
@@ -38,6 +41,10 @@ func _run():
 			
 			# Define as propriedades
 			new_structure.price = DEFAULT_PRICE
+			new_structure.weight = DEFAULT_WEIGHT
+			new_structure.volume = DEFAULT_VOLUME
+			new_structure.local = DEFAULT_LOCAL
+			
 			var model = load(model_path) # Associa o modelo 3D
 			var original_scene = load(model_path)
 		
