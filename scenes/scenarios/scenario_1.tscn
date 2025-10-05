@@ -1,0 +1,155 @@
+[gd_scene load_steps=20 format=3 uid="uid://de1ahwq8sm5gk"]
+
+[ext_resource type="Script" uid="uid://ca3bydfs4twbs" path="res://scenes/scenarios/scripts/Camera.gd" id="1_8wt38"]
+[ext_resource type="Script" uid="uid://76g8ejmdibal" path="res://scripts/builder.gd" id="2_a7ovx"]
+[ext_resource type="Script" uid="uid://b4i7dfy6u3e8w" path="res://scripts/structure.gd" id="3_owgpt"]
+[ext_resource type="Resource" uid="uid://dkcvlylhc2pxb" path="res://structures/computer-wide.tres" id="4_2n13f"]
+[ext_resource type="Resource" uid="uid://36mjr5fes6ve" path="res://structures/crater.tres" id="5_oq7yh"]
+[ext_resource type="Resource" uid="uid://b15kn8mn5mhyy" path="res://structures/craft_speederA.tres" id="6_syk4j"]
+[ext_resource type="Resource" uid="uid://r4nk3qnefhpe" path="res://structures/craft_speederC.tres" id="7_tcp7b"]
+[ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="8_8wt38"]
+[ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="9_fgbbp"]
+[ext_resource type="Script" uid="uid://b1sucm1imkmdg" path="res://scenes/scenarios/sphere_pos.gd" id="9_spqcl"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="10_spqcl"]
+[ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="11_nw5s0"]
+[ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="12_k6fy3"]
+[ext_resource type="ArrayMesh" uid="uid://coi7ehybekptn" path="res://models/Terreno/Parede/hangar_teste1.obj" id="16_fgbbp"]
+[ext_resource type="Shader" uid="uid://dguc5j547gid7" path="res://shaders/cut_sphere.gdshader" id="20_nw5s0"]
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_q657b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnm6g"]
+font = ExtResource("10_spqcl")
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnm6g"]
+render_priority = 0
+shader = ExtResource("20_nw5s0")
+shader_parameter/spherePos = Vector3(1.4686251, 11.776337, 24.700806)
+shader_parameter/borderColor = Color(0.19236434, 0.42222843, 1, 1)
+shader_parameter/borderSize = 0.675
+shader_parameter/sphereRadius = 20.0
+shader_parameter/noiseSpeed = 0.0
+shader_parameter/noiseStrength = 0.17
+shader_parameter/noiseSize = 0.17
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tcp7b"]
+size = Vector2(9, 15)
+
+[node name="Scenario1" type="Node3D"]
+
+[node name="View" type="Node3D" parent="."]
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0, 0, 0)
+script = ExtResource("1_8wt38")
+
+[node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
+transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
+script = ExtResource("2_a7ovx")
+structures = Array[ExtResource("3_owgpt")]([ExtResource("4_2n13f"), ExtResource("5_oq7yh"), ExtResource("6_syk4j"), ExtResource("7_tcp7b")])
+selector = NodePath("Selector")
+selector_container = NodePath("Selector/Container")
+view_camera = NodePath("../Camera")
+gridmap = NodePath("../../GridMap")
+cash_display = NodePath("../../CanvasLayer/Top/Cash")
+
+[node name="Selector" type="Node3D" parent="View/Builder"]
+
+[node name="Container" type="Node3D" parent="View/Builder/Selector"]
+
+[node name="Camera" type="Camera3D" parent="View"]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999999, 7.1525574e-07, 0, 0, 1.0000002, -6.0472765, -3.4685736, 34.95364)
+environment = ExtResource("8_8wt38")
+fov = 20.0
+
+[node name="SpherePos" type="MeshInstance3D" parent="View/Camera" node_paths=PackedStringArray("cutMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3772564, -0.21734667, -9.158152)
+script = ExtResource("9_spqcl")
+cutMesh = NodePath("../../../Walls/StaticBody3D/MeshInstance3D")
+noiseSize = 0.17
+noiseStrength = 0.17
+sphereRadius = 20.0
+borderSize = 0.675
+borderColor = Color(0.19236434, 0.42222843, 1, 1)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_q657b")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
+visible = false
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Top" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CashIcon" type="TextureRect" parent="CanvasLayer/Top"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 148.0
+offset_bottom = 152.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_fgbbp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Cash" type="Label" parent="CanvasLayer/Top"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 27.0
+offset_right = 270.0
+offset_bottom = 101.0
+text = "$10,000"
+label_settings = SubResource("LabelSettings_bnm6g")
+metadata/_edit_use_anchors_ = true
+
+[node name="Bottom" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -648.0
+offset_bottom = -648.0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Instructions" type="TextureRect" parent="CanvasLayer/Bottom"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 375.0
+offset_right = 344.0
+offset_bottom = 887.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_nw5s0")
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_k6fy3")
+volume_db = -30.0
+autoplay = true
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50393987, 0, -2.1792307)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/StaticBody3D"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1984507, -8.717917, 0, -5.424168)
+material_override = SubResource("ShaderMaterial_bnm6g")
+transparency = 0.54
+gi_mode = 0
+mesh = ExtResource("16_fgbbp")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_tcp7b")

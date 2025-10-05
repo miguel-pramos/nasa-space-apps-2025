@@ -11,6 +11,14 @@ var index:int = 0 # Index of structure being built
 @export var view_camera:Camera3D # Used for raycasting mouse
 @export var gridmap:GridMap
 
+# LIMITES DO GRIDMAP
+@export_group("Map Limits")
+@export var map_min_x: int = -4
+@export var map_max_x: int = 4
+@export var map_min_z: int = -7
+@export var map_max_z: int = 8
+@export var show_limits_warning: bool = true
+
 var plane:Plane # Used for raycasting mouse
 
 # Move mode variables
@@ -50,29 +58,32 @@ func _process(delta):
 		return # Can't get mouse position, so do nothing
 
 	var gridmap_position = Vector3(round(world_position.x), 0, round(world_position.z))
+	
+	# Limita a posição dentro dos bounds
+	var clamped_position = clamp_to_bounds(gridmap_position)
 
 	# Toggle selector visibility based on mode
 	selector.get_child(0).visible = not move_mode
 
 	# Cursor always follows the mouse on the ground plane (y=0)
 	if selector.visible:
-		selector.global_position = lerp(selector.global_position, gridmap_position, min(delta * 40, 1.0))
+		selector.global_position = lerp(selector.global_position, clamped_position, min(delta * 40, 1.0))
 
 	if not move_mode:
 		# Normal Mode
 		action_rotate()
 		action_structure_toggle()
-		action_build(gridmap_position)
-		action_demolish(gridmap_position)
-		action_enter_move_mode(gridmap_position)
+		action_build(clamped_position)
+		action_demolish(clamped_position)
+		action_enter_move_mode(clamped_position)
 	else:
 		# Move Mode - the item being moved follows the cursor but elevated
 		if moving_item_node:
-			var elevated_position = gridmap_position
+			var elevated_position = clamped_position
 			elevated_position.y = 0.5 # Elevated height
 			moving_item_node.position = lerp(moving_item_node.position, elevated_position, min(delta * 40, 1.0))
 
-		action_place_moved_item(gridmap_position)
+		action_place_moved_item(clamped_position)
 		action_cancel_move()
 		action_rotate_moving()
 
@@ -80,6 +91,18 @@ func _process(delta):
 	action_save()
 	action_load()
 	action_load_resources()
+
+# Limita a posição aos bounds do mapa
+func clamp_to_bounds(pos: Vector3) -> Vector3:
+	var result = pos
+	result.x = clamp(pos.x, map_min_x, map_max_x)
+	result.z = clamp(pos.z, map_min_z, map_max_z)
+	return result
+
+# Verifica se a posição está dentro dos limites
+func is_within_bounds(pos: Vector3) -> bool:
+	return pos.x >= map_min_x and pos.x <= map_max_x and \
+		   pos.z >= map_min_z and pos.z <= map_max_z
 
 func get_mesh(packed_scene):
 	var scene_state:SceneState = packed_scene.get_state()
@@ -98,6 +121,13 @@ func get_mesh(packed_scene):
 func action_enter_move_mode(gridmap_position):
 	if Input.is_action_just_pressed("move"): # Assumes a "move" action is defined in Input Map
 		var grid_pos = Vector3i(int(gridmap_position.x), 0, int(gridmap_position.z))
+		
+		# Verifica se está dentro dos limites
+		if not is_within_bounds(Vector3(grid_pos)):
+			if show_limits_warning:
+				print("Cannot pick item: Outside map limits!")
+			return
+		
 		var cell_item = gridmap.get_cell_item(grid_pos)
 
 		if cell_item != -1:
@@ -136,6 +166,13 @@ func action_enter_move_mode(gridmap_position):
 func action_place_moved_item(gridmap_position):
 	if Input.is_action_just_pressed("build"):
 		var grid_pos = Vector3i(int(gridmap_position.x), 0, int(gridmap_position.z))
+		
+		# Verifica se está dentro dos limites
+		if not is_within_bounds(Vector3(grid_pos)):
+			if show_limits_warning:
+				print("Cannot place item: Outside map limits!")
+			return
+		
 		var existing_item = gridmap.get_cell_item(grid_pos)
 
 		# Only place if the position is empty
@@ -198,6 +235,12 @@ func action_rotate_moving():
 # Build (place) a structure
 func action_build(gridmap_position):
 	if Input.is_action_just_pressed("build"):
+		
+		# Verifica se está dentro dos limites
+		if not is_within_bounds(gridmap_position):
+			if show_limits_warning:
+				print("Cannot build: Outside map limits!")
+			return
 
 		var previous_tile = gridmap.get_cell_item(gridmap_position)
 		gridmap.set_cell_item(gridmap_position, index, gridmap.get_orthogonal_index_from_basis(selector.basis))
@@ -210,9 +253,11 @@ func action_build(gridmap_position):
 # Demolish (remove) a structure
 func action_demolish(gridmap_position):
 	if Input.is_action_just_pressed("demolish"):
-		var cell_item = gridmap.get_cell_item(gridmap_position)
-		if cell_item != -1:
-			Global.resources.money += structures[cell_item].price * 0.5 # Refund 50% of the price
+		# Verifica se está dentro dos limites
+		if not is_within_bounds(gridmap_position):
+			return
+		
+		if gridmap.get_cell_item(gridmap_position) != -1:
 			gridmap.set_cell_item(gridmap_position, -1)
 
 			Audio.play("sounds/removal-a.ogg", -20)
