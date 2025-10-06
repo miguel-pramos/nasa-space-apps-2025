@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2vtt3i6405m7"]
 
-[ext_resource type="Script" uid="uid://b15u5x8qxpfbs" path="res://scripts/select_place.gd" id="1_e8k7e"]
+[ext_resource type="Script" path="res://scripts/select_place.gd" id="1_e8k7e"]
 [ext_resource type="Texture2D" uid="uid://cip2cw5wovtut" path="res://sprites/planets/true mainscreen.png" id="2_gen8x"]
 [ext_resource type="Texture2D" uid="uid://csy3aha6r0duy" path="res://sprites/planets/mars.png" id="4_aeye6"]
 [ext_resource type="Texture2D" uid="uid://d0q0srtose0dk" path="res://sprites/planets/moon.png" id="4_e8k7e"]
