@@ -214,12 +214,13 @@ func action_build(gridmap_position):
 		if previous_tile != index:
 			Global.resources.money -= structures[index].price
 			if structures[index].kitchen:
-				Global.resources.kitchen += 10
+				Global.resources.kitchen += structures[index].volume
+				Global.resources.food += structures[index].weight
 			if structures[index].bedroom:
-				Global.resources.beddrom += 10
+				Global.resources.beddrom += structures[index].volume
 			if structures[index].bathrom:
-				Global.resources.bathdroom += 10
-				Global.resources.hygine += 10
+				Global.resources.bathdroom += structures[index].volume
+				Global.resources.hygine += structures[index].weight
 				
 		Audio.play("sounds/placement-a.ogg", -20)
 

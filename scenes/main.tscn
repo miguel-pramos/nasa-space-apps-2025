@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=25 format=3 uid="uid://dnkx88bfeibyr"]
 
+[ext_resource type="Script" uid="uid://cgp4td1j62rkc" path="res://scenes/main.gd" id="1_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="4_85g3d"]
 [ext_resource type="MeshLibrary" uid="uid://clavdmhn47dij" path="res://models/Terreno/MeshLibrary/Tudo.tres" id="4_jkv2x"]
@@ -54,6 +55,7 @@ texture_margin_bottom = 4.0
 [sub_resource type="ImageTexture" id="ImageTexture_a8y0u"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_jbj1t")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881904, 0, -0.25881904, 0.9659259, 0, 5, 20.699293)
@@ -442,7 +444,7 @@ text = "Edit Selected Module"
 visible = false
 layout_mode = 2
 
-[node name="ActivateButton" type="Button" parent="CanvasLayer/Control/ModuleUI"]
+[node name="Finalizar" type="Button" parent="CanvasLayer/Control/ModuleUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -469,3 +471,5 @@ offset_bottom = -87.11001
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
 text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/Control/ModuleUI/Finalizar" to="." method="_on_finalizar_pressed"]

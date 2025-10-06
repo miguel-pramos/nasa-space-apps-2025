@@ -69,8 +69,8 @@ func _process(delta: float) -> void:
 
 	# Food
 	var target_food_percent = 0.0
-	if Global.resources.max_kitchen > 0:
-		target_food_percent = Global.resources.kitchen / float(Global.resources.max_kitchen) * 100
+	if Global.resources.max_food > 0:
+		target_food_percent = Global.resources.kitchen / float(Global.resources.max_food) * 100
 	food_progress.value = lerp(food_progress.value, target_food_percent, delta * LERP_SPEED)
 	food_eval_label.text = get_evaluation_text(target_food_percent, "Food")
 	food_eval_label.self_modulate = get_evaluation_color(target_food_percent)
