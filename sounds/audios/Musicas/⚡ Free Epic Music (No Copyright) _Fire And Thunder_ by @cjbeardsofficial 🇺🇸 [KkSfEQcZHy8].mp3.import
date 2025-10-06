@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bycecqll2p36m"
+path="res://.godot/imported/⚡ Free Epic Music (No Copyright) _Fire And Thunder_ by @cjbeardsofficial 🇺🇸 [KkSfEQcZHy8].mp3-8e4fbebf61b2fb297c95ca69fe9dc6d6.mp3str"
+
+[deps]
+
+source_file="res://sounds/audios/Musicas/⚡ Free Epic Music (No Copyright) _Fire And Thunder_ by @cjbeardsofficial 🇺🇸 [KkSfEQcZHy8].mp3"
+dest_files=["res://.godot/imported/⚡ Free Epic Music (No Copyright) _Fire And Thunder_ by @cjbeardsofficial 🇺🇸 [KkSfEQcZHy8].mp3-8e4fbebf61b2fb297c95ca69fe9dc6d6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

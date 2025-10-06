@@ -65,6 +65,7 @@ text = "You will command a 4-person crew for a 50-day lunar surface mission. Wit
 Habitat Modules:
  Crew Quarters (Private): 31.4 m³,  Exercise Facility: 13.4 m³,  Recreation & Mess Hall: 28.3 m³,  Hygienet: 6.7 m³"
 autowrap_mode = 3
+justification_flags = 35
 
 [node name="Title" type="Label" parent="HBoxContainer/StartMission1"]
 layout_mode = 1

@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://btlkywibomm3m"]
+
+[ext_resource type="Script" uid="uid://7lmo14xjpvri" path="res://scripts/final.gd" id="1_jxycb"]
+[ext_resource type="Texture2D" uid="uid://3levxoui376j" path="res://splash-screen.png" id="2_h0vr7"]
+[ext_resource type="AudioStream" uid="uid://dhuy7x8luq8ml" path="res://sounds/audios/faltoshampoo.mp3" id="3_ddcth"]
+[ext_resource type="FontFile" uid="uid://dngnci4cxgfi5" path="res://sprites/Fonte TItulo/Almendra-Regular.ttf" id="4_0ftvd"]
+[ext_resource type="Texture2D" uid="uid://bg0cvcbdyxh8s" path="res://sprites/menu/Quit.png" id="5_mj1qj"]
+[ext_resource type="Texture2D" uid="uid://ddl2xunnp6eye" path="res://sprites/menu/QuitGolden.png" id="6_6861f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6pbh5"]
+texture = ExtResource("2_h0vr7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7usm"]
+bg_color = Color(0.105882354, 0.17254902, 0.27450982, 0.8509804)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yx1xr"]
+texture = ExtResource("5_mj1qj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ymca"]
+texture = ExtResource("6_6861f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qnsj2"]
+texture = ExtResource("6_6861f")
+
+[node name="NotHygie" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxycb")
+
+[node name="backgoundbad" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6pbh5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ddcth")
+autoplay = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -438.0
+offset_top = 189.0
+offset_right = 492.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7usm")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -434.0
+offset_top = -63.5
+offset_right = 434.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4862745)
+theme_override_fonts/font = ExtResource("4_0ftvd")
+theme_override_font_sizes/font_size = 40
+text = "At one point during the mission, the stink was so bad that it made the mission impossible."
+vertical_alignment = 1
+autowrap_mode = 3
+justification_flags = 35
+
+[node name="final" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -636.0
+offset_right = -19.0
+offset_bottom = -563.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_yx1xr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8ymca")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qnsj2")
+
+[connection signal="pressed" from="final" to="." method="_on_final_pressed"]

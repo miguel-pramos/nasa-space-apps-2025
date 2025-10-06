@@ -251,6 +251,14 @@ func action_build(gridmap_position):
 
 		if previous_tile != index:
 			Global.resources.money -= structures[index].price
+			if structures[index].kitchen:
+				Global.resources.kitchen += 10
+				Global.resources.food += 10
+			if structures[index].bedroom:
+				Global.resources.beddrom += 10
+			if structures[index].bathrom:
+				Global.resources.bathdroom += 10
+				Global.resources.hygine += 10
 				
 		Audio.play("sounds/placement-a.ogg", -20)
 
@@ -261,7 +269,16 @@ func action_demolish(gridmap_position):
 		if not is_within_bounds(gridmap_position):
 			return
 		
-		if gridmap.get_cell_item(gridmap_position) != -1:
+		var cell_item_index = gridmap.get_cell_item(gridmap_position)
+		if cell_item_index != -1:
+			if structures[cell_item_index].kitchen:
+				Global.resources.kitchen -= 10
+				Global.resources.food -= 10
+			if structures[cell_item_index].bedroom:
+				Global.resources.beddrom -= 10
+			if structures[cell_item_index].bathrom:
+				Global.resources.bathdroom -= 10
+				Global.resources.hygine -= 10
 			gridmap.set_cell_item(gridmap_position, -1)
 
 			Audio.play("sounds/removal-a.ogg", -20)

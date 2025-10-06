@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://no33x6rjcv7c"]
 
-[ext_resource type="Script" uid="uid://degdhcc0y1bj4" path="res://scripts/scena_intro.gd" id="1_ich0g"]
+[ext_resource type="Script" path="res://scripts/scena_intro.gd" id="1_ich0g"]
 [ext_resource type="VideoStream" uid="uid://betn2wj15e25w" path="res://sprites/scene_animations/cena_intro.ogv" id="2_gv2li"]
 [ext_resource type="FontFile" uid="uid://dngnci4cxgfi5" path="res://sprites/Fonte TItulo/Almendra-Regular.ttf" id="3_2546r"]
 [ext_resource type="Texture2D" uid="uid://dbnaxq2wl0h74" path="res://sprites/settings/bluspace.png" id="4_arny8"]

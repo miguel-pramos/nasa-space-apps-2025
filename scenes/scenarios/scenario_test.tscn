@@ -1,0 +1,255 @@
+[gd_scene load_steps=40 format=3 uid="uid://2ru4fq4y25ce"]
+
+[ext_resource type="Script" uid="uid://ca3bydfs4twbs" path="res://scenes/scenarios/scripts/Camera.gd" id="1_aacqx"]
+[ext_resource type="Script" uid="uid://cwsw3ebl1y4qp" path="res://scenes/scenarios/scripts/Builder_1.gd" id="2_avk5q"]
+[ext_resource type="Resource" uid="uid://bicwgmu0ui542" path="res://structures/bed_single.tres" id="3_qichw"]
+[ext_resource type="Resource" uid="uid://ct6trafbrr3fk" path="res://structures/bed_banck.tres" id="4_00nyv"]
+[ext_resource type="Resource" uid="uid://cg0gu2lj0hrcx" path="res://structures/cabinet2.tres" id="5_o3f42"]
+[ext_resource type="Resource" uid="uid://c0kp01dq4anf2" path="res://structures/kitchen_cabinet.tres" id="6_lnagd"]
+[ext_resource type="Resource" uid="uid://dicmqhmigi1ss" path="res://structures/mesa.tres" id="7_bana0"]
+[ext_resource type="Resource" uid="uid://b64untvqhj0fr" path="res://structures/shower.tres" id="8_qv07f"]
+[ext_resource type="Resource" uid="uid://4idkbm8okq3w" path="res://structures/sink.tres" id="9_qvfbd"]
+[ext_resource type="Resource" uid="uid://ct12wtc02nppo" path="res://structures/toilet.tres" id="10_gc0ud"]
+[ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="11_kguja"]
+[ext_resource type="Script" uid="uid://b1sucm1imkmdg" path="res://scenes/scenarios/sphere_pos.gd" id="12_qs0vn"]
+[ext_resource type="MeshLibrary" uid="uid://wkkxpc11s6ns" path="res://models/Terreno/MeshLibrary/Paredes.tres" id="13_ytbql"]
+[ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="14_6rqq6"]
+[ext_resource type="MeshLibrary" uid="uid://clavdmhn47dij" path="res://models/Terreno/MeshLibrary/Tudo.tres" id="14_wnq2p"]
+[ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="15_m40gb"]
+[ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="16_oadto"]
+[ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="17_wnq2p"]
+[ext_resource type="Shader" uid="uid://dguc5j547gid7" path="res://shaders/cut_sphere.gdshader" id="18_rux5b"]
+[ext_resource type="ArrayMesh" uid="uid://coi7ehybekptn" path="res://models/Terreno/Parede/hangar_teste1.obj" id="19_jpb6g"]
+[ext_resource type="ArrayMesh" uid="uid://gn4686bgnx0j" path="res://sprites/Objects/Models/OBJ format/bathroomMirror.obj" id="21_rux5b"]
+[ext_resource type="ArrayMesh" uid="uid://drvebpf7vwgno" path="res://sprites/Objects/Models/OBJ format/bedDouble.obj" id="22_jpb6g"]
+[ext_resource type="ArrayMesh" uid="uid://cldtvps14i8wk" path="res://sprites/Objects/Models/OBJ format/bedSingle.obj" id="23_u20fj"]
+[ext_resource type="ArrayMesh" uid="uid://csqbd0s0asu3v" path="res://sprites/Objects/Models/OBJ format/cardboardBoxOpen.obj" id="24_6er5n"]
+[ext_resource type="ArrayMesh" uid="uid://tygewivs62po" path="res://sprites/Objects/Models/OBJ format/computerScreen.obj" id="25_f25ya"]
+[ext_resource type="ArrayMesh" uid="uid://c1eux101vu8nd" path="res://sprites/Objects/Models/OBJ format/kitchenFridgeSmall.obj" id="26_8dr5d"]
+[ext_resource type="ArrayMesh" uid="uid://bqrw8h4vqb40t" path="res://sprites/Objects/Models/OBJ format/kitchenSink.obj" id="27_1pyyw"]
+[ext_resource type="ArrayMesh" uid="uid://7cavf8xyu4jg" path="res://sprites/Objects/Models/OBJ format/toilet.obj" id="28_xh6tt"]
+[ext_resource type="ArrayMesh" uid="uid://svsfc76k3oyr" path="res://sprites/Objects/Models/OBJ format/bathtub.obj" id="29_devlo"]
+[ext_resource type="ArrayMesh" uid="uid://djedhorrjxe44" path="res://sprites/Objects/Models/OBJ format/chairDesk.obj" id="30_66wyf"]
+[ext_resource type="ArrayMesh" uid="uid://dyod1kmtqfjo6" path="res://sprites/Objects/Models/OBJ format/desk.obj" id="31_ig1j0"]
+[ext_resource type="ArrayMesh" uid="uid://cbunbvfqerkqa" path="res://sprites/Objects/Models/OBJ format/kitchenCabinetCornerRound.obj" id="32_gcn65"]
+[ext_resource type="PackedScene" uid="uid://313exygyjort" path="res://models/Terreno/corridor_split.glb" id="33_wl4hw"]
+[ext_resource type="PackedScene" uid="uid://bdnnsykijhjod" path="res://models/Terreno/display-wall-wide.glb" id="34_flsrh"]
+[ext_resource type="PackedScene" uid="uid://dx4pdgoc21b3h" path="res://models/Terreno/display-wall.glb" id="35_j0q32"]
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_mhmwn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnm6g"]
+font = ExtResource("15_m40gb")
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnm6g"]
+render_priority = 0
+shader = ExtResource("18_rux5b")
+shader_parameter/spherePos = Vector3(6.943825, 11.776337, 25.928986)
+shader_parameter/borderColor = Color(0.19236434, 0.42222843, 1, 1)
+shader_parameter/borderSize = 0.675
+shader_parameter/sphereRadius = 20.0
+shader_parameter/noiseSpeed = 0.0
+shader_parameter/noiseStrength = 0.17
+shader_parameter/noiseSize = 0.17
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tcp7b"]
+size = Vector2(9, 15)
+
+[node name="Scenario1" type="Node3D"]
+
+[node name="View" type="Node3D" parent="."]
+transform = Transform3D(0.707107, -0.40558, 0.579228, 0, 0.819152, 0.573576, -0.707107, -0.40558, 0.579228, 0, 0, 0)
+script = ExtResource("1_aacqx")
+
+[node name="Builder" type="Node3D" parent="View" node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "cash_display")]
+transform = Transform3D(0.70710653, 0, -0.70710653, -0.4055795, 0.8191522, -0.4055795, 0.579228, 0.5735768, 0.579228, 0, 0, 0)
+script = ExtResource("2_avk5q")
+structures = [ExtResource("3_qichw"), ExtResource("4_00nyv"), ExtResource("5_o3f42"), ExtResource("6_lnagd"), ExtResource("7_bana0"), ExtResource("8_qv07f"), ExtResource("9_qvfbd"), ExtResource("10_gc0ud")]
+selector = NodePath("Selector")
+selector_container = NodePath("Selector/Container")
+view_camera = NodePath("../Camera")
+gridmap = NodePath("../../GridMap")
+cash_display = NodePath("../../CanvasLayer/Top/Cash")
+
+[node name="Selector" type="Node3D" parent="View/Builder"]
+
+[node name="Container" type="Node3D" parent="View/Builder/Selector"]
+
+[node name="Camera" type="Camera3D" parent="View"]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999999, 7.1525574e-07, 0, 0, 1.0000002, -6.0472765, -3.4685736, 34.95364)
+environment = ExtResource("11_kguja")
+fov = 20.0
+
+[node name="SpherePos" type="MeshInstance3D" parent="View/Camera" node_paths=PackedStringArray("cutMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3772564, -0.21734667, -9.158152)
+script = ExtResource("12_qs0vn")
+cutMesh = NodePath("../../../Walls/StaticBody3D/MeshInstance3D")
+noiseSize = 0.17
+noiseStrength = 0.17
+sphereRadius = 20.0
+borderSize = 0.675
+borderColor = Color(0.19236434, 0.42222843, 1, 1)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_mhmwn")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+
+[node name="Paredes" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+mesh_library = ExtResource("13_ytbql")
+cell_size = Vector3(1, 3, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(4, 65532, 1441839, 5, 65532, 655360, 6, 65532, 1441839, 7, 65532, 1441839, 65532, 65528, 1441792, 65533, 65528, 1441792, 65534, 65528, 1441792, 65535, 65528, 1441792, 0, 65528, 1441792, 65531, 65534, 0, 65531, 65533, 0, 65531, 65532, 0, 65531, 65531, 0, 65531, 65530, 0, 65531, 65529, 0, 65531, 65535, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 5, 2, 655360, 5, 1, 655360, 5, 65535, 655360, 5, 0, 655360, 5, 65534, 655360, 5, 65533, 655360, 5, 65530, 655360, 5, 65531, 655360, 5, 65529, 655360, 4, 65528, 1441792, 3, 65528, 1441792, 2, 65528, 1441792, 5, 3, 655360, 5, 4, 655360, 5, 5, 655360, 5, 6, 655360, 5, 7, 655360, 4, 8, 1048576, 3, 8, 1048576, 2, 8, 1048576, 1, 8, 1048576, 0, 8, 1048576, 65535, 8, 1048576, 65534, 8, 1048576, 65533, 8, 1048576, 65532, 8, 1048576, 65531, 7, 0, 65531, 6, 0, 65531, 5, 0, 65531, 4, 0, 65531, 3, 0, 1, 65528, 1441792, 1, 1, 655360, 1, 0, 655360, 1, 2, 1048576, 2, 2, 1048576, 3, 2, 1048576, 4, 2, 1048576, 1, 65535, 655366, 2, 65535, 1048576, 3, 65535, 1048576, 3, 65534, 0, 3, 65533, 0, 3, 65532, 0)
+}
+
+[node name="Paredes2" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+mesh_library = ExtResource("14_wnq2p")
+cell_size = Vector3(1, 3, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(4, 65532, 1441839, 5, 65532, 655360, 6, 65532, 1441839, 7, 65532, 1441839, 65532, 65528, 1441792, 65533, 65528, 1441792, 65534, 65528, 1441792, 65535, 65528, 1441792, 0, 65528, 1441792, 65531, 65534, 0, 65531, 65533, 0, 65531, 65532, 0, 65531, 65531, 0, 65531, 65530, 0, 65531, 65529, 0, 65531, 65535, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 5, 2, 655360, 5, 1, 655360, 5, 65535, 655360, 5, 0, 655360, 5, 65534, 655360, 5, 65533, 655360, 5, 65530, 655360, 5, 65531, 655360, 5, 65529, 655360, 4, 65528, 1441792, 3, 65528, 1441792, 2, 65528, 1441792, 5, 3, 655360, 5, 4, 655360, 5, 5, 655360, 5, 6, 655360, 5, 7, 655360, 4, 8, 1048576, 3, 8, 1048576, 2, 8, 1048576, 1, 8, 1048576, 0, 8, 1048576, 65535, 8, 1048576, 65534, 8, 1048576, 65533, 8, 1048576, 65532, 8, 1048576, 65531, 7, 0, 65531, 6, 0, 65531, 5, 0, 65531, 4, 0, 65531, 3, 0, 1, 65528, 1441792, 1, 1, 655360, 1, 0, 655360, 1, 2, 1048576, 2, 2, 1048576, 3, 2, 1048576, 4, 2, 1048576, 1, 65535, 655366, 2, 65535, 1048576, 3, 65535, 1048576, 3, 65534, 0, 3, 65533, 0, 3, 65532, 0, 2, 5, 62)
+}
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.948997, -0.24152228, 0.20266142, -1.0774915e-08, 0.642788, 0.76604414, -0.31528506, 0.7269737, -0.6100039, 0, 15.481621, -1.6770325)
+visible = false
+shadow_opacity = 0.75
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Top" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CashIcon" type="TextureRect" parent="CanvasLayer/Top"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 148.0
+offset_bottom = 152.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_6rqq6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Cash" type="Label" parent="CanvasLayer/Top"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 27.0
+offset_right = 270.0
+offset_bottom = 101.0
+text = "$10,000"
+label_settings = SubResource("LabelSettings_bnm6g")
+metadata/_edit_use_anchors_ = true
+
+[node name="Bottom" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -648.0
+offset_bottom = -648.0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Instructions" type="TextureRect" parent="CanvasLayer/Bottom"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 375.0
+offset_right = 344.0
+offset_bottom = 887.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_oadto")
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_wnq2p")
+volume_db = -30.0
+autoplay = true
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50393987, 0, -2.1792307)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/StaticBody3D"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1984507, -8.717917, 0, -5.424168)
+visible = false
+material_override = SubResource("ShaderMaterial_bnm6g")
+cast_shadow = 0
+ignore_occlusion_culling = true
+gi_mode = 2
+mesh = ExtResource("19_jpb6g")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_tcp7b")
+
+[node name="BathroomMirror" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5728872, 0.83776546, 1.2926986)
+mesh = ExtResource("21_rux5b")
+
+[node name="BedDouble" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.944056, 0, 5.783205)
+mesh = ExtResource("22_jpb6g")
+
+[node name="BedSingle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4966908, 0, 5.8993464)
+mesh = ExtResource("23_u20fj")
+
+[node name="CardboardBoxOpen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9052715, 0, 2.8523505)
+mesh = ExtResource("24_6er5n")
+
+[node name="ComputerScreen" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.94576263, -0.32485846, 0, 0.32485846, 0.94576263, 0, 0, 0, 1, 1.1544137, 0, -0.8777427)
+mesh = ExtResource("25_f25ya")
+
+[node name="KitchenFridgeSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2423468, 0, 0.94965136)
+mesh = ExtResource("26_8dr5d")
+
+[node name="KitchenSink" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5029712, 0, 0.93593717)
+mesh = ExtResource("27_1pyyw")
+
+[node name="Toilet" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1572914, 0, 1.3537374)
+mesh = ExtResource("28_xh6tt")
+
+[node name="Bathtub" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7383072, 0, -1.099736)
+mesh = ExtResource("29_devlo")
+
+[node name="ChairDesk" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.6705043, 0, 0.7419057, 0, 1, 0, -0.7419057, 0, -0.6705043, -2.5841703, 0, 6.2457876)
+mesh = ExtResource("30_66wyf")
+
+[node name="Desk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.355017, 0, 6.780019)
+mesh = ExtResource("31_ig1j0")
+
+[node name="KitchenCabinetCornerRound" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0753466, 0, 0.83312607)
+mesh = ExtResource("32_gcn65")
+
+[node name="corridor_split2" parent="." instance=ExtResource("33_wl4hw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.818869, 0, -9.023421)
+
+[node name="display-wall-wide2" parent="." instance=ExtResource("34_flsrh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6472995, 0, -7.4782033)
+
+[node name="display-wall2" parent="." instance=ExtResource("35_j0q32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0857801, 0, -4.7004833)

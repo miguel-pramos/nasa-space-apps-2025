@@ -206,27 +206,39 @@ func action_rotate_moving():
 
 # ========== NORMAL MODE ==========
 
-func action_build(map_coords: Vector3i):
+func action_build(gridmap_position):
 	if Input.is_action_just_pressed("build"):
-		var previous_tile = gridmap.get_cell_item(map_coords)
-		gridmap.set_cell_item(map_coords, index, gridmap.get_orthogonal_index_from_basis(selector.basis))
+		var previous_tile = gridmap.get_cell_item(gridmap_position)
+		gridmap.set_cell_item(gridmap_position, index, gridmap.get_orthogonal_index_from_basis(selector.basis))
 
 		if previous_tile != index:
 			Global.resources.money -= structures[index].price
-			update_cash()
 			if structures[index].kitchen:
-				Global.resources.food += structures[index].weight
 				Global.resources.kitchen += structures[index].volume
-			elif structures[index].bathrom:
-				Global.resources.hygine += structures[index].weight
-				Global.resources.bathrom += structures[index].volume
-			elif structures[index].beddrom:
+				Global.resources.food += structures[index].weight
+			if structures[index].bedroom:
 				Global.resources.beddrom += structures[index].volume
+			if structures[index].bathrom:
+				Global.resources.bathdroom += structures[index].volume
+				Global.resources.hygine += structures[index].weight
+				
+		Audio.play("sounds/placement-a.ogg", -20)
 
-func action_demolish(map_coords: Vector3i):
+# Demolish (remove) a structure
+func action_demolish(gridmap_position):
 	if Input.is_action_just_pressed("demolish"):
-		if gridmap.get_cell_item(map_coords) != -1:
-			gridmap.set_cell_item(map_coords, -1)
+		var cell_item_index = gridmap.get_cell_item(gridmap_position)
+		if cell_item_index != -1:
+			if structures[cell_item_index].kitchen:
+				Global.resources.kitchen -= 10
+			if structures[cell_item_index].bedroom:
+				Global.resources.beddrom -= 10
+			if structures[cell_item_index].bathrom:
+				Global.resources.bathdroom -= 10
+				Global.resources.hygine -= 10
+			gridmap.set_cell_item(gridmap_position, -1)
+
+			Audio.play("sounds/removal-a.ogg", -20)
 
 func action_rotate():
 	if Input.is_action_just_pressed("rotate"):

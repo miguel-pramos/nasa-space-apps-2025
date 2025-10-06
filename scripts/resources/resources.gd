@@ -3,7 +3,7 @@ extends Resource
 
 @export var max_money: int = 5000
 @export var max_food: float = 5000.0
-@export var max_hygine:float = 250.0
+@export var max_hygine:float = 100.0
 @export var max_beddrom: float = 42.0
 @export var max_bathrom: float = 21.0
 @export var max_kitchen: float = 40.0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=25 format=3 uid="uid://dnkx88bfeibyr"]
 
+[ext_resource type="Script" uid="uid://cgp4td1j62rkc" path="res://scenes/main.gd" id="1_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="4_85g3d"]
 [ext_resource type="MeshLibrary" uid="uid://clavdmhn47dij" path="res://models/Terreno/MeshLibrary/Tudo.tres" id="4_jkv2x"]
@@ -54,6 +55,7 @@ texture_margin_bottom = 4.0
 [sub_resource type="ImageTexture" id="ImageTexture_a8y0u"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_jbj1t")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881904, 0, -0.25881904, 0.9659259, 0, 5, 20.699293)
@@ -189,19 +191,21 @@ layout_mode = 2
 size_flags_horizontal = 0
 script = ExtResource("8_trceg")
 
-[node name="Power" type="Control" parent="CanvasLayer/Control/Resources"]
+[node name="Food" type="Control" parent="CanvasLayer/Control/Resources"]
+visible = false
 anchors_preset = 0
 offset_left = -2.0
 offset_top = 37.0
 offset_right = 261.0
 offset_bottom = 84.0
 
-[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Power"]
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Food"]
+visible = false
 layout_mode = 0
-offset_left = 15.0
-offset_top = 20.0
-offset_right = 168.0
-offset_bottom = 40.0
+offset_left = 14.0
+offset_top = 47.0
+offset_right = 167.0
+offset_bottom = 67.0
 value = 26.0
 nine_patch_stretch = true
 stretch_margin_left = 10
@@ -211,28 +215,40 @@ stretch_margin_bottom = 10
 texture_under = ExtResource("6_choun")
 texture_progress = ExtResource("10_a8y0u")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Power"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Food"]
+visible = false
 layout_mode = 0
-offset_left = 176.0
+offset_left = 19.0
 offset_top = 20.0
-offset_right = 256.0
+offset_right = 99.0
 offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_choun")
-text = "Power"
+text = "Food"
 
-[node name="Fuel" type="Control" parent="CanvasLayer/Control/Resources"]
-anchors_preset = 0
-offset_top = 77.0
-offset_right = 263.0
-offset_bottom = 123.0
-
-[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Fuel"]
+[node name="EvaluationLabel" type="Label" parent="CanvasLayer/Control/Resources/Food"]
+visible = false
 layout_mode = 0
-offset_left = 13.0
-offset_top = 20.0
-offset_right = 168.0
-offset_bottom = 40.0
+offset_left = 22.0
+offset_top = 245.0
+offset_right = 175.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+theme_override_font_sizes/font_size = 12
+
+[node name="Bathroom" type="Control" parent="CanvasLayer/Control/Resources"]
+anchors_preset = 0
+offset_top = 31.0
+offset_right = 263.0
+offset_bottom = 77.0
+
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Bathroom"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 57.0
+offset_right = 167.0
+offset_bottom = 77.0
 value = 26.0
 nine_patch_stretch = true
 stretch_margin_left = 10
@@ -242,15 +258,105 @@ stretch_margin_bottom = 10
 texture_under = ExtResource("6_choun")
 texture_progress = ExtResource("7_ya4ey")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Fuel"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Bathroom"]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 20.0
-offset_right = 247.0
-offset_bottom = 42.0
+offset_left = 16.0
+offset_top = 30.0
+offset_right = 127.0
+offset_bottom = 52.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_choun")
-text = "Fuel"
+text = "Bathroom"
+
+[node name="EvaluationLabel" type="Label" parent="CanvasLayer/Control/Resources/Bathroom"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 255.0
+offset_right = 174.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+theme_override_font_sizes/font_size = 12
+
+[node name="Bedroom" type="Control" parent="CanvasLayer/Control/Resources"]
+anchors_preset = 0
+offset_top = 71.0
+offset_right = 263.0
+offset_bottom = 117.0
+
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Bedroom"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 65.0
+offset_right = 167.0
+offset_bottom = 85.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("6_choun")
+texture_progress = ExtResource("7_ya4ey")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Bedroom"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 45.0
+offset_right = 112.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+text = "Bedroom"
+
+[node name="EvaluationLabel" type="Label" parent="CanvasLayer/Control/Resources/Bedroom"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 265.0
+offset_right = 174.0
+offset_bottom = 287.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+theme_override_font_sizes/font_size = 12
+
+[node name="Hygiene" type="Control" parent="CanvasLayer/Control/Resources"]
+anchors_preset = 0
+offset_top = 117.0
+offset_right = 263.0
+offset_bottom = 163.0
+
+[node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Hygiene"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 68.0
+offset_right = 168.0
+offset_bottom = 88.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("6_choun")
+texture_progress = ExtResource("10_a8y0u")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Hygiene"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 49.0
+offset_right = 103.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+text = "Hygiene"
+
+[node name="EvaluationLabel" type="Label" parent="CanvasLayer/Control/Resources/Hygiene"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 265.0
+offset_right = 175.0
+offset_bottom = 287.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_choun")
+theme_override_font_sizes/font_size = 12
 
 [node name="Money" type="Control" parent="CanvasLayer/Control/Resources"]
 anchors_preset = 0
@@ -260,10 +366,10 @@ offset_bottom = 45.0
 
 [node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Money"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 20.0
-offset_right = 168.0
-offset_bottom = 40.0
+offset_left = 14.0
+offset_top = 34.0
+offset_right = 169.0
+offset_bottom = 54.0
 value = 50.0
 nine_patch_stretch = true
 stretch_margin_left = 2
@@ -274,10 +380,10 @@ texture_progress = ExtResource("13_jkv2x")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Money"]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 20.0
-offset_right = 247.0
-offset_bottom = 42.0
+offset_left = 18.0
+offset_top = 11.0
+offset_right = 89.0
+offset_bottom = 33.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_choun")
 text = "Money"
@@ -342,7 +448,7 @@ text = "Edit Selected Module"
 visible = false
 layout_mode = 2
 
-[node name="ActivateButton" type="Button" parent="CanvasLayer/Control/ModuleUI"]
+[node name="Finalizar" type="Button" parent="CanvasLayer/Control/ModuleUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -369,3 +475,5 @@ offset_bottom = -87.11001
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_a8y0u")
 text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/Control/ModuleUI/Finalizar" to="." method="_on_finalizar_pressed"]
