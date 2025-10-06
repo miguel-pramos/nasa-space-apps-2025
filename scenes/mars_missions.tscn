@@ -47,22 +47,40 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_ch70h")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer/StartMission1"]
+[node name="Body" type="Label" parent="HBoxContainer/StartMission1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 132.5
-offset_top = 117.49999
-offset_right = -119.75006
-offset_bottom = -124.25006
+offset_left = 146.25
+offset_top = 180.0
+offset_right = -136.00006
+offset_bottom = -119.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_qiilj")
 theme_override_font_sizes/font_size = 25
-text = "Mission 1: Mars
-Your objective is to lead a 4-person crew on a 1,100-day mission to Mars. With a starting budget of $10,000M, you must construct a habitat that meets the following minimum requirements.
-Habitat Modules (Minimum Net Habitable "
+text = "Your objective is to lead a 4-person crew on a 1,100-day mission to Mars. With a starting budget of $10,000M, you must construct a habitat that provides basic life support.
+
+Habitat Modules :
+ Crew Quarters (Private): 31.4 m³,  Exercise Facility: 13.4 m³,  Recreation & Mess Hall: 28.3 m³, Hygiene: 6.3 m³"
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="HBoxContainer/StartMission1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 132.50002
+offset_top = 136.25002
+offset_right = -119.75006
+offset_bottom = -536.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_qiilj")
+theme_override_font_sizes/font_size = 32
+text = "Mission 1: Mars"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="StartMission2" type="TextureButton" parent="HBoxContainer"]
@@ -72,18 +90,41 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_ch70h")
 stretch_mode = 5
 
+[node name="Title" type="Label" parent="HBoxContainer/StartMission2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 133.99997
+offset_top = 139.99998
+offset_right = -118.25006
+offset_bottom = -533.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_qiilj")
+theme_override_font_sizes/font_size = 32
+text = "Mission 2: Mars"
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="Label" type="Label" parent="HBoxContainer/StartMission2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 134.0
-offset_top = 117.49999
-offset_right = -134.50006
-offset_bottom = -116.75006
+offset_left = 140.25
+offset_top = 184.99998
+offset_right = -128.25012
+offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_qiilj")
 theme_override_font_sizes/font_size = 25
-text = "mucho testo mucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testo"
+text = "This mission requires you to lead a 3-person crew for 700 days on Mars. Your starting budget is $5,000M.
+
+Habitat Modules:
+ Crew Quarters: 23.5 m³,  Exercise Facility: 10.1 m³,  Recreation & Mess Hall: 21.2 m³, Hygiene: 5.0 m³"
 autowrap_mode = 3
+
+[connection signal="pressed" from="HBoxContainer/StartMission1" to="." method="_on_start_mission_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/StartMission2" to="." method="_on_start_mission_2_pressed"]

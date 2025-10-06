@@ -52,15 +52,35 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 132.5
-offset_top = 126.24999
-offset_right = -124.75006
-offset_bottom = -113.00006
+offset_left = 135.00002
+offset_top = 181.25002
+offset_right = -129.75006
+offset_bottom = -117.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_n28eh")
 theme_override_font_sizes/font_size = 25
-text = "mucho testo mucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testo"
+text = "You will command a 4-person crew for a 50-day lunar surface mission. With a budget of $6,000M, your habitat must fulfill the following checklist.
+
+Habitat Modules:
+ Crew Quarters (Private): 31.4 m³,  Exercise Facility: 13.4 m³,  Recreation & Mess Hall: 28.3 m³,  Hygienet: 6.7 m³"
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="HBoxContainer/StartMission1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = 128.75002
+offset_right = -122.25
+offset_bottom = -544.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_n28eh")
+theme_override_font_sizes/font_size = 32
+text = "Mission 1: Moon"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="StartMission2" type="TextureButton" parent="HBoxContainer"]
@@ -75,15 +95,35 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 137.75
-offset_top = 123.74999
-offset_right = -140.75006
-offset_bottom = -113.00006
+offset_left = 142.75
+offset_top = 175.00002
+offset_right = -135.75006
+offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_n28eh")
 theme_override_font_sizes/font_size = 25
-text = "mucho testo mucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testomucho testo"
+text = "Your mission is to lead a 2-person crew for a 30-day stay on the Moon. You have a starting budget of $4,000M to build a habitat according to these requirements.
+
+Habitat Modules:
+ Crew Quarters (Private): 15.7 m³,  Exercise Facility: 6.7 m³,  Recreation & Mess Hall: 14.2 m³, Hygiene: 3.4 m³"
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="HBoxContainer/StartMission2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 128.75
+offset_top = 130.00002
+offset_right = -123.5
+offset_bottom = -543.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_n28eh")
+theme_override_font_sizes/font_size = 32
+text = "Mission 2: Moon"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [connection signal="pressed" from="HBoxContainer/StartMission1" to="." method="_on_start_mission_1_pressed"]
