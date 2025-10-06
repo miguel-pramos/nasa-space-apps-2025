@@ -192,6 +192,7 @@ size_flags_horizontal = 0
 script = ExtResource("8_trceg")
 
 [node name="Food" type="Control" parent="CanvasLayer/Control/Resources"]
+visible = false
 anchors_preset = 0
 offset_left = -2.0
 offset_top = 37.0
@@ -199,6 +200,7 @@ offset_right = 261.0
 offset_bottom = 84.0
 
 [node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Food"]
+visible = false
 layout_mode = 0
 offset_left = 14.0
 offset_top = 47.0
@@ -214,6 +216,7 @@ texture_under = ExtResource("6_choun")
 texture_progress = ExtResource("10_a8y0u")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/Resources/Food"]
+visible = false
 layout_mode = 0
 offset_left = 19.0
 offset_top = 20.0
@@ -224,6 +227,7 @@ theme_override_fonts/font = ExtResource("10_choun")
 text = "Food"
 
 [node name="EvaluationLabel" type="Label" parent="CanvasLayer/Control/Resources/Food"]
+visible = false
 layout_mode = 0
 offset_left = 22.0
 offset_top = 245.0
@@ -235,9 +239,9 @@ theme_override_font_sizes/font_size = 12
 
 [node name="Bathroom" type="Control" parent="CanvasLayer/Control/Resources"]
 anchors_preset = 0
-offset_top = 77.0
+offset_top = 31.0
 offset_right = 263.0
-offset_bottom = 123.0
+offset_bottom = 77.0
 
 [node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Bathroom"]
 layout_mode = 0
@@ -276,9 +280,9 @@ theme_override_font_sizes/font_size = 12
 
 [node name="Bedroom" type="Control" parent="CanvasLayer/Control/Resources"]
 anchors_preset = 0
-offset_top = 117.0
+offset_top = 71.0
 offset_right = 263.0
-offset_bottom = 163.0
+offset_bottom = 117.0
 
 [node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Bedroom"]
 layout_mode = 0
@@ -316,9 +320,9 @@ theme_override_font_sizes/font_size = 12
 
 [node name="Hygiene" type="Control" parent="CanvasLayer/Control/Resources"]
 anchors_preset = 0
-offset_top = 163.0
+offset_top = 117.0
 offset_right = 263.0
-offset_bottom = 209.0
+offset_bottom = 163.0
 
 [node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Control/Resources/Hygiene"]
 layout_mode = 0

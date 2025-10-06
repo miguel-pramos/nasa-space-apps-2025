@@ -253,6 +253,7 @@ func action_build(gridmap_position):
 			Global.resources.money -= structures[index].price
 			if structures[index].kitchen:
 				Global.resources.kitchen += 10
+				Global.resources.food += 10
 			if structures[index].bedroom:
 				Global.resources.beddrom += 10
 			if structures[index].bathrom:
@@ -272,6 +273,7 @@ func action_demolish(gridmap_position):
 		if cell_item_index != -1:
 			if structures[cell_item_index].kitchen:
 				Global.resources.kitchen -= 10
+				Global.resources.food -= 10
 			if structures[cell_item_index].bedroom:
 				Global.resources.beddrom -= 10
 			if structures[cell_item_index].bathrom:
