@@ -2,6 +2,12 @@
 
 <p align="center"><img src="icon.png" width="256"/></p>
 
+<p align="center">
+  <a href="https://miguelpereira.itch.io/ship-sweet-ship">
+    <img src="https://img.shields.io/badge/Play%20on-itch.io-red?style=for-the-badge&logo=itch.io" alt="Play on itch.io" />
+  </a>
+</p>
+
 A 3D space mission construction and management game developed for the **NASA Space Apps Challenge 2025**. Design, build, and manage your own rockets and habitats for interplanetary missions!
 
 ## About the Game
