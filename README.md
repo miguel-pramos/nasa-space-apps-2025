@@ -24,9 +24,11 @@ The game is built using the Godot Engine and is based on the "Starter Kit City B
 -   **Resource Management:** Manage your budget and essential supplies like food and hygiene items.
 -   **3D Camera Controls:** Freely navigate and inspect your creations in a 3D environment.
 
-### Screenshot
+### Screenshots
 
-<p align="center"><img src="screenshots/screenshot.png"/></p>
+<p align="center"><img src="screenshots/screenshot1.png"/></p>
+<p align="center"><img src="screenshots/screenshot2.png"/></p>
+
 
 ### Controls
 
