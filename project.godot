@@ -27,6 +27,8 @@ GameEvents="*res://scripts/game_events.gd"
 [display]
 
 mouse_cursor/custom_image="uid://d161hx5sqme5u"
+window/stretch/mode = "viewport"
+window/stretch/aspect = "keep"
 
 [editor]
 

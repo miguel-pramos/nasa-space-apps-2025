@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://ca3bydfs4twbs" path="res://scenes/scenarios/scripts/Camera.gd" id="1_8wt38"]
 [ext_resource type="Script" uid="uid://cwsw3ebl1y4qp" path="res://scenes/scenarios/scripts/Builder_1.gd" id="2_mhmwn"]
-[ext_resource type="Resource" uid="uid://bicwgmu0ui542" path="res://structures/bed_single.tres" id="3_a7ovx"]
-[ext_resource type="Resource" uid="uid://ct6trafbrr3fk" path="res://structures/bed_banck.tres" id="3_mhmwn"]
-[ext_resource type="Resource" uid="uid://cg0gu2lj0hrcx" path="res://structures/cabinet2.tres" id="5_8wt38"]
-[ext_resource type="Resource" uid="uid://c0kp01dq4anf2" path="res://structures/kitchen_cabinet.tres" id="6_fgbbp"]
-[ext_resource type="Resource" uid="uid://dicmqhmigi1ss" path="res://structures/mesa.tres" id="7_spqcl"]
+[ext_resource type="Resource" path="res://structures/bed_single.tres" id="3_a7ovx"]
+[ext_resource type="Resource" path="res://structures/bed_banck.tres" id="3_mhmwn"]
+[ext_resource type="Resource" path="res://structures/cabinet2.tres" id="5_8wt38"]
+[ext_resource type="Resource" path="res://structures/kitchen_cabinet.tres" id="6_fgbbp"]
+[ext_resource type="Resource" path="res://structures/mesa.tres" id="7_spqcl"]
 [ext_resource type="Environment" uid="uid://jbptgqvstei3" path="res://scenes/main-environment.tres" id="8_8wt38"]
-[ext_resource type="Resource" uid="uid://b64untvqhj0fr" path="res://structures/shower.tres" id="8_nw5s0"]
+[ext_resource type="Resource" path="res://structures/shower.tres" id="8_nw5s0"]
 [ext_resource type="Texture2D" uid="uid://bng0d1sou7c8a" path="res://sprites/coin.png" id="9_fgbbp"]
-[ext_resource type="Resource" uid="uid://4idkbm8okq3w" path="res://structures/sink.tres" id="9_k6fy3"]
+[ext_resource type="Resource" path="res://structures/sink.tres" id="9_k6fy3"]
 [ext_resource type="Script" uid="uid://b1sucm1imkmdg" path="res://scenes/scenarios/sphere_pos.gd" id="9_spqcl"]
 [ext_resource type="MeshLibrary" uid="uid://wkkxpc11s6ns" path="res://models/Terreno/MeshLibrary/Paredes.tres" id="10_oq7yh"]
-[ext_resource type="Resource" uid="uid://ct12wtc02nppo" path="res://structures/toilet.tres" id="10_q657b"]
+[ext_resource type="Resource" path="res://structures/toilet.tres" id="10_q657b"]
 [ext_resource type="FontFile" uid="uid://d0cxd77jybrcn" path="res://fonts/lilita_one_regular.ttf" id="10_spqcl"]
 [ext_resource type="Texture2D" uid="uid://ciwbdik3tmxtp" path="res://sprites/instructions.png" id="11_nw5s0"]
 [ext_resource type="AudioStream" uid="uid://wvfsgkl8qob6" path="res://sounds/ambience.ogg" id="12_k6fy3"]
@@ -93,11 +93,6 @@ cell_center_z = false
 data = {
 "cells": PackedInt32Array(4, 65532, 1441839, 5, 65532, 655360, 6, 65532, 1441839, 7, 65532, 1441839, 65532, 65528, 1441792, 65533, 65528, 1441792, 65534, 65528, 1441792, 65535, 65528, 1441792, 0, 65528, 1441792, 65531, 65534, 0, 65531, 65533, 0, 65531, 65532, 0, 65531, 65531, 0, 65531, 65530, 0, 65531, 65529, 0, 65531, 65535, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 5, 2, 655360, 5, 1, 655360, 5, 65535, 655360, 5, 0, 655360, 5, 65534, 655360, 5, 65533, 655360, 5, 65530, 655360, 5, 65531, 655360, 5, 65529, 655360, 4, 65528, 1441792, 3, 65528, 1441792, 2, 65528, 1441792, 5, 3, 655360, 5, 4, 655360, 5, 5, 655360, 5, 6, 655360, 5, 7, 655360, 4, 8, 1048576, 3, 8, 1048576, 2, 8, 1048576, 1, 8, 1048576, 0, 8, 1048576, 65535, 8, 1048576, 65534, 8, 1048576, 65533, 8, 1048576, 65532, 8, 1048576, 65531, 7, 0, 65531, 6, 0, 65531, 5, 0, 65531, 4, 0, 65531, 3, 0, 1, 65528, 1441792)
 }
-
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.948997, -0.24152228, 0.20266142, -1.0774915e-08, 0.642788, 0.76604414, -0.31528506, 0.7269737, -0.6100039, 0, 15.481621, -1.6770325)
-visible = false
-shadow_opacity = 0.75
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

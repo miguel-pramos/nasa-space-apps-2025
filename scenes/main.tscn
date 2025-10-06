@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dnkx88bfeibyr"]
+[gd_scene load_steps=25 format=3 uid="uid://vgwrcfy1qawf"]
 
-[ext_resource type="Script" uid="uid://cgp4td1j62rkc" path="res://scenes/main.gd" id="1_jbj1t"]
-[ext_resource type="PackedScene" uid="uid://b860fptrc78d1" path="res://scenes/rocket.tscn" id="1_o5qli"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_jbj1t"]
+[ext_resource type="PackedScene" path="res://scenes/rocket.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cuemdpr8sjadr" path="res://scripts/main/main_ui.gd" id="4_85g3d"]
 [ext_resource type="MeshLibrary" uid="uid://clavdmhn47dij" path="res://models/Terreno/MeshLibrary/Tudo.tres" id="4_jkv2x"]
 [ext_resource type="Script" uid="uid://c1uk3b2tjykh8" path="res://scripts/main/camera.gd" id="4_jyhfs"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bjfoiumjjl1ii" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Green/button_square_header_small_rectangle.svg" id="10_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://1217hkq6ypcs" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Red/button_square_header_small_rectangle_screws.svg" id="11_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://cwpl525355f7d" path="res://sprites/kenney_ui-pack-space-expansion/Vector/Yellow/bar_round_gloss_small.svg" id="13_jkv2x"]
-[ext_resource type="PackedScene" uid="uid://04618b3mq85n" path="res://models/corridor_wall.tscn" id="14_a8y0u"]
+[ext_resource type="PackedScene" path="res://models/corridor_wall.tscn" id="14_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://cwepkgd84hy0h" path="res://sprites/quarry_04_puresky_4k.exr" id="17_muem4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dp3eg"]
@@ -25,9 +25,9 @@ sky_material = SubResource("PanoramaSkyMaterial_dp3eg")
 
 [sub_resource type="Environment" id="Environment_gqmmt"]
 background_mode = 2
-background_energy_multiplier = 1.32
 sky = SubResource("Sky_0ld40")
 sky_custom_fov = 118.1
+tonemap_mode = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkv2x"]
 albedo_color = Color(0.5017686, 0.51962227, 0.49886036, 1)
