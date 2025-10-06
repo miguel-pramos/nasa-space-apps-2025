@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Ship Sweet Ship"
 config/tags=PackedStringArray("starterkit")
-run/main_scene="uid://dnkx88bfeibyr"
+run/main_scene="uid://cgyppmbr4qfrv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.92549, 0.92549, 0.960784, 1)
 boot_splash/image="res://splash-screen.png"
@@ -23,6 +23,12 @@ config/icon="res://icon.png"
 Audio="*res://scripts/audio.gd"
 Global="*res://scripts/Global.gd"
 GameEvents="*res://scripts/game_events.gd"
+
+[display]
+
+mouse_cursor/custom_image="uid://d161hx5sqme5u"
+window/stretch/mode = "viewport"
+window/stretch/aspect = "keep"
 
 [editor]
 

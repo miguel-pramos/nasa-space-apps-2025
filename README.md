@@ -1,14 +1,22 @@
-<p align="center"><img src="icon.png"/></p>
+# Space Mission Constructor
 
-# Starter Kit City Builder
+<p align="center"><img src="icon.png" width="256"/></p>
 
-This package includes a basic template for a 3D city builder in Godot 4.5 (stable). Includes features like;
+A 3D space mission construction and management game developed for the **NASA Space Apps Challenge 2025**. Design, build, and manage your own rockets and habitats for interplanetary missions!
 
-- Building and removing structures
-- Smooth camera controls
-- Dynamic MeshLibrary creation
-- Saving/loading
-- Sprites and 3D Models _(CC0 licensed)_
+## About the Game
+
+In *Space Mission Constructor*, you take on the role of a mission planner and engineer. Your goal is to successfully complete missions to the Moon and Mars by designing and building functional habitats and spacecraft. You'll need to manage your budget and resources carefully to meet the mission requirements.
+
+The game is built using the Godot Engine and is based on the "Starter Kit City Builder" by Kenney.
+
+## Features
+
+-   **Mission Selection:** Choose from different missions, including missions to the Moon and Mars.
+-   **Habitat and Rocket Construction:** Design and build your own habitats and rockets from various modules.
+-   **Internal Layout Customization:** Customize the internal layout of each module to meet the crew's needs.
+-   **Resource Management:** Manage your budget and essential supplies like food and hygiene items.
+-   **3D Camera Controls:** Freely navigate and inspect your creations in a 3D environment.
 
 ### Screenshot
 
@@ -19,45 +27,26 @@ This package includes a basic template for a 3D city builder in Godot 4.5 (stabl
 | Key | Command |
 | --- | --- |
 | <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> | Move camera |
-| <kbd>F</kbd> | Camera to center |
+| <kbd>F</kbd> | Center camera |
 | <kbd>Middle mouse button</kbd> | Hold to rotate camera |
 | <kbd>Scroll wheel</kbd> | Zoom |
-| <kbd>Left mouse button</kbd> | Place building |
-| <kbd>DEL</kbd> | Remove building |
-| <kbd>Right mouse button</kbd> | Rotate building |
-| <kbd>Q</kbd> <kbd>E</kbd>  | Toggle between buildings |
-| <kbd>F1</kbd> | Save |
-| <kbd>F2</kbd> | Load |
+| <kbd>Left mouse button</kbd> | Place module/item |
+| <kbd>DEL</kbd> | Remove module/item |
+| <kbd>Right mouse button</kbd> | Rotate module/item |
+| <kbd>Q</kbd> <kbd>E</kbd>  | Cycle through modules/items |
 
-### Instructions
+## How to Play
 
-#### 1. How to add more buildings?
+1.  Launch the game and start a new mission from the main menu.
+2.  Select a destination: the Moon, Mars, or Earth orbit.
+3.  Use the available modules and your budget to construct a habitat or rocket that meets the mission objectives.
+4.  Customize the interior of your modules to ensure your crew has everything they need.
 
-Duplicate one of the existing resources in the 'structures' folder, adjust the properties in the inspector. Select the 'Builder' node in the scene and add your new resources to the 'Structures' array.
+## License
 
-#### 2. How to adjust building models?
+This project is built upon the "Starter Kit City Builder" template by Kenney, which is licensed under the MIT License.
 
-Select the resource of the building you'd like to change in the 'structures' folder, adjust the model in the inspector.
-
-#### 3. How to save and load cities?
-
-Pressing F1 during gameplay will save the current city to disk, F2 will load it from the same location. The file is saved as 'map.res' in the user folder (see below). You can adjust this in the 'action_save' and 'action_load' functions found in the 'builder.gd' script.
-
-User data folder:
-
-> Windows: `%APPDATA%/Godot/app_userdata/Starter Kit City Builder/`
-
-> Linux: `~/.local/share/godot/app_userdata/Starter Kit City Builder/`
-
-> MacOS: `~/Library/Application Support/Godot/app_userdata/Starter Kit City Builder/`
-
-#### 4. How to include city data in the project and load this?
-
-You'll find a sample map in the 'sample map' folder, to load this during gameplay press F3. You can find the function that handles this as 'action_load_resources' found in the 'builder.gd' script.
-
-### License
-
-MIT License
+**Template License (MIT):**
 
 Copyright (c) 2025 Kenney
 
@@ -67,4 +56,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Assets included in this package (2D sprites, 3D models and sound effects) are [CC0 licensed](https://creativecommons.org/publicdomain/zero/1.0/)
+**Asset License:**
+
+The 2D sprites, 3D models, and sound effects included in this project are [CC0 licensed](https://creativecommons.org/publicdomain/zero/1.0/).

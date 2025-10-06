@@ -1,26 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2vtt3i6405m7"]
+[gd_scene load_steps=6 format=3 uid="uid://c2vtt3i6405m7"]
 
 [ext_resource type="Script" uid="uid://b15u5x8qxpfbs" path="res://select_place.gd" id="1_e8k7e"]
-[ext_resource type="Texture2D" uid="uid://svk6byq0hpji" path="res://sprites/ceu_estrelado.png" id="2_e8k7e"]
-[ext_resource type="FontFile" uid="uid://dngnci4cxgfi5" path="res://sprites/Fonte TItulo/Almendra-Regular.ttf" id="3_8dbbr"]
-[ext_resource type="Texture2D" uid="uid://bjkl3dus028fa" path="res://sprites/moon.png" id="3_aeye6"]
-[ext_resource type="FontFile" uid="uid://dvomn1lqx1gda" path="res://sprites/kenney_ui-pack-space-expansion/Font/Kenney Future Narrow.ttf" id="3_e8k7e"]
-[ext_resource type="Texture2D" uid="uid://cg1p6kbkvis20" path="res://sprites/mars.png" id="4_e8k7e"]
+[ext_resource type="Texture2D" uid="uid://cip2cw5wovtut" path="res://sprites/planets/true mainscreen.png" id="2_gen8x"]
+[ext_resource type="Texture2D" uid="uid://csy3aha6r0duy" path="res://sprites/planets/mars.png" id="4_aeye6"]
+[ext_resource type="Texture2D" uid="uid://d0q0srtose0dk" path="res://sprites/planets/moon.png" id="4_e8k7e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhiy5"]
-texture = ExtResource("2_e8k7e")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ku7x6"]
-texture = ExtResource("3_aeye6")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dbbr"]
-bg_color = Color(0.7647059, 0.45882353, 0.105882354, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ga4qw"]
-texture = ExtResource("4_e8k7e")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roxs3"]
-bg_color = Color(0.7490196, 0.2627451, 0.1254902, 1)
+texture = ExtResource("2_gen8x")
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
 
 [node name="select_place" type="Control"]
 layout_mode = 3
@@ -40,109 +30,34 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_uhiy5")
 
-[node name="Title" type="Label" parent="."]
+[node name="Moon Button" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -330.0
-offset_top = 26.0
-offset_right = 358.0
-offset_bottom = 107.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.84955347, 0.7208941, 0.053477123, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9372549)
-theme_override_constants/line_spacing = 7
-theme_override_fonts/font = ExtResource("3_8dbbr")
-theme_override_font_sizes/font_size = 52
-text = "Select your place for the mission"
-
-[node name="PanelMoon" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 106.0
-offset_top = -106.0
-offset_right = 336.0
-offset_bottom = 99.0
+anchors_preset = -1
+anchor_left = 0.26000002
+anchor_top = 0.469
+anchor_right = 0.26000002
+anchor_bottom = 0.469
+offset_left = -345.52002
+offset_top = -315.91202
+offset_right = 386.47998
+offset_bottom = 328.08798
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ku7x6")
+texture_hover = ExtResource("4_e8k7e")
 
-[node name="Moon" type="Label" parent="PanelMoon"]
+[node name="Mart Button" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -72.5
-offset_right = 72.5
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_e8k7e")
-theme_override_font_sizes/font_size = 24
-text = "Moon"
-horizontal_alignment = 1
-
-[node name="start_mission" type="Button" parent="PanelMoon"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -54.5
-offset_top = -33.0
-offset_right = 54.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_e8k7e")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8dbbr")
-text = "start"
-
-[node name="PanelMart" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 255.0
-offset_top = -101.0
-offset_right = 485.0
-offset_bottom = 104.0
+anchors_preset = -1
+anchor_left = 0.721
+anchor_top = 0.44000003
+anchor_right = 0.721
+anchor_bottom = 0.44000003
+offset_left = -341.59204
+offset_top = -292.12003
+offset_right = 315.40796
+offset_bottom = 299.87997
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ga4qw")
+texture_hover = ExtResource("4_aeye6")
 
-[node name="Mars" type="Label" parent="PanelMart"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -72.5
-offset_right = 72.5
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_e8k7e")
-theme_override_font_sizes/font_size = 24
-text = "Mars"
-horizontal_alignment = 1
-
-[node name="start_mission" type="Button" parent="PanelMart"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -54.5
-offset_top = -33.0
-offset_right = 54.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_e8k7e")
-theme_override_styles/normal = SubResource("StyleBoxFlat_roxs3")
-text = "start"
-
-[connection signal="pressed" from="PanelMoon/start_mission" to="." method="_on_start_moon_pressed"]
-[connection signal="pressed" from="PanelMart/start_mission" to="." method="_on_start_mart_pressed"]
+[connection signal="pressed" from="Moon Button" to="." method="_on_start_moon_pressed"]
+[connection signal="pressed" from="Mart Button" to="." method="_on_start_mart_pressed"]

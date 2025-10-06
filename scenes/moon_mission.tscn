@@ -1,26 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2nek6tl6cxpf"]
+[gd_scene load_steps=6 format=3 uid="uid://c2nek6tl6cxpf"]
 
 [ext_resource type="Script" uid="uid://dkcdrivcwmqi5" path="res://scenes/moon_mission.gd" id="1_i0cu2"]
-[ext_resource type="Texture2D" uid="uid://svk6byq0hpji" path="res://sprites/ceu_estrelado.png" id="2_i0cu2"]
+[ext_resource type="Texture2D" uid="uid://t1cmflgfg5jr" path="res://sprites/missions/background.png" id="2_o51is"]
+[ext_resource type="Texture2D" uid="uid://b4ta3syax40b0" path="res://sprites/missions/block_proposto.png" id="3_o51is"]
+[ext_resource type="FontFile" uid="uid://dngnci4cxgfi5" path="res://sprites/Fonte TItulo/Almendra-Regular.ttf" id="4_n28eh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i0cu2"]
-texture = ExtResource("2_i0cu2")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0cu2"]
-bg_color = Color(0.6, 0.6, 0.6, 0.7921569)
-corner_radius_top_left = 4
-corner_radius_top_right = 10
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o51is"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n28eh"]
-bg_color = Color(0.0627451, 0.1254902, 0.31764707, 0.72156864)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o51is"]
-bg_color = Color(0.03529412, 0.08235294, 0.23137255, 0.72156864)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y1xs"]
-bg_color = Color(0.03529412, 0.08235294, 0.23137255, 0.72156864)
+texture = ExtResource("2_o51is")
 
 [node name="moon_mission" type="Control"]
 layout_mode = 3
@@ -40,156 +26,106 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_i0cu2")
 
-[node name="Mission1" type="Panel" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 102.0
-offset_top = -230.0
-offset_right = 489.0
-offset_bottom = 276.0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_i0cu2")
-
-[node name="title" type="Label" parent="Mission1"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.0
-offset_right = 64.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 36
-text = "Mission 1"
-
-[node name="About" type="Label" parent="Mission1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -174.5
-offset_top = -193.5
-offset_right = 174.5
-offset_bottom = 193.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.044557855, 0.044557847, 0.044557847, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxEmpty_o51is")
-text = "In this mission you will receive a team of 4 people to assist you on the mission, and will have to stay 1100 days in space to perform your mission on Mars. Knowing this, you will receive a millionaire investment of 10,000, to build your ship, remembering to fulfill the following checklist to be able to set up your habitat on Mars:
-- Room with 56 m³
-- Recreation with 72 m³
-- Academy with 54 m³
-- Bathroom with 28 m³
-- Food of 10,500 kg
-- 396 kg hygiene"
-autowrap_mode = 2
-
-[node name="StartMission1" type="Button" parent="Mission1"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -94.0
-offset_top = -56.0
-offset_right = 95.0
-offset_bottom = -14.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/icon_normal_color = Color(1, 1, 0.46666667, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_n28eh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o51is")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3y1xs")
-text = "Start Mission"
-
-[node name="Mission2" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 660.0
-offset_top = -230.0
-offset_right = 1047.0
-offset_bottom = 276.0
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_i0cu2")
-
-[node name="title" type="Label" parent="Mission2"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.0
-offset_right = 64.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 36
-text = "Mission 1"
-
-[node name="About" type="Label" parent="Mission2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -177.0
-offset_top = -193.5
-offset_right = 177.0
-offset_bottom = 193.5
+offset_left = 93.99999
+offset_top = 36.999996
+offset_right = 148.0
+offset_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.044557855, 0.044557847, 0.044557847, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxEmpty_o51is")
-text = "In this mission you will receive a team of 4 people to assist you on the mission, and will have to stay 1100 days in space to perform your mission on Mars. Knowing this, you will receive a millionaire investment of 10,000, to build your ship, remembering to fulfill the following checklist to be able to set up your habitat on Mars:
-Room with 56 m³
-Recreation with 72 m³
-Academy with 54 m³
-Bathroom with 28 m³
-Food of 10,500 kg
-396 kg hygiene"
-autowrap_mode = 2
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 60
 
-[node name="StartMission2" type="Button" parent="Mission2"]
+[node name="StartMission1" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_o51is")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/StartMission1"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = -53.0
-offset_right = 97.0
-offset_bottom = -11.0
+offset_left = 135.00002
+offset_top = 181.25002
+offset_right = -129.75006
+offset_bottom = -117.75
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/icon_normal_color = Color(1, 1, 0.46666667, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_n28eh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o51is")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3y1xs")
-text = "Start Mission"
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_n28eh")
+theme_override_font_sizes/font_size = 25
+text = "You will command a 4-person crew for a 50-day lunar surface mission. With a budget of $6,000M, your habitat must fulfill the following checklist.
 
-[node name="Label" type="Label" parent="."]
+Habitat Modules:
+ Crew Quarters (Private): 31.4 m³,  Exercise Facility: 13.4 m³,  Recreation & Mess Hall: 28.3 m³,  Hygienet: 6.7 m³"
+autowrap_mode = 3
+justification_flags = 35
+
+[node name="Title" type="Label" parent="HBoxContainer/StartMission1"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -72.5
-offset_top = 18.0
-offset_right = 72.5
-offset_bottom = 51.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = 128.75002
+offset_right = -122.25
+offset_bottom = -544.25
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
-text = "Selcet the mission"
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_n28eh")
+theme_override_font_sizes/font_size = 32
+text = "Mission 1: Moon"
+horizontal_alignment = 1
+autowrap_mode = 3
 
-[connection signal="pressed" from="Mission1/StartMission1" to="." method="_on_start_mission_1_pressed"]
-[connection signal="pressed" from="Mission2/StartMission2" to="." method="_on_start_mission_2_pressed"]
+[node name="StartMission2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_o51is")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/StartMission2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 142.75
+offset_top = 175.00002
+offset_right = -135.75006
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_n28eh")
+theme_override_font_sizes/font_size = 25
+text = "Your mission is to lead a 2-person crew for a 30-day stay on the Moon. You have a starting budget of $4,000M to build a habitat according to these requirements.
+
+Habitat Modules:
+ Crew Quarters (Private): 15.7 m³,  Exercise Facility: 6.7 m³,  Recreation & Mess Hall: 14.2 m³, Hygiene: 3.4 m³"
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="HBoxContainer/StartMission2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 128.75
+offset_top = 130.00002
+offset_right = -123.5
+offset_bottom = -543.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_n28eh")
+theme_override_font_sizes/font_size = 32
+text = "Mission 2: Moon"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="HBoxContainer/StartMission1" to="." method="_on_start_mission_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/StartMission2" to="." method="_on_start_mission_2_pressed"]

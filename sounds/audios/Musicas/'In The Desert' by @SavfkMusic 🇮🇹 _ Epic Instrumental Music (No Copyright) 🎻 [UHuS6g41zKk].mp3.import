@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buitgdxt2r2i7"
+path="res://.godot/imported/'In The Desert' by @SavfkMusic 🇮🇹 _ Epic Instrumental Music (No Copyright) 🎻 [UHuS6g41zKk].mp3-acd1ef19a8a719835460aee681a0c621.mp3str"
+
+[deps]
+
+source_file="res://sounds/audios/Musicas/'In The Desert' by @SavfkMusic 🇮🇹 _ Epic Instrumental Music (No Copyright) 🎻 [UHuS6g41zKk].mp3"
+dest_files=["res://.godot/imported/'In The Desert' by @SavfkMusic 🇮🇹 _ Epic Instrumental Music (No Copyright) 🎻 [UHuS6g41zKk].mp3-acd1ef19a8a719835460aee681a0c621.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
